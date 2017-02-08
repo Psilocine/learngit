@@ -7,4 +7,5 @@ Git second lalala.
 branch test.
 hello you can't see me .
 aAA
+Git can merge branches
 
