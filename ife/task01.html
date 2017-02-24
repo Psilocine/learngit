@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 	<head>
 		
@@ -10,20 +9,26 @@
 	
 	<body>
 		
-		<h1>网站一级标题</h1>
-		
-		<ul>
-			<li><a href="">导航链接1</a></li>
-			<li><a href="">导航链接2</a></li>
-			<li><a href="">导航链接3</a></li>
-			<li><a href="">导航链接4</a></li>
-		</ul>
+		<header>
+			
+			<h1>网站一级标题</h1>
+			
+			<ul>
+				<li><a href="">导航链接1</a></li>
+				<li><a href="">导航链接2</a></li>
+				<li><a href="">导航链接3</a></li>
+				<li><a href="">导航链接4</a></li>
+			</ul>
+			
+		</header>
 		
 		<div>
+			
 			<h2>文章一级标题</h2>
 			
-			<h2>文章二级标题</h2>
-			<span>文章作者 文章发表时间</span>
+			<h3>文章二级标题</h3>
+			
+			<p>文章作者 文章发表时间</p>
 			
 			<p>
 				段落 换行<br />
@@ -43,13 +48,15 @@
 		<div>
 			<h2>文章一级标题</h2>
 			
-			<h2>文章二级标题</h2>
-			<span>文章作者 文章发表时间</span>
+			<h3>文章二级标题</h3>
+			
+			<p>文章作者 文章发表时间</p>
 			
 			<p>
 				段落 换行<br />
 				段落 <a href="http://ife.baidu.com">百度ife</a>段落 <b>粗字体</b>换行<br />
 			</p>
+			
 			<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" />
 			
 			<ul>
@@ -57,15 +64,14 @@
 				<li>列表项目2</li>
 				<li>列表项目3</li>
 			</ul>
+			
 		</div>
 		
 		<div>
+			
 			<h2>图片</h2>
+			
 			<div style="margin-left: 20%;">
-				<div>
-					<span>厉害的logo</span>
-					<img src="https://www.baidu.com/img/bd_logo1.png" alt="" />
-				</div>
 				
 				<div>
 					<span>厉害的logo</span>
@@ -76,14 +82,24 @@
 					<span>厉害的logo</span>
 					<img src="https://www.baidu.com/img/bd_logo1.png" alt="" />
 				</div>
+				
+				<div>
+					<span>厉害的logo</span>
+					<img src="https://www.baidu.com/img/bd_logo1.png" alt="" />
+				</div>
+				
 			</div>
+			
 		</div>
 		
 		<div>
+			
 			<h2>最后一篇文章一级标题</h2>
 			
-			<h2>文章二级标题</h2>
-			<span>作者 发表时间</span>
+			<h3>文章二级标题</h3>
+			
+			<p>作者 发表时间</p>
+			
 			<ol>
 				<li>排名1</li>
 				<li>排名2</li>
@@ -91,7 +107,8 @@
 			</ol>	
 			
 			<table border="1" >
-				<tr><th colspan="2">表头</th>
+				<tr>
+					<th colspan="2">表头</th>
 					<th colspan="2">表头</th>
 					<th colspan="1">表头</th>
 				</tr>
@@ -101,11 +118,13 @@
 					<td colspan="2">表内容单元格</td>
 					<td colspan="1"><a href="#">操作</a></td>
 				</tr>
+				
 				<tr>
 					<td colspan="2">表内容单元格</td>
 					<td colspan="2">表内容单元格</td>
 					<td colspan="1"><a href="#">操作</a></td>
 				</tr>
+				
 				<tr>
 					<td colspan="2">表内容单元格</td>
 					<td colspan="2">表内容单元格</td>
@@ -116,51 +135,56 @@
 					<td colspan="2">总计</td>
 					<td colspan="3">1000</td>
 				</tr>
+				
 			</table>
+			
 		</div>
 		
 		<div>
+			
 			<h2>以后是个侧栏</h2>
-			<h2>侧栏标题</h2>
+			
+			<h3>侧栏标题</h3>
+			
 			<form action="" method="post">
 				
 				<div>
-					<span>请输入邮箱地址:</span>
+					请输入邮箱地址:
 					<input type="text" name="mailAdd" id="" value="文本框" />
 					<br />
 				</div>
 			
 				<div>
-					<span>请输入密码:</span>
+					请输入密码:
 					<input type="password" name="passWord" id=""/>
 					<br />
-					<span>请重复输入密码:</span>
+					请重复输入密码:
 					<input type="password" name="passWord" id=""/>
 					<br />
-					<span>密码为6-16位英文数字</span>
+					密码为6-16位英文数字
 				</div>
 				
 				<div>
-				<span>性别:</span>
-				<input type="radio" name="sex" id="male" value="男" /><span>男</span>
-				<input type="radio" name="sex" id="female" value="女" /><span>女</span>
-				
-				<span>城市:</span>
-				<select name="cityChooice" size="1">
-					<option value="bj">北京</option>
-					<option value="sh">上海</option>
-					<option value="fj">福建</option>
-				</select>
-				
-				<span>爱好:</span>
-				<input type="checkbox" name="sport"/><span>运动</span>
-				<input type="checkbox" name="art" id="art" value="" /><span>艺术</span>
-				<input type="checkbox" name="science" id="science" value="" /><span>科学</span>
-				
-				<span>个人描述:</span>
-				<textarea name="detail" value="个人描述" rows="2" cols="20" placeholder="输入个人描述"></textarea>
-				
-				<input type="submit" value="确认提交"/>
+					<span>性别:</span>
+					<input type="radio" name="sex" id="male" value="男" /><label for="male">男</label>
+					<input type="radio" name="sex" id="female" value="女" /><label for="female">女</label>
+					
+					<span>城市:</span>
+					<select name="cityChooice" size="1">
+						<option value="bj">北京</option>
+						<option value="sh">上海</option>
+						<option value="fj">福建</option>
+					</select>
+					
+					<span>爱好:</span>
+					<input type="checkbox" name="hobby" value="sprot"/><span>运动</span>
+					<input type="checkbox" name="hobby" id="art" value="art" /><span>艺术</span>
+					<input type="checkbox" name="hobby" id="science" value="science" /><span>科学</span>
+					
+					<span>个人描述:</span>
+					<textarea name="detail" value="个人描述" rows="2" cols="20" placeholder="输入个人描述"></textarea>
+					
+					<input type="submit" value="确认提交"/>
 				</div>
 				
 				<footer>
@@ -168,6 +192,7 @@
 				</footer>
 				
 			</form>
+			
 		</div>
 		
 	</body>
