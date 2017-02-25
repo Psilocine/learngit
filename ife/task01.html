@@ -171,17 +171,17 @@
 			<form action="#" method="post">
 				
 				<div>
-					<span>请输入邮箱地址:</span>
-					<label><input type="text" name="mailAdd" placeholder="输入你的邮箱" /></label>
+					<label for="inputMail">请输入邮箱地址:</label>
+						<input type="text" name="inputMail" id="inputMail" placeholder="输入你的邮箱" />
 				</div>
 			
 				<div>
-					<span>请输入密码:</span>
-					<label><input type="password" name="passWord" /></label>
+					<label for="passWord01">请输入密码:</label>
+						<input type="password" name="passWord" id="passWord01" />
 					
-					<span>请重复输入密码:</span>
-					<label><input type="password" name="passWord" /></label>
-				
+					<label for="passWord02">请重复输入密码:</label>
+						<input type="password" name="passWord" id="passWord02" />
+					
 					<span>密码为6-16位英文数字</span>
 				</div>
 				
@@ -190,9 +190,8 @@
 					<input type="radio" name="sex" id="male" value="男" checked/><label for="male">男</label>
 					<input type="radio" name="sex" id="female" value="女" /><label for="female">女</label>
 					
-					<span>城市:</span>
-					
-					<select name="cityChooice" size="1">
+					<label for="cityChooice"></label>
+					<select name="cityChooice" size="1" id="cityChooice">
 						<option value="bj">北京</option>
 						<option value="sh">上海</option>
 						<option value="fj">福建</option>
@@ -203,13 +202,10 @@
 					<input type="checkbox" name="hobby" id="art" value="art" /><label for="art">艺术</label>
 					<input type="checkbox" name="hobby" id="science" value="science" /><label for="science">科学</label>
 					
-					<span>个人描述:</span>
+					<label for="perDetail">个人描述:</label>
+					<textarea name="detail" id="perDetail" value="个人描述" rows="2" cols="20" placeholder="输入个人描述"></textarea>
 					
-					<label>
-						<textarea name="detail" value="个人描述" rows="2" cols="20" placeholder="输入个人描述"></textarea>
-					</label>
-					
-					<label><input type="submit" value="确认提交"/></label>
+					<input type="submit" value="确认提交"/>
 				</div>
 				
 			</form>
