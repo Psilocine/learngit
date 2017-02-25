@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		
+		<meta charset="UTF-8">
+		
+		<title>零基础HTML及CSS编码</title>
+		
+		<style type="text/css">
+			/* 导航栏css */
+			header nav ul li{
+				float: left;
+			}
+			
+			header {
+				background-color: #3C3C3C;
+				width: 100%;
+				margin: -10px;
+				position: fixed;
+				padding: 10px;
+			}
+			
+			.toplist li  {
+				font-size: 14px;
+				width: 80px;
+			}
+			.toplist a:link{
+				color: white;
+			}
+			.toplist a:visited {
+				color: gray;
+			}
+			.toplist a:hover {
+				color: lightgray;
+			}
+			
+			/* 主体css */
+			.d1 li {
+				list-style-type: none;
+			}
+			
+			body {
+				background-color: lightgray;
+				font-family: "微软雅黑";
+			}
+			.d1 {
+				background-color: white ;
+				border-bottom-style:groove;
+				border-right-style: groove;
+				margin: 10px;
+				padding: 20px;
+				
+			}
+			
+			.submitStyle {
+				width: 98%;
+				font-size: 17px;
+				color: white;
+				background-color: blue;
+				border-radius: 10px;
+				margin: 5px;
+				padding: 10px;
+			}
+			
+			.celan {
+				font-size: 14px;
+				line-height: 40px;
+			}
+			
+			.tableOne {
+				width: 100%;
+			}
+			
+			.tableOne th {
+				text-align: left;
+				color: white;
+				background-color: black;
+			}
+			
+			.picStyle {
+				border: 1px solid lightgray;
+				margin: 10px;
+				text-align: center;
+				padding: 10px;
+			}
+			
+			.footerStyle {
+				text-align: center;
+				color: white;
+				padding: 20px;
+				font-size: 12px;
+				background-color: black;
+			}
+			
+		</style>
+		
+	</head>
+	
+	<body>
+		
+		<header>
+
+			<nav>
+				
+				<ul class="toplist" style="float: right;">
+					<li><a href="">导航链接1</a></li>
+					<li><a href="">导航链接2</a></li>
+					<li><a href="">导航链接3</a></li>
+					<li><a href="">导航链接4</a></li>
+					
+				</ul>
+				
+			</nav>
+				
+		</header>
+		
+		<div class="d1">
+			<!--
+            	作者：binbest@yaeh.net
+            	时间：2017-02-25
+            	描述：第一篇文章一级标题会被遮住 不得不用<br /> 
+            		用过方法:建空div将其往下顶, 无奈导航栏也会收到影响
+            -->
+			<br /><br /><br />
+			<h2>文章一级标题</h2>
+			
+			<h3>文章二级标题</h3>
+			
+			<p>文章作者 文章发表时间</p>
+			
+			<p>
+				段落 换行
+			</p>
+			
+			<p>
+				段落 <a href="http://ife.baidu.com">百度ife</a>段落 <b>粗字体</b>换行
+			</p>
+			
+			<p>
+				段落 换行
+			</p>
+			
+			<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" width="300px"/>
+			
+			<p>
+				段落 换行
+			</p>
+			
+			<p>
+				段落 <b>粗字体</b>段落<a href="http://ife.baidu.com" target="_blank">新窗口进百度ife</a>换行
+			</p>
+			
+			<p>
+				段落 换行
+			</p>
+		</div>
+		
+		<div class="d1">
+			<h2>文章一级标题</h2>
+			
+			<h3>文章二级标题</h3>
+			
+			<p>文章作者 文章发表时间</p>
+			
+			<p>
+				段落 换行
+			</p>
+			
+			<p>
+				段落 <a href="http://ife.baidu.com">百度ife</a>段落 <b>粗字体</b>换行
+			</p>
+			
+			<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" width="300px" />
+			
+			<ul>
+				<li>列表项目1</li>
+				<li>列表项目2</li>
+				<li>列表项目3</li>
+			</ul>
+			
+		</div>
+		
+		<div class="d1">
+			
+			<h2>图片</h2>
+			
+			<div style="margin-left: 5%; width: 250px;">
+					<div class="picStyle">
+						<div>厉害的logo</div>
+						<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" width="200px"/>
+					</div>
+					
+					<div class="picStyle">
+						<div>厉害的logo</div>
+						<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" width="200px"/>
+					</div>
+					
+					<div class="picStyle">
+						<div>厉害的logo</div>
+						<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" width="200px"/>
+					</div>
+					
+					<div class="picStyle">
+						<div>厉害的logo</div>
+						<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" width="200px"/>
+					</div>
+					
+					<div class="picStyle">
+						<div>厉害的logo</div>
+						<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" width="200px"/>
+					</div>
+					
+			</div>
+			
+		</div>
+		
+		<div class="d1">
+			
+			<h2>最后一篇文章一级标题</h2>
+			
+			<h3>文章二级标题</h3>
+			
+			<p>作者 发表时间</p>
+			
+			<ol>
+				<li><strong>排名1</strong></li>
+				<li><strong>排名2</strong></li>
+				<li><strong>排名3</strong></li>
+			</ol>	
+			
+			<table  cellspacing="0"  class="tableOne" style="border-color: lightgray;">
+				<tr>
+					<th colspan="2">表头</th>
+					<th colspan="2">表头</th>
+					<th colspan="1">表头</th>
+				</tr>
+				
+				<tr>
+					<td colspan="2">表内容单元格</td>
+					<td colspan="2">表内容单元格</td>
+					<td colspan="1"><a href="#">操作</a></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2">表内容单元格</td>
+					<td colspan="2">表内容单元格</td>
+					<td colspan="1"><a href="#">操作</a></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2">表内容单元格</td>
+					<td colspan="2">表内容单元格</td>
+					<td colspan="1"><a href="#">操作</a></td>
+				</tr>
+				
+				<tr style="background-color: lightgray;">
+					<td colspan="2"><strong>总计</strong></td>
+					<td colspan="3"><strong>1000</strong></td>
+				</tr>
+				
+			</table>
+			
+		</div>
+		
+		<div class="d1">
+			
+			<h2>以后是个侧栏, 侧栏标题</h2>
+			
+			<form action="" method="post" class="celan">
+				
+				<table border="0" align="center" >
+					<tr>
+						<td align="right">请输入邮箱地址:</td> 
+						<td align="left"><input type="text" name="mailAdd" id="" value="文本框" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="left" style="color: gray; font-size: 80%;">邮箱地址请按要求格式输入</td>
+					</tr>
+					
+					<tr>
+						<td align="right">请输入密码:</td>
+						<td align="left"><input type="password" name="passWord" id="" value="1111111"/></td>
+					</tr>
+					
+					<tr>
+						<td align="right">请重复输入密码:</td>
+						<td align="left"><input type="password" name="passWord" id="" value="1111111"/></td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td align="left" style="color: gray; font-size: 80%;">密码为6-16位英文数字</td>
+					</tr>
+					
+					<tr>
+						<td align="right">性别:</td>
+						<td align="left">
+							<input type="radio" name="sex" id="male" value="男" /><label for="male">男</label>
+							<input type="radio" name="sex" id="female" value="女" /><label for="female">女</label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td align="right">城市:</td>
+						<td align="left">
+							<select name="cityChooice" size="1">
+								<option value="bj">北京</option>
+								<option value="sh">上海</option>
+								<option value="fj">福建</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td align="right">爱好:</td>
+						<td align="left">
+							<input type="checkbox" name="hobby" value="sprot"/><span>运动</span>
+							<input type="checkbox" name="hobby" value="art" /><span>艺术</span>
+							<input type="checkbox" name="hobby" value="science" /><span>科学</span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td align="right">个人描述:</td>
+						<td align="left"><textarea name="detail" value="个人描述" rows="5" cols="60" placeholder="输入个人描述"></textarea></td>
+					</tr>
+				</table>
+					
+					<input type="submit" class="submitStyle" value="确认提交"/>
+				</div>
+				
+			</form>
+			
+		</div>
+	
+		<footer class="footerStyle">
+					<span>版权所有 &copy;</span>
+		</footer>
+		
+	</body>
+	
+</html>
