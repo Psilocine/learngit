@@ -171,26 +171,27 @@
 			<form action="#" method="post">
 				
 				<div>
-					请输入邮箱地址:
-					<input type="text" name="mailAdd" placeholder="输入你的邮箱" />
+					<span>请输入邮箱地址:</span>
+					<label><input type="text" name="mailAdd" placeholder="输入你的邮箱" /></label>
 				</div>
 			
 				<div>
-					请输入密码:
-					<input type="password" name="passWord" />
+					<span>请输入密码:</span>
+					<label><input type="password" name="passWord" /></label>
 					
-					请重复输入密码:
-					<input type="password" name="passWord" />
+					<span>请重复输入密码:</span>
+					<label><input type="password" name="passWord" /></label>
 				
-					密码为6-16位英文数字
+					<span>密码为6-16位英文数字</span>
 				</div>
 				
 				<div>
 					<span>性别:</span>
-					<input type="radio" name="sex" id="male" value="男" /><label for="male">男</label>
+					<input type="radio" name="sex" id="male" value="男" checked/><label for="male">男</label>
 					<input type="radio" name="sex" id="female" value="女" /><label for="female">女</label>
 					
 					<span>城市:</span>
+					
 					<select name="cityChooice" size="1">
 						<option value="bj">北京</option>
 						<option value="sh">上海</option>
@@ -203,9 +204,12 @@
 					<input type="checkbox" name="hobby" id="science" value="science" /><label for="science">科学</label>
 					
 					<span>个人描述:</span>
-					<textarea name="detail" value="个人描述" rows="2" cols="20" placeholder="输入个人描述"></textarea>
 					
-					<input type="submit" value="确认提交"/>
+					<label>
+						<textarea name="detail" value="个人描述" rows="2" cols="20" placeholder="输入个人描述"></textarea>
+					</label>
+					
+					<label><input type="submit" value="确认提交"/></label>
 				</div>
 				
 			</form>
