@@ -13,16 +13,20 @@
 			
 			<h1>网站一级标题</h1>
 			
-			<ul>
-				<li><a href="">导航链接1</a></li>
-				<li><a href="">导航链接2</a></li>
-				<li><a href="">导航链接3</a></li>
-				<li><a href="">导航链接4</a></li>
-			</ul>
+			<nav>
+				
+				<ul>
+					<li><a href="">导航链接1</a></li>
+					<li><a href="">导航链接2</a></li>
+					<li><a href="">导航链接3</a></li>
+					<li><a href="">导航链接4</a></li>
+				</ul>
 			
+			</nav>
+
 		</header>
 		
-		<div>
+		<section>
 			
 			<h2>文章一级标题</h2>
 			
@@ -31,21 +35,35 @@
 			<p>文章作者 文章发表时间</p>
 			
 			<p>
-				段落 换行<br />
-				段落 <a href="http://ife.baidu.com">百度ife</a>段落 <b>粗字体</b>换行<br />
-				段落 换行
+				很长的段落 换行
 			</p>
-			
-			<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" />
 			
 			<p>
-				段落 换行<br />
-				段落 <b>粗字体</b>段落<a href="http://ife.baidu.com" target="_blank">新窗口进百度ife</a>换行 <br />
-				段落 换行
+				很长的段落段落 <a href="http://ife.baidu.com">百度ife</a>很长的段落段落 <b>粗字体</b>换行
+			</p>	
+			
+			<p>
+				很长的段落段落 换行
 			</p>
-		</div>
+			
+			<img src="https://www.baidu.com/img/bd_logo1.png" alt="bdLogo" />
+			
+			<p>
+				很长的段落 换行
+			</p>
+			
+			<p>
+				很长的段落 <b>粗字体</b>很长的段落<a href="http://ife.baidu.com" target="_blank">新窗口进百度ife</a>换行 
+			</p>
+			
+			<p>
+				很长的段落 换行
+			</p>
+			
+		</section>
 		
-		<div>
+		<section>
+			
 			<h2>文章一级标题</h2>
 			
 			<h3>文章二级标题</h3>
@@ -53,11 +71,14 @@
 			<p>文章作者 文章发表时间</p>
 			
 			<p>
-				段落 换行<br />
-				段落 <a href="http://ife.baidu.com">百度ife</a>段落 <b>粗字体</b>换行<br />
+				很长的段落 换行
 			</p>
 			
-			<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" />
+			<p>
+				很长的段落 <a href="http://ife.baidu.com">百度ife</a>很长的段落 <b>粗字体</b>换行
+			</p>
+			
+			<img src="https://www.baidu.com/img/bd_logo1.png" alt="bdLogo" />
 			
 			<ul>
 				<li>列表项目1</li>
@@ -65,7 +86,7 @@
 				<li>列表项目3</li>
 			</ul>
 			
-		</div>
+		</section>
 		
 		<div>
 			
@@ -74,25 +95,25 @@
 			<div style="margin-left: 20%;">
 				
 				<div>
-					<span>厉害的logo</span>
-					<img src="https://www.baidu.com/img/bd_logo1.png" alt="" />
+					<div>厉害的logo</div>
+					<img src="https://www.baidu.com/img/bd_logo1.png" alt="bdLogo" />
 				</div>
 				
 				<div>
-					<span>厉害的logo</span>
-					<img src="https://www.baidu.com/img/bd_logo1.png" alt="" />
+					<div>厉害的logo</div>
+					<img src="https://www.baidu.com/img/bd_logo1.png" alt="bdLogo" />
 				</div>
 				
 				<div>
-					<span>厉害的logo</span>
-					<img src="https://www.baidu.com/img/bd_logo1.png" alt="" />
+					<div>厉害的logo</div>
+					<img src="https://www.baidu.com/img/bd_logo1.png" alt="bdLogo" />
 				</div>
 				
 			</div>
 			
 		</div>
 		
-		<div>
+		<section>
 			
 			<h2>最后一篇文章一级标题</h2>
 			
@@ -107,6 +128,7 @@
 			</ol>	
 			
 			<table border="1" >
+				
 				<tr>
 					<th colspan="2">表头</th>
 					<th colspan="2">表头</th>
@@ -138,29 +160,28 @@
 				
 			</table>
 			
-		</div>
+		</section>
 		
-		<div>
+		<aside>
 			
 			<h2>以后是个侧栏</h2>
 			
 			<h3>侧栏标题</h3>
 			
-			<form action="" method="post">
+			<form action="#" method="post">
 				
 				<div>
 					请输入邮箱地址:
-					<input type="text" name="mailAdd" id="" value="文本框" />
-					<br />
+					<input type="text" name="mailAdd" placeholder="输入你的邮箱" />
 				</div>
 			
 				<div>
 					请输入密码:
-					<input type="password" name="passWord" id=""/>
-					<br />
+					<input type="password" name="passWord" />
+					
 					请重复输入密码:
-					<input type="password" name="passWord" id=""/>
-					<br />
+					<input type="password" name="passWord" />
+				
 					密码为6-16位英文数字
 				</div>
 				
@@ -177,9 +198,9 @@
 					</select>
 					
 					<span>爱好:</span>
-					<input type="checkbox" name="hobby" value="sprot"/><span>运动</span>
-					<input type="checkbox" name="hobby" id="art" value="art" /><span>艺术</span>
-					<input type="checkbox" name="hobby" id="science" value="science" /><span>科学</span>
+					<input type="checkbox" name="hobby" id="sprot" value="sport" /><label for="sport">运动</label>
+					<input type="checkbox" name="hobby" id="art" value="art" /><label for="art">艺术</label>
+					<input type="checkbox" name="hobby" id="science" value="science" /><label for="science">科学</label>
 					
 					<span>个人描述:</span>
 					<textarea name="detail" value="个人描述" rows="2" cols="20" placeholder="输入个人描述"></textarea>
@@ -187,13 +208,13 @@
 					<input type="submit" value="确认提交"/>
 				</div>
 				
-				<footer>
-					<span>版权所有 &copy;</span>
-				</footer>
-				
 			</form>
 			
-		</div>
+		</aside>
+		
+		<footer>
+			<span>版权所有 &copy;</span>
+		</footer>
 		
 	</body>
 	
