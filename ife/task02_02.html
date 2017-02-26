@@ -175,12 +175,12 @@
 			
 			<h2>以后是个侧栏, 侧栏标题</h2>
 			
-			<form action="" method="post" id="celan">
+			<form action="#" method="post" id="celan">
 				
 				<table border="0" align="center" >
 					<tr>
-						<td align="right">请输入邮箱地址:</td> 
-						<td align="left"><input type="text" name="mailAdd" id="" value="文本框" /></td>
+						<td align="right"><label for="inputMail">请输入邮箱地址:</label></td> 
+						<td align="left"><input type="text" name="inputMail" id="inputMail" placeholder="输入你的邮箱" /></td>
 					</tr>
 					<tr>
 						<td></td>
@@ -188,13 +188,13 @@
 					</tr>
 					
 					<tr>
-						<td align="right">请输入密码:</td>
-						<td align="left"><input type="password" name="passWord" id="" value="1111111"/></td>
+						<td align="right"><label for="passWord01">请输入密码:</label></td>
+						<td align="left"><input type="password" name="passWord" id="passWord01" /></td>
 					</tr>
 					
 					<tr>
-						<td align="right">请重复输入密码:</td>
-						<td align="left"><input type="password" name="passWord" id="" value="1111111"/></td>
+						<td align="right"><label for="passWord02">请重复输入密码:</label></td>
+						<td align="left"><input type="password" name="passWord" id="passWord02" /></td>
 					</tr>
 					
 					<tr>
@@ -211,9 +211,9 @@
 					</tr>
 					
 					<tr>
-						<td align="right">城市:</td>
+						<td align="right"><label for="cityChooice">城市:</label></td>
 						<td align="left">
-							<select name="cityChooice" size="1">
+							<select name="cityChooice" size="1" id="cityChooice">
 								<option value="bj">北京</option>
 								<option value="sh">上海</option>
 								<option value="fj">福建</option>
@@ -224,15 +224,18 @@
 					<tr>
 						<td align="right">爱好:</td>
 						<td align="left">
-							<input type="checkbox" name="hobby" value="sprot"/><span>运动</span>
-							<input type="checkbox" name="hobby" value="art" /><span>艺术</span>
-							<input type="checkbox" name="hobby" value="science" /><span>科学</span>
+							<input type="checkbox" name="hobby" id="sprot" value="sprot"/>
+							<label for="sport">运动</label>
+							<input type="checkbox" name="hobby" id="art" value="art" />
+							<label for="art">艺术</label>
+							<input type="checkbox" name="hobby" id="science" value="science" />
+							<label for="science">科学</label>
 						</td>
 					</tr>
 					
 					<tr>
-						<td align="right">个人描述:</td>
-						<td align="left"><textarea name="detail" value="个人描述" rows="5" cols="60" placeholder="输入个人描述"></textarea></td>
+						<td align="right"><label for="perDetail">个人描述:</label></td>
+						<td align="left"><textarea name="detail" id="perDetail" value="个人描述" rows="2" cols="20" placeholder="输入个人描述"></textarea></td>
 					</tr>
 				</table>
 					
