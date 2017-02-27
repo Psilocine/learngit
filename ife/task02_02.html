@@ -15,7 +15,7 @@
 			
 				<nav>
 					
-					<ul id="topList">
+					<ul class="topList">
 						<li><a href="">导航链接1</a></li>
 						<li><a href="">导航链接2</a></li>
 						<li><a href="">导航链接3</a></li>
@@ -30,7 +30,7 @@
 
 		</header>
 		
-		<section id="section01">
+		<section class="section01">
 			
 			<h2>文章一级标题</h2>
 			
@@ -92,7 +92,7 @@
 			
 		</section>
 		
-		<div id="picPart">
+		<div class="picPart">
 			
 			<h2>图片</h2>
 			
@@ -136,9 +136,9 @@
 				<li>排名3</li>
 			</ol>	
 			
-			<table id="tableOne" >
+			<table class="tableOne" >
 				
-				<tr id="firstRow">
+				<tr class="firstRow">
 					<th colspan="2">表头</th>
 					<th colspan="2">表头</th>
 					<th colspan="1">表头</th>
@@ -162,7 +162,7 @@
 					<td colspan="1"><a href="#">操作</a></td>
 				</tr>
 				
-				<tr id="lastRow">
+				<tr class="lastRow">
 					<td colspan="2">总计</td>
 					<td colspan="3">1000</td>
 				</tr>
@@ -175,71 +175,72 @@
 			
 			<h2>以后是个侧栏, 侧栏标题</h2>
 			
-			<form action="#" method="post" id="celan">
+			<form action="#" method="post" class="celan">
 				
-				<table border="0" align="center" >
-					<tr>
-						<td align="right"><label for="inputMail">请输入邮箱地址:</label></td> 
-						<td align="left"><input type="text" name="inputMail" id="inputMail" placeholder="输入你的邮箱" /></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td align="left" style="color: gray; font-size: 80%;">邮箱地址请按要求格式输入</td>
-					</tr>
+				<div align="center" >
+					<div class="tableRow">
+						<div class="tableCel"><label for="inputMail">请输入邮箱地址:</label></div> 
+						<div class="tableCell"><input type="text" name="inputMail" id="inputMail" placeholder="输入你的邮箱" /></div>
+					</div>
 					
-					<tr>
-						<td align="right"><label for="passWord01">请输入密码:</label></td>
-						<td align="left"><input type="password" name="passWord" id="passWord01" /></td>
-					</tr>
+					<div class="tableRow">
+						<div class="tableCel"></div>
+						<div class="tableCell tipsText">邮箱地址请按要求格式输入</div>
+					</div>
 					
-					<tr>
-						<td align="right"><label for="passWord02">请重复输入密码:</label></td>
-						<td align="left"><input type="password" name="passWord" id="passWord02" /></td>
-					</tr>
+					<div class="tableRow">
+						<div class="tableCel"><label for="passWord01">请输入密码:</label></div>
+						<div class="tableCell"><input type="password" name="passWord" id="passWord01" /></div>
+					</div>
 					
-					<tr>
-						<td></td>
-						<td align="left" style="color: gray; font-size: 80%;">密码为6-16位英文数字</td>
-					</tr>
+					<div class="tableRow">
+						<div class="tableCel"><label for="passWord02">请重复输入密码:</label></div>
+						<div class="tableCell"><input type="password" name="passWord" id="passWord02" /></div>
+					</div>
 					
-					<tr>
-						<td align="right">性别:</td>
-						<td align="left">
-							<input type="radio" name="sex" id="male" value="男" /><label for="male">男</label>
+					<div class="tableRow">
+						<div class="tableCel"></div>
+						<div class="tableCell tipsText">密码为6-16位英文数字</div>
+					</div>
+					
+					<div class="tableRow">
+						<div class="tableCel">性别:</div>
+						<div class="tableCell">
+							<input type="radio" name="sex" id="male" value="男" checked/><label for="male">男</label>
 							<input type="radio" name="sex" id="female" value="女" /><label for="female">女</label>
-						</td>
-					</tr>
+						</div>
+					</div>
 					
-					<tr>
-						<td align="right"><label for="cityChooice">城市:</label></td>
-						<td align="left">
-							<select name="cityChooice" size="1" id="cityChooice">
+					<div class="tableRow">
+						<div class="tableCel"><label for="city">城市:</label></div>
+						<div class="tableCell">
+							<select name="cityChooice" size="1" id="city">
 								<option value="bj">北京</option>
 								<option value="sh">上海</option>
 								<option value="fj">福建</option>
 							</select>
-						</td>
-					</tr>
+						</div>
+					</div>
 					
-					<tr>
-						<td align="right">爱好:</td>
-						<td align="left">
+					<div class="tableRow">
+						<div class="tableCel">爱好:</div>
+						<div class="tableCell">
 							<input type="checkbox" name="hobby" id="sprot" value="sprot"/>
 							<label for="sport">运动</label>
 							<input type="checkbox" name="hobby" id="art" value="art" />
 							<label for="art">艺术</label>
 							<input type="checkbox" name="hobby" id="science" value="science" />
 							<label for="science">科学</label>
-						</td>
-					</tr>
+						</div>
+					</div>
 					
-					<tr>
-						<td align="right"><label for="perDetail">个人描述:</label></td>
-						<td align="left"><textarea name="detail" id="perDetail" value="个人描述" rows="2" cols="20" placeholder="输入个人描述"></textarea></td>
-					</tr>
-				</table>
+					<div class="tableRow">
+						<div class="tableCel">个人描述:</div>
+						<div class="tableCell"><textarea name="detail" id="perDetail" value="个人描述" rows="5" cols="40" placeholder="输入个人描述"></textarea></div>
+					</div>
+				</div>
 					
-					<input type="submit" id="submitStyle" value="确认提交"/>
+					<input type="submit" class="submitStyle" value="确认提交"/>
 				</div>
 				
 			</form>

@@ -1,14 +1,11 @@
-.footerStyle {
-	color: white;
-	padding: 20px;
-	background-color: black;
-	text-align: center;
-}
-
 body {
 	background-color: lightgray;
+	margin: 0;
+	padding: 0;
 	font-family: "微软雅黑";
 }
+
+/* 顶栏 */
 
 header li {
 	display: inline;
@@ -16,40 +13,40 @@ header li {
 }
 
 header h1 {
+	color: white;
 	padding: 10px;
-	padding-top: 20px;
 	float: left;
 }
 header nav {
 	float: right;
-	padding-top: 30px;
-	padding-right: 20px;
+	padding: 20px;
 }
 
+/* 清除浮动 */
 header .clear{
-	clear:both;height:0px;
+	clear:both;
+	height:0px;
 }
 
 header{
 	background-color: #3C3C3C;
-	margin-top: -25px;
 }
 
-#topList a:link {
+.topList a:link {
 	color: white;
 }
 
-#topList a:visited {
+.topList a:visited {
 	color:gray;
 }
 
-#topList a:hover {
+.topList a:hover {
 	color: red;	
 }
 
 /* 主体部分 */
 
-#section01 {
+.section01 {
 	clear: both;
 }
 
@@ -62,7 +59,7 @@ section {
 	padding: 20px;
 }
 
-#picPart{
+.picPart{
 	margin: 10px;
 	margin-top: 20px;
 	border-right-style: outset;
@@ -94,37 +91,68 @@ figure img{
 	height: 100px;
 }
 
-#tableOne {
+.tableOne {
 	width: 100%;
 	text-align: left;
 	border-spacing: 1px;
 }
 
-#firstRow{
+.firstRow{
 	background-color: #000000;
 	color: white;
 }
 
-#lastRow {
+.lastRow {
 	background-color: #D3D3D3;
 	font-weight: bold;
 }
 
-#tableOne th,#tableOne td{
+.tableOne th,.tableOne td{
 	padding: 3px;
 }
 
-#celan {
-				font-size: 14px;
-				line-height: 40px;
+.celan {
+	font-size: 14px;
+	line-height: 40px;
+	
 }
 
-#submitStyle {
-				width: 98%;
+.tableRow {
+	display: table-row;
+	text-align: right;
+	
+}
+
+.tableCell {
+	display: table-cell;
+	vertical-align: top;
+	text-align: left;
+}
+
+.tableCel {
+	display: table-cell;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.tipsText {
+	color: lightgray;
+	font-size:80%
+}
+.submitStyle {
+				width: 100%;
 				font-size: 17px;
+				font-weight: bold;
 				color: white;
 				background-color: blue;
 				border-radius: 10px;
-				margin: 5px;
 				padding: 10px;
+}
+
+/* 页尾 */
+.footerStyle {
+	color: white;
+	padding: 20px;
+	background-color: black;
+	text-align: center;
 }
