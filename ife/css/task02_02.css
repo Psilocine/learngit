@@ -12,9 +12,9 @@ header li {
 	margin: 5px;
 }
 
-header h1 {
-	color: white;
-	padding: 10px;
+header img{
+	padding: 20px;
+	width: 150px;
 	float: left;
 }
 header nav {
@@ -23,10 +23,11 @@ header nav {
 }
 
 /* 清除浮动 */
-header .clear{
-	clear:both;
-	height:0px;
+.fixClear{
+	overflow: auto;
+	height: 1%;
 }
+
 
 header{
 	background-color: #3C3C3C;
@@ -97,6 +98,7 @@ figure img{
 	border-spacing: 1px;
 }
 
+
 .firstRow{
 	background-color: #000000;
 	color: white;
@@ -111,6 +113,7 @@ figure img{
 	padding: 3px;
 }
 
+/* aside */
 .celan {
 	font-size: 14px;
 	line-height: 40px;
