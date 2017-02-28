@@ -1,0 +1,88 @@
+
+/* 主体 */
+
+body {
+	margin: 20px;
+}
+
+.container {
+	background-color: #eee;
+	border-color: #999;
+	padding: 20px 140px 20px 100px;
+}
+
+/* 三栏浮动 */
+
+.child {
+	float: left;
+}
+
+/* 清除浮动 */
+
+.clear-fix {
+	overflow: auto;
+	height: 1%;
+}
+
+/* 首行缩进 */
+.center p:nth-child(1){
+	text-indent: 40px;
+}
+
+/* 自适应栏 */
+
+.center {
+	background-color: white;
+	height: auto;
+	margin: 0 20px;
+	margin-left: 140px;
+	border: 1px solid #000;
+	padding: 20px;
+}
+
+
+/* 左栏 */
+
+.left {
+	position: relative;
+	left: -80px;
+	width: 160px;
+	padding: 20px;
+	height: 80px;
+	background-color: white;
+	margin-left: -100%;
+	border: 1px solid #000;
+}
+
+
+.left img {
+	width: 80px;
+	height: 80px;
+	border: 1px solid #000;
+}
+
+.left span {
+	vertical-align: top;	
+	margin-left: 8px;
+}
+
+/* 右栏 */
+
+.right {
+	text-align: center;
+	position: relative;
+	right: -120px;
+	width: 120px;
+	height: 120px;
+	background-color: white;
+	margin-left: -124px;
+	border: 1px solid #000;
+}
+
+.right img{
+	margin-top: 20px;
+	width: 80px;
+	height: 80px;
+	border: 1px solid #000;
+}
+
