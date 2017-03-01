@@ -55,6 +55,11 @@ body {
 	background-color: white;
 	height: auto;
 }
+
+p{
+	
+	padding: 20px;
+}
         
 /* 左栏 */
 
