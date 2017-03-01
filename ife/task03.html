@@ -12,52 +12,60 @@
 			
 			<div class="center child">
 				
-				<p>
-					我是一名大三学生，PsiloLau，想在一个学期内学有所成，因此十分感谢百度前端学院提供一个平台给我们这些入门的人有练手的机会。当然光说不练是没用的，还是要靠自己，勤能补拙也能生巧。
-				</p>
-				
-				<p>
-					之前给大家介绍两种浮动闭合的办法CSS清除浮动 万能float闭合，得知很多同学都在使用下面的骨灰级解决办法：
-					.clear{clear:both;height:0;overflow:hidden;}
-					上诉办法是在需要清除浮动的地方加个div.clear或者br.clear，我们知道这样能解决基本清浮动问题。
-					但是这种方法的最大缺陷就是改变了html结构，虽然只是加个div。
-				</p>
-				
-				<p>
-					最优浮动闭合方案（这是我们推荐的）：
-					.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
-					.clearfix{*+height:1%;}
-					用法很简单，在浮动元素的父云素上添加class=”demo clearfix”。
-					你会发现这个办法也有个弊端，但的确是小问题。改变css写法就ok了：
-					.demo:after,.demo2:after{content:".";display:block;height:0;clear:both;visibility:hidden}
-					.demo,.demo2{*+height:1%;}
-					以上写法就避免了改变html结构，直接用css解决了。
-				</p>
-				
-				<p>
-					很拉轰的浮动闭合办法：
-					.clearfix{overflow:auto;_height:1%}
-					这种办法是我看国外的一篇文章得到的方案，测试了，百试不爽，真的很简单，很给力。喜欢的同学也可以试试这个办法。
-					这种方法是端友radom提供的，测试通过：
-					.clearfix{overflow:hidden;_zoom:1;}
-					感谢radom提供的这种方法！！
-				</p>
+				<div id="center-inner">
+					
+					<p>
+						我是一名大三学生，PsiloLau，想在一个学期内学有所成，因此十分感谢百度前端学院提供一个平台给我们这些入门的人有练手的机会。当然光说不练是没用的，还是要靠自己，勤能补拙也能生巧。
+					</p>
+					
+					<p>
+						之前给大家介绍两种浮动闭合的办法CSS清除浮动 万能float闭合，得知很多同学都在使用下面的骨灰级解决办法：
+						.clear{clear:both;height:0;overflow:hidden;}
+						上诉办法是在需要清除浮动的地方加个div.clear或者br.clear，我们知道这样能解决基本清浮动问题。
+						但是这种方法的最大缺陷就是改变了html结构，虽然只是加个div。
+					</p>
+					
+					<p>
+						最优浮动闭合方案（这是我们推荐的）：
+						.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{*+height:1%;}
+						用法很简单，在浮动元素的父云素上添加class=”demo clearfix”。
+						你会发现这个办法也有个弊端，但的确是小问题。改变css写法就ok了：
+						.demo:after,.demo2:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+						.demo,.demo2{*+height:1%;}
+						以上写法就避免了改变html结构，直接用css解决了。
+					</p>
+					
+					<p>
+						很拉轰的浮动闭合办法：
+						.clearfix{overflow:auto;_height:1%}
+						这种办法是我看国外的一篇文章得到的方案，测试了，百试不爽，真的很简单，很给力。喜欢的同学也可以试试这个办法。
+						这种方法是端友radom提供的，测试通过：
+						.clearfix{overflow:hidden;_zoom:1;}
+						感谢radom提供的这种方法！！
+					</p>
 		        
+				</div>
+				
 			</div>
 			
-			
 			<div class="left child">	
+				
 				<img src="https://www.baidu.com/img/bd_logo1.png"/>
 				
 				<span>团队名称</span>
+				
 			</div>
 			
 			<div class="right child">
+				
 				<img src="//i1.hdslb.com/bfs/face/9edc0a94e459d980e0bbb235ac3691e5e88da215.jpg@75Q.webp"/>
+				<img src="//i1.hdslb.com/bfs/face/9edc0a94e459d980e0bbb235ac3691e5e88da215.jpg@75Q.webp"/>
+				<img src="//i1.hdslb.com/bfs/face/9edc0a94e459d980e0bbb235ac3691e5e88da215.jpg@75Q.webp"/>
+			
 			</div>
 			
 		</div>
-		
+			
 	</body>
 	
 </html>

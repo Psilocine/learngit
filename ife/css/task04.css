@@ -1,0 +1,36 @@
+/* body */
+
+div.square{
+	width: 400px;
+	height: 200px;
+	background-color: #ccc;
+	
+	/* 方案一
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;*/
+	
+	/* 方案二*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -100px;
+}
+
+div.circle1,div.circle2{
+	background-color: #fc0;
+	width: 50px;
+	height: 50px;	
+}
+
+div.circle1{
+	border-bottom-right-radius: 100%;
+}
+div.circle2{
+	border-top-left-radius: 100%;
+	margin: 100px 0 0 350px;
+}
