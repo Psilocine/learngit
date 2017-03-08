@@ -1,0 +1,166 @@
+body {
+	background-color: lightgray;
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+
+/* 顶栏 */
+
+header li {
+	display: inline;
+	margin: 5px;
+}
+
+header img{
+	padding: 20px;
+	width: 150px;
+	float: left;
+}
+header nav {
+	float: right;
+	padding: 20px;
+}
+
+/* 清除浮动 */
+.fixClear{
+	overflow: auto;
+	height: 1%;
+}
+
+
+header{
+	background-color: #3C3C3C;
+}
+
+.topList a:link {
+	color: white;
+}
+
+.topList a:visited {
+	color:gray;
+}
+
+.topList a:hover {
+	color: red;	
+}
+
+/* 主体部分 */
+
+
+
+section {
+	margin: 10px;
+	margin-top: 20px;
+	margin-right: 480px;	
+	border-right-style: outset;
+	border-bottom-style: outset;
+	background: white;
+	padding: 20px;
+}
+
+.picPart{
+	margin: 10px;
+	margin-top: 20px;
+	margin-right: 500px;
+	border-right-style: outset;
+	border-bottom-style: outset;
+	background: white;
+	padding: 20px;
+}
+
+aside{
+	margin: 10px;
+	margin-top: 20px;
+	border-right-style: outset;
+	border-bottom-style: outset;
+	background: white;
+	padding: 20px;
+}
+section li{
+	list-style: none;
+}
+
+figure{
+	display:inline-block;
+	border:solid 1px lightgray;
+	text-align: center;
+	width: 240px;
+}
+
+figure img{
+	width: 200px;
+	height: 100px;
+}
+
+.tableOne {
+	width: 100%;
+	text-align: left;
+	border-spacing: 1px;
+}
+
+
+.firstRow{
+	background-color: #000000;
+	color: white;
+}
+
+.lastRow {
+	background-color: #D3D3D3;
+	font-weight: bold;
+}
+
+.tableOne th,.tableOne td{
+	padding: 3px;
+}
+
+/* aside */
+.aside-one {
+	float: right;
+}
+
+.celan {
+	font-size: 14px;
+	line-height: 40px;
+	
+}
+
+.tableRow {
+	display: table-row;
+	text-align: right;
+	
+}
+
+.tableCell {
+	display: table-cell;
+	vertical-align: top;
+	text-align: left;
+}
+
+.tableCel {
+	display: table-cell;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.tipsText {
+	color: lightgray;
+	font-size:80%
+}
+.submitStyle {
+				width: 100%;
+				font-size: 17px;
+				font-weight: bold;
+				color: white;
+				background-color: blue;
+				border-radius: 10px;
+				padding: 10px;
+}
+
+/* 页尾 */
+.footerStyle {
+	color: white;
+	padding: 20px;
+	background-color: black;
+	text-align: center;
+}
