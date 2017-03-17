@@ -91,18 +91,27 @@
 	padding: 10px;
 }
 
-.first-part .first-form input{
-	width: 330px;
-	height: 65px;
+.first-part .first-form a{
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
 	background-color: #e74f4d;
-	border: none;
+	height: 50px;
+	line-height: 50px;
+	width: 230px;
 	font-size: 32px;
 	color: #FFFFFF;
+	padding: 10px 30px;
 	letter-spacing: 3px;
 	margin: 10px;
-	margin-top: 51px;
+	transition: all 0.2s ease-in;
+	-webkit-transition: all 0.2s ease-in;
 }
 
+.first-part .first-form a:hover{
+	background-color: #FFFFFF;
+	color: #FF0000;
+}
 
 /*第二part页面*/
 .secord-part{
@@ -215,4 +224,204 @@
 	font-weight: 700;
 	letter-spacing: 20px;
 	border: none;
+}
+
+/*第五part*/
+.fifth-part{
+	background-color: #f7f7f7;
+	height: 605px;
+	position: relative;
+}
+
+.fifth-box{
+	height: 400px;
+	width: 988px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.fifth-box figure{
+	display: inline-block;
+	text-align: center;
+	padding-right: 36px;
+}
+.fifth-box figure:last-child{
+	padding-right: 0px;
+}
+
+.fifth-box figure img{
+	border: 1px solid #e1e1e1;
+	padding: 10px 5px;
+	background-color: #FFFFFF;
+}
+
+.fifth-box .pic-place{
+	color: #323333;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 5px 0;
+}
+
+.fifth-box .pic-title{
+	font-size: 12px;
+	color: #9f9f9f;
+	margin: 5px 0;
+	
+}
+
+.fifth-box .place-em{
+	letter-spacing: 38px;
+	font-size: 19px;
+	margin-right: -37px;
+}
+
+/*第六part*/
+.sixth-part{
+	height: 566px;
+}
+
+.sixth-part .sixth-l{
+	background: url(img/sixPart-pic.jpg) no-repeat;
+
+	position: relative;
+	height: 566px;
+	width: 850px;
+}
+.sixth-part .sixth-l .sixth-title{
+	position: absolute;
+	top: 17%;
+	left: 25%;
+	margin-right: -200px;
+	margin-left: -200px;	
+	font-size: 21px;
+	color: #FFFFFF;
+	text-align: center;
+	margin: 0;
+	
+}
+
+.sixth-part .sixth-l .sixthTitle-1{
+	font-size: 47px;
+}
+
+.sixth-part .sixth-l .sixthTitle-2{
+	font-size: 160px;
+}
+
+.sixth-part .sixth-l .l-triangle{
+	border-top: 18px solid transparent;
+	border-bottom: 18px solid transparent;
+	border-right: 30px solid #FFFFFF;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -18px;
+}
+
+/*seven-part*/
+
+.seven-part{
+	height: 520px;
+	font-size: 19px;
+	color: #FFFFFF;
+}
+
+.seven-part a{
+	padding: 10px 30px;
+	text-decoration: none;
+	transition: all 0.2s ease-in;
+	-webkit-transition: all .2s ease-in;
+}
+
+.seven-part hr{
+	border: none;
+	width: 30px;
+	height: 2px;
+	margin: 20px 0 40px 196px;
+}
+.seven-part .seventh-l a{
+	color: #FFFFFF;
+	border: 1px solid #FFFFFF;
+}
+
+.seven-part .seventh-l a:hover{
+	color: #e74f4d;
+	background-color: #ffffff;
+}
+
+.seven-part .seventh-c a{
+	color: #e74f4d;
+	border: 1px solid #e74f4d;
+}
+
+.seven-part .seventh-c a:hover{
+	color: #FFFFFF;
+	background-color: #e74f4d;
+}
+
+.seven-part .seventh-l{
+	text-align: center;
+	float: left;
+	width: 33.3%;
+	height: 520px;
+	background-color: #e74f4d;
+}
+
+
+.seven-part .seventh-l hr{
+	background-color: #ffffff;
+}
+
+.seven-part .seventh-c{
+	text-align: center;
+	float: left;
+	width: 33.3%;
+	
+	height: 520px;
+	color: #e74f4d;
+	background-color: #FFFFFF;
+	
+}
+
+.seven-part .seventh-c hr{
+	background-color: #abaaaa;
+}
+
+
+.seven-part .seventh-para{
+	margin-top: 169px;
+	line-height: 30px;
+	
+}
+
+.seven-part .seventh-r {
+	float: right;
+	width: 33.3%;
+	height: 520px;
+	position: relative;
+}
+
+.seven-part .seventh-r .r-triangle{
+	border-top: 18px solid transparent;
+	border-bottom: 18px solid transparent;
+	border-left: 30px solid #FFFFFF;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -18px;
+}
+
+/* eighth-part*/
+
+.eighth-part{
+	height: 750px;
+	text-align: center;
+}
+
+.eighth-part .eighth-para{
+	height: 270px;
 }
