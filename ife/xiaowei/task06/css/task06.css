@@ -312,7 +312,7 @@ body{
 	color: #fff;
 	position: absolute;
 	bottom: 0px;
-	margin: 0px 0px 20px 40px;
+	margin: 0px 0px 8px 40px;
 	padding: 4px 0px 5px 15px;
 }
 
@@ -324,6 +324,15 @@ body{
 	padding-left: 6px;
 }
 
+.right-part .sec-pic .butt-pic{
+	width: 458px;
+	height: 61px;
+	opacity: .7;
+	display: inline;
+	background-color: #000000;
+	position: absolute;
+	bottom: 0;
+}
 /*右下页面*/
 .right-bottom-part {
 	margin-top: 30px;
