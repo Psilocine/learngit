@@ -20,10 +20,14 @@
 3. box-sizing干什么的 待解决
 
 2017年3月12日 22:19:58
-1.最近练车T T 没什么时间学习
-2.学会绘制三角形css方法 (虽然以后学bs好像更简洁 
+1. 最近练车T T 没什么时间学习
+2. 学会绘制三角形css方法 (虽然以后学bs好像更简洁 
 	用span或其他标签做个空容器,然后css写border
 	border-left:5px solid transparent
 	border-right:5px solid transparent	(注意这里的5px可改 不过要左右相等 才能对称
 	border-bottom:10px solid 颜色自定义 (注意这里的10px可改  不过要是左右的和 才能是等边三角形
 	display:inline-block; 这里inline-block是能让后面的在同一行显示
+
+2017年3月17日 18:27:50
+1. 同一css里 background-size:cover; (自适应浏览器宽度)要放在 background-image:url(); 后面, 不然不起作用.
+2. li里面的a标签 用display:inline-block  height100% width100% 可以扩充到整个li, hover时比较美观.
