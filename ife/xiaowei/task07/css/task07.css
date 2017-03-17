@@ -1,0 +1,218 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: "微软雅黑";
+}
+
+.container{
+	width: 1280px;
+}
+
+/*顶部导航页面*/
+.header{
+	background-color: #FFFFFF;
+	height: 56px;
+}
+
+.header .site-title{
+	font-size: 26px;
+	height: 56px;
+}
+
+.header .site-pic{
+	margin-left: 55px;
+	vertical-align: middle;
+}
+
+
+.header .nav-list{
+	position: absolute;
+	top: 0px;
+	left: 540px;
+	
+}
+
+.header .nav-list .login-pic{
+	width: 30px;
+	vertical-align: middle;
+}
+.header .nav-list li{
+	display: inline-block;
+	margin-left: 30px;
+	width: 84px;
+	height: 52px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.header .nav-list a{
+	text-align: center;
+	color: #8e9197;
+	text-decoration: none;
+	height: 52px;
+	line-height: 50px;
+}
+.header .nav-list li:first-child{
+	
+	border-bottom: 4px solid #EA6F6E;
+}
+.header .nav-list li:first-child a{
+	color: #ea6f6e;
+}
+
+.header .nav-list li a:hover{
+	font-weight: bold;
+}
+
+
+/*第一part页面*/
+.first-part{
+	position: relative;
+	color: #FFFFFF;
+	font-size: 21px;
+}
+
+.first-part img{
+	width: 1280px;
+}
+
+.first-part .first-form{
+	position: absolute;
+	top: 210px;
+	left: 105px;
+}
+.first-part .first-form h1{
+	font-size: 60px;
+	font-weight: 100;
+}
+
+.first-part .first-form p{
+	line-height: 30px;
+	padding: 10px;
+}
+
+.first-part .first-form input{
+	width: 330px;
+	height: 65px;
+	background-color: #e74f4d;
+	border: none;
+	font-size: 32px;
+	color: #FFFFFF;
+	letter-spacing: 3px;
+	margin: 10px;
+	margin-top: 51px;
+}
+
+
+/*第二part页面*/
+.secord-part{
+	height: 250px;
+}
+
+.secord-part .sec-intro {
+	width: 316px;
+	height: 170px;
+	display: inline-block;
+	
+}
+.secord-part .sec-intro img{
+	display: block;
+	margin: 40px auto;
+	
+}
+.secord-part .sec-intro figcaption{
+	text-align: center;
+	display: inline-block;
+	font-size: 14px;
+	color: #8d8d8d;
+	width: 152px;
+	height: 51px;
+	padding: 0 81px;
+	border-left: 1px solid #8d8d8d;
+}
+
+
+/*第三part页面*/
+.third-part{
+	height: 360px;
+	background-color: #ededec;
+	position: relative;
+}
+
+.third-part .third-box{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -120px;
+	margin-left: -420px;
+}
+
+.third-part .third-box img{
+	margin: 20px;
+	padding-left: 353px;
+}
+
+.third-part .third-box p{
+	color:#a1a1a1;
+	font-size: 50px;
+	letter-spacing: 5px;
+}
+
+/*第四part页面*/
+.fourth-part{
+	height: 340px;
+	background-image: url(img/bgimage-1.jpg);
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.fourth-part .fourth-box{
+	
+}
+
+.fourth-part .fourthPara-1{
+	font-size: 23px;
+	padding: 15px 0 0 0;
+	margin-bottom: 10px;
+}
+
+.fourth-part hr{
+	margin-left: 624px;
+	background-color: #FFFFFF;
+	
+	width: 30px;
+	height: 2px;
+	border: none;
+}
+.fourth-part .fourthPara-2{
+	font-size: 12px;
+	margin: 20px;
+}
+
+.fourth-part form{
+	margin-top: 50px;
+}
+
+.fourth-part select{
+	color: #b5b7b7;
+	width: 234px;
+	height: 36px;
+	padding-left: 5px;
+	margin-left: 28px;
+}
+
+.fourth-part select option{
+	height: 36px;;
+}
+.fourth-part input{
+	width: 234px;
+	height: 36px;
+	margin-left: 28px;
+	padding-left: 20px;
+	background-color: #be4e48;
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 20px;
+	border: none;
+}

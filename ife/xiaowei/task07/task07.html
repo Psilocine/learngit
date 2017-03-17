@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实现常见的技术产品官网的页面架构及样式布局</title>
+		<link rel="stylesheet" type="text/css" href="css/task07.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<header class="header">
+				
+				<div class="site-title">
+					<img class="site-pic" src="css/img/site-pic.png" alt="site picture" />
+					New Life
+				</div>
+				<ul class="nav-list">
+					<li><a href="#">Home</a></li>
+					<li><a href="https://github.com/Psilocine/learngit/tree/master/ife">Activity</a></li>
+					<li><a href="https://github.com/Psilocine/learngit/tree/master/ife">Introduce</a></li>
+					<li><a href="https://github.com/Psilocine/learngit/tree/master/ife">Forum</a></li>
+					<li><a href="https://github.com/Psilocine/learngit/tree/master/ife">About</a></li>
+					<li><img class="login-pic" src="http://dtp.landong.com/tp/mssj/dt/toubu2_040.JPG"/><a href="https://github.com/Psilocine/learngit/tree/master/ife">Login</a></li>
+				</ul>
+			</header>
+			
+			<div class="first-part">
+				<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489596320656&di=90b8c6fe1cd38eb8f2ad7cf47a3a4e50&imgtype=0&src=http%3A%2F%2Fd.5857.com%2Fgqxg_130715%2F009.jpg"/>
+				<div class="first-form">
+					<h1>Time of new life</h1>
+					<p>新时代 , 年轻的人们让我们一起<br />体验新生活 , 享受新生活</p>
+					<input type="button" name="start" id="start" value="开始体验" />
+				</div>
+			
+			</div>
+			
+			<div class="secord-part">
+				<figure class="sec-intro">
+					<img src="css/img/site-pic.png"/>
+					<figcaption>打造全新世界观, 让你更爱你的生活</figcaption>
+				</figure>
+				
+				<figure class="sec-intro">
+					<img src="css/img/site-pic.png"/>
+					<figcaption>丰富多彩的公益活动, 发挥新世界的主人公意识</figcaption>
+				</figure>
+				
+				<figure class="sec-intro">
+					<img src="css/img/site-pic.png"/>
+					<figcaption>欣赏的新理念, 超前体验未知的生活</figcaption>
+				</figure>
+				
+				<figure class="sec-intro">
+					<img src="css/img/site-pic.png"/>
+					<figcaption>完善的培养机制, 培养你全新的世界观</figcaption>
+				</figure>
+			</div>
+			
+			<div class="third-part">
+				<div class="third-box">
+					<img src="css/img/site-pic2.png" alt="site picture" class="thirdPart-pic"/>
+					<p>
+						关于新世界，你不知道的还有什么？
+					</p>
+				</div>
+			</div>
+			
+			<div class="fourth-part">
+				<div class="fourth-box">
+					<p class="fourthPara-1">
+						寻找新世界城市活动信息
+					</p>
+					<hr />
+					<p class="fourthPara-2">
+						每个城市都有不同的活动信息, 请自主查询您所需要了解的城市
+					</p>
+					
+					<form action="" method="post">
+						<label for="country"></label>
+						<select name="country" id="country" >
+							<option value="" disabled selected>中国</option>
+							<option value="china">中国</option>
+						</select>
+						
+						<label for="province"></label>
+						<select name="province" id="province">
+							<option value="" disabled selected>省份</option>
+							<option value="fj">福建省</option>
+							<option value="gd">广东省</option>
+							<option value="sh">上海省</option>
+						</select>
+						
+						<label for="city"></label>
+						<select name="city" id="city">
+							<option value="" disabled selected>城市</option>
+							<option value="">泉州市</option>
+							<option value="">广州市</option>
+							<option value="">东莞市</option>
+						</select>
+						<input type="submit" value="搜索"/>
+					</form>
+				</div>
+					
+			</div>
+		</div>
+	</body>
+</html>
