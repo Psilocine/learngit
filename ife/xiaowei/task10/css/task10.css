@@ -1,0 +1,80 @@
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input {
+    margin: 0;
+    padding: 0;
+}
+
+.flex{
+	display: flex;
+}
+
+@media only screen and (min-width: 641px) {
+
+.flex{
+	align-items: center;
+}
+
+.box{
+	width: 148px;
+	margin: 20px;
+	border: 1px solid #FF0000;
+}
+
+.box-one{
+	height: 118px;
+}
+
+.box-two{
+	height: 98px;
+}
+
+.box-three{
+	height: 38px;
+}
+
+div.box-four{
+	height: 198px;
+	border: 1px solid #00f;
+}
+}
+
+@media only screen and (max-width: 640px ) {
+
+.flex{
+	align-items: flex-start;
+}
+
+.box{
+	width: 148px;
+	margin: 20px;
+	border: 1px solid #FF0000;
+	-webkit-order: 1;
+	order: 1;
+}
+	
+.box-one{
+	height: 118px;
+}
+
+.box-two{
+	height: 98px;
+}
+
+.box-three{
+	height: 38px;
+}
+
+div.box-four{
+	-webkit-order: -1;
+	order: -1;
+	height: 198px;
+	border: 1px solid #00f;
+	
+}
+	
+	
+	
+	
+	
+	
+	
+}

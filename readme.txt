@@ -31,3 +31,8 @@
 2017年3月17日 18:27:50
 1. 同一css里 background-size:cover; (自适应浏览器宽度)要放在 background-image:url(); 后面, 不然不起作用.
 2. li里面的a标签 用display:inline-block  height100% width100% 可以扩充到整个li, hover时比较美观.
+3. eg: .demo:hover~ .box 是hover demo类时 box类发生变化  前提是.box的css要有transition等属性 注意不同浏览器不同写法
+
+2017年3月22日 23:47:50
+1. 掌握calc方法 css3重要方法 解决盒子溢出问题 ulr:http://www.w3cplus.com/css3/how-to-use-css3-calc-function.html
+2. @media screen and (max/min-width:???px) { ... } 能够让浏览器在不同宽度显示不同表现
