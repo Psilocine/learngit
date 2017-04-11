@@ -27,7 +27,7 @@
 	  <button id="sort-btn">排序</button>
 	
 		<script type="text/javascript">
-			
+
 			/**
 			 * getData方法
 			 * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
@@ -82,7 +82,7 @@
 				for(var i = 0 ;i < data.length; i++){
 					var li = document.createElement('li');
 					li.innerHTML = '第' + arr[i] +'名：' + data[i][0] + '空气质量：' + '<b>' + data[i][1] + '</b>';
-					ul.append(li);
+					ul.appendChild(li);
 				
 				}
 			}
