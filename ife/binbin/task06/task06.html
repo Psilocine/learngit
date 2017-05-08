@@ -2,8 +2,43 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>任务六：基础JavaScript练习（三）</title>
+		<style type="text/css">
+			
+			.found{
+				background-color: #fff;
+				color:red;
+			}
+			textarea{
+				resize: none;
+			}
+			.container div{
+				display: inline-block;
+				float: left;
+				padding:0 10px;
+				margin: 5px 5px 0 0;
+				height:50px;
+				line-height:50px;
+				background-color: #FF0000;
+				color: #fff;
+				font-size: 30px;
+				font-weight: bold;
+			}
+			.container{
+				overflow: auto;
+			}
+		
+		</style>
 	</head>
 	<body>
+		<textarea placeholder="请输入字符并用不同符号分隔" rows="5" cols="20"></textarea>
+		<input type="button" value="插入" id="insert"/>
+		<input type="button" value="查询" id="search"/>
+		<input type="text" id="keyWord"/>
+		
+		<div id="container" class="container">
+			
+		</div>
+	<script src="js/task06.js"></script>
 	</body>
 </html>

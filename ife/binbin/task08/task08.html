@@ -2,8 +2,111 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>任务八：JavaScript和树（二）</title>
+		<style type="text/css">
+			body{
+				min-width: 1201px;
+				text-align: center;
+			}
+			
+			div{
+				display: flex;
+				border: 1px solid #000000;
+				border-radius: 10px;
+				justify-content: center;
+				align-items: center;
+				margin: 10px;
+			}
+			.bst{
+				background-color: #FFFFFF;
+				margin: 100px 0;
+				margin-left: 18%;
+				width: 1200px;
+				height: 200px;
+			}
+			
+			.secord{
+				margin: 0 10px;
+				width: 90%;
+				height: 60%;
+				
+			}
+			
+			.third{
+				margin: 0 10px;
+				width: 17%;
+				height: 60%;
+			}
+			
+			.fouth{
+				margin: 0 10px;
+				width: 13%;
+				height: 60%;
+			}
+			
+			input{
+				border: 1px solid #3355d0;
+				border-radius: 5px;
+				background-color: #FFFFFF;
+				overflow: hidden;
+				padding: 10px;
+				margin: 10px;
+				transition: all .3s ease-in;
+				-webkit-transition: all .3s ease-in;
+			}
+			
+			input:hover{
+				color: #FFFFFF;
+				background-color: #3355d0;
+				cursor: pointer;
+			}
+			
+		</style>
 	</head>
 	<body>
+		<div class="bst" id="root">
+			1
+			<div class="secord">2
+				<div class="third">3
+
+					<div class="fouth">4
+					</div>
+					<div class="fouth">5
+					</div>
+					<div class="fouth">6
+					</div>
+					
+				</div>
+				<div class="third">7
+					<div class="fouth">8
+					</div>
+					<div class="fouth">9
+					</div>
+				</div>
+				
+				<div class="third">12
+					<div class="fouth">13
+					</div>
+					<div class="fouth">14
+					</div>
+				</div>
+				<div class="third">15
+					<div class="fouth">16
+					</div>
+					<div class="fouth">17
+					</div>
+					<div class="fouth">18
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<input type="button" value="前序遍历" id="perOrder"/>
+		<input type="button" value="后序遍历" id="postOrder"/>
+		<input type="text" id="keyWord"/>
+		<input type="button" value="前序查询" id="perSearch"/>
+		<input type="button" value="后序查询" id="postSearch"/>
+		
+		<script src="script/task08.js"></script>
 	</body>
 </html>
