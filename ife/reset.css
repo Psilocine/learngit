@@ -1,0 +1,16 @@
+			body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{margin:0;padding:0;}
+			li{list-style: none;}
+			button,input,select,textarea{outline:none;border: none;background:none;}/*background:none 针对IE6而言*/
+			textarea{resize:none;}
+			a{text-decoration:none;}
+			table{margin:50px auto;}
+			td{display: inline-block;margin-left: 20px;}
+			tr{margin-top: 10px;display: block;}
+			.btn{background-color: #2f79ba;color: #fff;padding:10px;border-radius: 5px;width: 70px}
+			input{border:1px solid #ccc;border-radius: 5px;height: 37px; width: 250px;padding-left: 10px;line-height:37px;font-size: 14px}
+			.title{width: 50px;text-align: center;}
+			.tips{margin-top: 0px;color:#ccc;}
+			.error{border-color:#ec6f77;}
+			.success{border-color: #a9d99c}
+			.error_tips{color:#ec6f77;}
+			.success_tips{color: #a9d99c}
