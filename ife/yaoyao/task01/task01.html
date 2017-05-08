@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>任务一：表单（一）单个表单项的检验</title>
+		<style type="text/css">
+			body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{margin:0;padding:0;}
+			li{list-style: none;}
+			button,input,select,textarea{outline:none;border: none;background:none;}/*background:none 针对IE6而言*/
+			textarea{resize:none;}
+			a{text-decoration:none;}
+			table{margin:50px auto;}
+			td{display: inline-block;margin-left: 20px;}
+			tr{margin-top: 10px;display: block;}
+			.btn{background-color: #2f79ba;color: #fff;padding:10px;border-radius: 5px;width: 70px}
+			input{border:1px solid #ccc;border-radius: 5px;height: 37px; width: 250px;padding-left: 10px;line-height:37px;font-size: 14px}
+			.title{width: 50px;text-align: center;}
+			.tips{margin-top: 0px;color:#ccc;}
+			.error{border-color:#ec6f77;}
+			.success{border-color: #a9d99c}
+			.error_tips{color:#ec6f77;}
+			.success_tips{color: #a9d99c}
+		</style>
+	</head>
+	
+	<body>
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="title"><label for="name-input">名称</label></td>
+				<td><input type="text" name="name" id="content" /></td>
+				<td><button type="button" class="btn" id="evaluate">验证</button></td>
+			</tr>
+			<tr class="tips">
+				<td class="title"></td>
+				<td id="tip_text">必填，长度为4~16个字符</td>
+				<td></td>
+				
+			</tr>
+		</table>
+		
+	</body>
+	<script>
+		window.onload = function(){
+			var btn = document.getElementById('evaluate');
+			var tips = document.getElementById('tip_text');
+			var content = document.getElementById('content');
+			
+			document.onkeydown = function(e){
+				if(!e){
+					e = window.event;
+				}
+				//13对应键盘回车键
+				if((e.keyCode || e.which) == 13){
+					btn.onclick();
+				}
+			}
+			
+			btn.onclick = function(){
+				var content = document.getElementById('content');
+				var text = content.value;
+				var length = 0;
+				
+				for(var i = 0; i < text.length; i++){
+					var countCode = text.charCodeAt(i);
+					if(countCode >= 0 && countCode <= 128){
+						length++;
+					}else{
+						length += 2;
+					}
+				}
+				if(text.length == 0){
+					showError('名字不能为空');
+				}
+				else if(length < 4 || length > 16){
+					showError('请输入长度为4~16位字符');
+				}else{
+					content.className = 'success';
+					tips.innerHTML = '名字格式正确';
+					tips.className = 'success_tips';
+				}
+			}
+			
+			function showError(warning){
+				content.className = 'error';
+				tips.innerHTML = warning;
+				tips.className = 'error_tips';
+			}
+		}
+	</script>
+</html>

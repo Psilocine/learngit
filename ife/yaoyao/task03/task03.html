@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>任务三：表单（三）联动</title>
+		<style type="text/css">
+			body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{margin:0;padding:0;}
+			li{list-style: none;}
+			textarea{resize:none;}
+			a{text-decoration:none;}
+			
+			body{
+				min-width: 800px;
+			}
+			
+			.container{
+				position: relative;
+				padding-top: 150px;
+				margin: 0 auto;
+				text-align: center;
+				width: 250px;
+				height: 60px;
+			}
+			
+			.school{
+				position: absolute;
+				bottom: 0;
+				left: 17%;
+			}
+			
+			.social{
+				position: absolute;
+				bottom: 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- select part -->
+		<div class="container">
+			<input type="radio" name="1" id="student" value="在校生" checked/>
+			<label for="student">在校生</label>
+			<input type="radio" name="1" id="worker" value="非在校生" />
+			<label for="worker">非在校生</label>
+		
+		
+		<!-- changeable part -->
+			<div class="school" id="school" style="display: block;">
+				<strong>学校</strong>
+				<select id="cityName">
+					<option>福建</option>
+					<option>广东</option>
+					<option>北京</option>
+				</select>
+				
+				<select id="schoolName">
+					<option>华侨大学</option>
+					<option>福州大学</option>
+					<option>厦门大学</option>
+				</select>
+			</div>
+			
+			<div class="social" id='sociaty' style="display: none;">
+				<strong>就业单位</strong>
+				<input type="text"/>
+			</div>
+		</div>
+			
+			
+	<script>
+		var school = document.getElementById('school');
+		var sociaty = document.getElementById('sociaty');
+		var cN = document.getElementById('cityName');
+		var sN = document.getElementById('schoolName');
+		
+		student.onchange = function(){
+			school.style.display = 'block';
+			sociaty.style.display = 'none';
+		}
+		
+		worker.onchange = function(){
+			school.style.display = 'none';
+			sociaty.style.display = 'block';
+		}
+		
+		cN.onchange = function(){
+			changeSchool(cN.value);
+		}
+		
+		function changeSchool(opt){
+			sN.options.length = 0;
+			switch(opt){
+				case '福建':
+					sN.add(new Option('华侨大学'));
+					sN.add(new Option('福州大学'));
+					sN.add(new Option('厦门大学'));
+					break;
+				case '广东':
+					sN.add(new Option('暨南大学'));
+					sN.add(new Option('中山大学'));
+					break;
+				case '北京':
+					sN.add(new Option('北京大学'));
+					sN.add(new Option('清华大学'));
+					break;
+			}
+		}
+		
+	</script>		
+	</body>
+</html>

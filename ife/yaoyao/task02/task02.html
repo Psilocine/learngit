@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>任务一：表单（一）单个表单项的检验</title>
+		<style type="text/css">
+			body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{margin:0;padding:0;}
+			li{list-style: none;}
+			input,select,textarea{outline:none;border: none;background:none;}/*background:none 针对IE6而言*/
+			textarea{resize:none;}
+			a{text-decoration:none;}
+			table{margin:50px auto;}
+			td{display: inline-block;margin-left: 20px;}
+			tr{margin-top: 10px;display: block;}
+			input{border:1px solid #ccc;border-radius: 5px;height: 37px; width: 250px;padding-left: 10px;line-height:37px;font-size: 14px}
+			.title{width: 70px;text-align: center; font-weight: bold;}
+			.error_tips{color:#ec6f77; display: table-row;}
+			.success_tips{color: #a9d99c; display: table-row;}
+			.button-box{text-align: right; width: 260px;}
+			.tips{display: none;}
+		</style>
+	</head>
+	
+	<body>
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="title"><label for="i1">名称</label></td>
+				<td><input type="text" id="i1" /></td>
+			</tr>
+			<tr id="t1" class="tips">
+				<td class="title"></td>
+				<td id="c1">必填，长度为4~16位字符</td>
+			</tr>
+			
+			<tr>
+				<td class="title"><label for="i2">密码</label></td>
+				<td><input type="password" id="i2" /></td>
+			</tr>
+			<tr id="t2" class="tips" >
+				<td class="title"></td>
+				<td id="c2">必填，长度为6位以上</td>
+			</tr>
+			
+			<tr>
+				<td class="title"><label for="i3">密码确认</label></td>
+				<td><input type="password" id="i3" /></td>
+			</tr>
+			<tr id="t3" class="tips">
+				<td class="title"></td>
+				<td id="c3">必填，长度为6位以上</td>
+			</tr>
+			
+			<tr>
+				<td class="title"><label for="i4">邮箱</label></td>
+				<td><input type="email" id="i4" /></td>
+			</tr>
+			<tr id="t4" class="tips">
+				<td class="title"></td>
+				<td id="c4">必填，请输入正确邮箱</td>
+			</tr>
+			
+			<tr>
+				<td class="title"><label for="i5">手机</label></td>
+				<td><input type="tel" id="i5" /></td>
+			</tr>
+			<tr id="t5" class="tips">
+				<td class="title"></td>
+				<td id="c5">必填，请输入11位手机号</td>
+			</tr>
+			
+			<tr>
+				<td class="title"></td>
+				<td class="button-box"><button id="submit">提交</button></td>
+			</tr>
+			
+		</table>
+
+	</body>
+	<script>
+		
+		(function(){
+			var tipsText = [
+				{tips: '必填，长度为4~16位字符', right: '名字格式正确', wrong: '名字格式错误', isPassed: false},
+				{tips: '必填，密码位数6位以上字母数字', right: '密码格式正确', wrong: '密码格式错误', isPassed: false},
+				{tips: '必填，请重复密码', right: '密码输入一致', wrong: '密码不一致', isPassed: false},
+				{tips: '必填，请输入邮箱', right: '邮箱格式正确', wrong: '邮箱格式错误', isPassed: false},
+				{tips: '必填,请输入手机号', right: '手机格式正确', wrong: '手机格式错误', isPassed: false}
+			];
+			
+			var regEvent = function(node, event, func){
+				if(node.addEventListener){
+					node.addEventListener(event, func);
+				}
+				else if(node.attachEvent){
+					node.attachEvent("on" + event, func);
+				}
+				else{
+					node['on' + event] = func;
+				}
+			};
+			
+			function regValue(id){
+				var flag = false;
+				var input = document.getElementById('i' + id);
+				var tips = document.getElementById('t' + id);
+				var content = document.getElementById('c' + id);
+				var value = input.value;
+				switch(parseInt(id)){
+					case 1:
+						flag = /^[a-zA-Z0-9_]{4,16}$/.test(value.replace(/[\u0391-\uFFE5]/g,'nn'));
+						break;
+					case 2:
+						flag = /^\S{6,16}$/.test(value);
+						break;
+					case 3:
+						flag = document.getElementById('i2').value == value;
+						break;
+					case 4:
+						flag = /^([a-zA-Z0-9] + [_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9] + [_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}/.test(value);
+						break;
+					case 5:
+						flag = /^[1][0-9]{10}$/.test(value);
+						break;
+				}
+
+				if(flag){
+					input.style.borderColor = 'green';
+					tips.className = 'success_tips';
+					content.innerHTML = tipsText[id - 1].right;
+					tipsText[id - 1].isPassed = true;
+				}else{
+					input.style.borderColor = 'red';
+					tips.className = 'error_tips';
+					content.innerHTML = tipsText[id - 1].wrong;
+					tipsText[id - 1].isPassed = false;
+				}
+			};
+			
+			var inputs = document.getElementsByTagName('input');
+			[].forEach.call(inputs, function(v){
+				var id = v.getAttribute('id').slice(1);
+				var tipsId = 't' + v.getAttribute('id').slice(1);
+				regEvent(v, 'focus', function(){
+					document.getElementById(tipsId).style.display = 'table-row';
+				});
+				regEvent(v, 'blur', function(){
+					regValue(id);
+				});
+			});
+			
+			regEvent(document.getElementById('submit'), 'click', function(e){
+				e.preventDefault();
+				
+				for(var i = 0; i < tipsText.length; i++){
+					if(tipsText[i].isPassed == false){
+						alert('提交失败');
+						return;
+					}
+				}
+				alert('提交成功')
+				
+			});
+		})();
+		
+		</script>
+</html>
