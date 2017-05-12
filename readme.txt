@@ -1,5 +1,5 @@
 2017IFE任务汇总:
-https://psilocine.github.io/learngit/ife/index.html
+https://psilocine.github.io/learngit/index.html
 
 走过的一些坑,作此文档用来激励自己.
 								-PsiloLau
