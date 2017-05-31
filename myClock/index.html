@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"
+    <title>Psilo's Clock</title>
+    <style> 
+      body{width:100%;background:#1F1A17}
+      @media (min-width: 374px){  
+        #date{width: 700px;margin: 300px auto 50px auto;}
+        #date img{width: 62px;height: 90px;}
+        #clock{width: 500px;margin: 10px auto}
+        #clock img{width: 55px;height: 75px;
+      }
+      @media (min-width: 992px){  
+        #date{width: 800px;margin: 200px auto 100px auto;}
+        #date img{width: 70px;height: 105px;}
+        #clock{width: 540px;margin: 10px auto}
+        #clock img{width: 60px;height: 85px;
+      }
+      @media (min-width: 1200){  
+        #date{width: 1122px;margin: 300px auto 100px auto;}
+        #date img{width: 105px;height: 135px;}
+        #clock{width: 540px;margin: 10px auto}
+        #clock img{width: 60px;height: 85px;}
+      }
+    </style>
+  </head>
+  <body>
+    <!-- years, months, days -->
+    <div id="date">
+      <img src="img/2.jpg">
+      <img src="img/0.jpg">
+      <img src="img/1.jpg">
+      <img src="img/7.jpg">
+      <img src="img/dian.jpg">
+      <img src="img/6.jpg">
+      <img src="img/2.jpg">
+      <img src="img/dian.jpg">
+      <img src="img/2.jpg">
+      <img src="img/2.jpg">
+    </div>
+    <!-- years, months, days end-->
+    <!-- hours, minutes, secords -->
+    <div id="clock">
+      <img src="img/0.jpg">
+      <img src="img/0.jpg">
+      <img src="img/mao.jpg">
+      <img src="img/0.jpg">
+      <img src="img/0.jpg">
+      <img src="img/mao.jpg">
+      <img src="img/0.jpg">
+      <img src="img/0.jpg">
+    </div>
+    <!-- hours, minutes,secords end-->
+    /*copyright Psilo*/
+    <script>
+      /*如果获取的时间是单数需在前面加零*/
+      function toDouble(num){
+        if(num<10){
+          return '0'+num;
+        }else{
+          return ''+num;
+        }
+      }
+      /*获取第一行年月日的数据*/
+      function year(){
+        var oDiv = document.getElementById('date');
+        var aImg = oDiv.getElementsByTagName('img');
+        var date = new Date();
+        var str = date.getFullYear() + '.' + toDouble(date.getMonth() + 1) + '.' + toDouble(date.getDate());
+        for(var i = 0; i < str.length; i++){
+          if(str.charAt(i)=='.'){continue;}
+          aImg[i].src = 'img/' +  str.charAt(i) + '.jpg';
+        }
+      }
+      /*获取第二行时间的数据*/
+      function tick(){
+        var oDiv = document.getElementById('clock');
+        var aImg = oDiv.getElementsByTagName('img');
+        var date = new Date();
+        var str = toDouble(date.getHours()) + ':' + toDouble(date.getMinutes()) + ':' + toDouble(date.getSeconds());
+        for(var i = 0; i < str.length; i++){
+          if(str.charAt(i)==':'){continue;}
+          aImg[i].src = 'img/' +  str.charAt(i) + '.jpg';
+        }
+      }
+
+      setTimeout(year, 1000);
+      setInterval(tick, 1000);
+      year();
+      tick();
+
+    </script>
+  </body>
+</html>
