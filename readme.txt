@@ -48,3 +48,15 @@ https://psilocine.github.io/learngit/index.html
 
 2017年5月20日 23:58:26
 1. class命名最好大于等于三个字母, 如advertisement, 不要写ad (会被广告插件过滤掉,  写adv, avt
+
+2017年7月9日 17:47:06
+1. z-index 只能在定位元素在奏效, 如position:absolute
+2. 做nav时, 用ul li遇到图片和文字一起的时候, 默认文字在图片的baseline, 文字会往下移动, 这时候不用调负margin, 只用vertical middle就行
+
+2017年8月9日 17:46:53
+1. 原型的5个重要规则.
+    1/ 所有的引用类型(对象,数组,函数)都具有对象特征, 即可自由扩展属性.
+    2/ 所有的引用类型都有一个__proto__属性, 属性值是一个普通的对象.
+    3/ 所有的函数, 都有一个prototype属性, 属性值也是一个普通的对象.
+    4/ 所有的引用类型, __proto__属性值指向它的构造函数的'prototype'属性值.
+    5/ 当试图得到一个对象的某个属性时, 如果这个对象本身没有, 那么会去它的__proto__(它的构造函数的prototype)中寻找
