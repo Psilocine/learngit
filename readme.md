@@ -1,4 +1,4 @@
-### 2017IFE任务汇总:
+# 2017IFE任务汇总:
 https://psilocine.github.io/learngit/index.html
 (全做完了哦~ FAUX!
 
@@ -57,9 +57,9 @@ https://psilocine.github.io/learngit/index.html
     1/ 所有的引用类型(对象,数组,函数)都具有对象特征, 即可自由扩展属性.
     2/ 所有的引用类型都有一个__proto__属性, 属性值是一个普通的对象.
     3/ 所有的函数, 都有一个prototype属性, 属性值也是一个普通的对象.
-    4/ 所有的引用类型, __proto__属性值指向它的构造函数的'prototype'属性值.
+    4/ 所有的引用类型,__proto__属性值指向它的构造函数的'prototype'属性值.
     5/ 当试图得到一个对象的某个属性时, 如果这个对象本身没有, 那么会去它的__proto__(它的构造函数的prototype)中寻找
 
-2017年8月12日 15:48:39
+### 2017年8月12日 15:48:39
 1. 要知道DOMContentLoaded和window.onload的区别
 2. 了解从输入url到得到html的详细过程、html css js渲染过程等
