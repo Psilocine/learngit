@@ -62,3 +62,8 @@
 ### 2017年8月12日 15:48:39
 1. 要知道DOMContentLoaded和window.onload的区别
 2. 了解从输入url到得到html的详细过程、html css js渲染过程等
+3. 横向nav li有间距. 这是因为用了inline-block后, html的文本节点也就是空格也会算进去,解决方法大概分以下几种:
+    1. 用float left代替display inline-block;
+    2. li标签之间不要有文本节点, (压缩后没此问题;
+    3. 给ul一个font-size:0, (缺点是要在li再设font-size;
+    
