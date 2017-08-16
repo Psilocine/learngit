@@ -67,3 +67,5 @@
     2. li标签之间不要有文本节点, (压缩后没此问题;
     3. 给ul一个font-size:0, (缺点是要在li再设font-size;
     
+### 2017年8月16日 22:02:50
+1. md文档中的链接, [点我](http://github.com/psilo)cine)如果链接里面有括号, 这种方法不适用, 会提前终止, 而且也没有转义. 只能用第二种[点我]:https://github.com/psilocine.
