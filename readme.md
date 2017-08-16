@@ -68,8 +68,8 @@
     3. 给ul一个font-size:0, (缺点是要在li再设font-size;
     
 ### 2017年8月16日 22:02:50
-1. md文档中的链接, [点我](http://github.com/)psilocine)如果链接里面有括号, 这种方法不适用, 会提前终止.  
+1. md文档中的链接, [psilo的github](http://github.com/)psilocine)如果链接里面有括号, 这种方法不适用, 会提前终止.  
    这时候就要选择其他的方法:
    1. 第一, 可以用转义, 左右括号在href里的表示分别是%28 %29.
-   2. 用[psilo的github][id], 然后在文档的任意一行写上id的定义即可.
-   3. 用[psilo的github]:地址 然后同样在文档任意一行写上[psilo的github][]就行了.
+   2. 用[psilo的github][id], 然后在文档的任意一行写上id的定义即可, 注意要加上中括号.
+   3. 用[psilo的github]: 地址 然后同样在文档任意一行写上[psilo的github][]就行了.
