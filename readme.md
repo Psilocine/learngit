@@ -1,5 +1,5 @@
 # 2017IFE任务汇总:
-[汇总](https://psilocine.github.io/learngit/index.html)
+[汇总](https://psilocine.github.io/Baidu-2017IFE/)
 (全做完了哦~ FAUX!
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
