@@ -4,6 +4,17 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年8月22日 21:27:25
+1. encodeURI()和encodeURIComponent()的区别, 二者都可以将传递的字符串进行编码, 前者对(：;/?:@&=+$,#)不会进行转义, 重点就是这个斜杠/和:. 比如一段 http://github.com/p silo 前者输出http://github.com/p%20silo, 后者输出http%3A%2F%2Fgithub.com/p%20silo
+2. 上述说到url地址, 针对url各个部分, BOM的location也要相当注意. http://github.com:80/psilocine#Home?name=psilo&password=123
+    1. location.hash => 锚部分 #Home
+    2. location.host => 主机名和端口 github.com:80
+    3. location.hostname => 主机名 github.com
+    4. location.href => 完整URL http://github.com:80/psilocine#Home
+    5. location.pathname => 路径名 /psilocine
+    6. location.port => 端口号 80
+    7. location.protocol => 协议 http:
+    8. location.search => 返回查询部分 ?name=psilo&password=123
 
 ### 2017年8月18日 13:53:23
 1. 还是md文档的坑, 这次关于代码块如何显示, 为何我们的代码块有时候显示有时候不显示?
