@@ -4,6 +4,28 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+
+### 2017年8月23日 23:44:38
+1. scss写伪类的时候会有bug
+```javascript
+  a {
+    :hover {
+      ...
+    }
+  }
+```
+输出的css是
+```javascript
+  a {
+    ...
+  }
+
+  a :hover {  // => 相当于 a *:hover
+    ...
+  }
+```
+解决的方法是在:hover前面加上&即可.
+
 ### 2017年8月22日 21:27:25
 1. encodeURI()和encodeURIComponent()的区别, 二者都可以将传递的字符串进行编码, 前者对(：;/?:@&=+$,#)不会进行转义, 重点就是这个斜杠/和:. 比如一段 http://github.com/p silo 前者输出http://github.com/p%20silo, 后者输出http%3A%2F%2Fgithub.com/p%20silo
 2. 上述说到url地址, 针对url各个部分, BOM的location也要相当注意. http://github.com:80/psilocine#Home?name=psilo&password=123
