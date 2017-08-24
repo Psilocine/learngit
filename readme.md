@@ -4,6 +4,41 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年8月24日 13:06:05
+1. 操作节点的四种方法 appendChild(), insertBefore(), replaceChild(), removeChild().
+  最常用的appendChild(), 一个参数, 用于在父节点的类数组childNodes列表末尾添加一个节点. 添加完成后, childNodes的最后一个节点关系指针得到相应更新. 更新完成后, appendChild()返回新增节点.
+```javascript
+var returnedNode = someNode.appendChild(newNode);
+alert(returnedNode == newNode);  // true
+alert(newNode == someNode.lastChild);  // true
+```
+  如果要把节点放在childNodes的特定位置, 使用insertBefore(), 两个参数, 第一个是需要插入的节点, 第二个是插入节点的位置. 第二个参数如果是null, 和appendChild()效果一致.
+```javascript
+var returnedNode = someNode.insertBefore(newNode, null);
+alert(returnedNode == someNode.lastChild);  // true
+
+var returnedNode = someNode.insertBefore(newNode, someNode.firstChild);
+alert(returnedNode == newNode);  // true
+alert(newNode == someNode.firstChild); // true
+
+var returnedNode = someNode.insertBefore(newNode, someNode.lastChild);
+alert(returnedNode == newNode);  // true
+alert(newNode == someNode.childNode[someNode.childNode.length-2]); // true  newNode位于倒二
+```  
+
+replaceChild(), 替换节点, 两个参数, 第二个参数是要移除的节点.
+```javascript
+// 替换第一个子节点 替换成newNode
+var returnedNode = someNode.replaceChild(newNode, someNode.firstChild);
+```
+
+removeChild(), 移除节点, 一个参数.
+```javascript
+// 移除第一个子节点
+var returnedNode = someNode.removeChild(someNode.firstChild);
+```
+
+还有cloneNode(), 可传参布尔值true, cloneNode(true)表示深拷贝, 反之为浅. 还要有上述的添加节点方法, 不然拷贝完的副本是没有父节点的, 不在Dom树上.
 
 ### 2017年8月23日 23:44:38
 1. scss写伪类的时候会有bug
