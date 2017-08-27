@@ -4,6 +4,16 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年8月27日 19:23:49
+1. 函数表达式和函数声明
+```javascript
+var getName = function () { console.log('hsbds'); };
+function getName () { console.log('hssm'); }
+
+getName();
+```
+输出结果为hssm, 函数表达式在作用域里会变量提升, 而函数声明会函数提升, 理解了这一点就好办了, 可以想象函数声明的任何函数, 都是在作用域的最上方, 因此会被函数表达式覆盖.
+
 ### 2017年8月24日 13:06:05
 1. 操作节点的四种方法 appendChild(), insertBefore(), replaceChild(), removeChild().
   最常用的appendChild(), 一个参数, 用于在父节点的类数组childNodes列表末尾添加一个节点. 添加完成后, childNodes的最后一个节点关系指针得到相应更新. 更新完成后, appendChild()返回新增节点.
