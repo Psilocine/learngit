@@ -4,6 +4,24 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年8月29日
+addEventListener和attachEvent的一些细节
+1. 给页面中最后一代监听addEvnetListener时, true和false都只会在事件冒泡阶段执行. 
+2. 解除监听的时候需要和添加监听时候的参数相同
+```javascript
+var btn = document.getElementById('myBtn');
+btn.addEventListener('click', function() {
+  alert('hi');
+}, false);
+
+// 解除无效, 此时的 function(){} 并不是上述那一个.
+btn.removeEventListener('click', function() {
+  alert('hi');
+}, false); 
+```
+解决的方法就是给函数一个变量, 传入变量即可.
+3.addEventListener执行顺序是从上往下, ie的attachEvent则相反. ie和高级浏览器取消冒泡和取消默认行为也不一样, 需要做兼容.
+
 ### 2017年8月28日 15:28:51
 1. css选择器的问题关于.的连接, 如 li.open.menu 是找到li元素同时有open和menu的类. li.open#menu, 找到 id是menuclass是open的li, .open.menu是找到同时具有这两个类名的任意标签
 
