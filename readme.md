@@ -8,7 +8,7 @@
 1. clientX, clientY pageX, pageY screenX, screenY区别
 2. mouseenter, mouseleave mouseover, mouseout区别
 3. click dblclick触发原理, mousedown mouseup click, mousedown mouseup click mousedown mouseup click dblclick.  mousedown, mouseup被取消, click失效
-
+4. typeOf function(){} => 'function'; typeOf (function(){})() => 'undefined'  没有return都是undefined; typeOf (function(){return 1})() => 'number'
 ### 2017年8月29日
 addEventListener和attachEvent的一些细节
 1. 给页面中最后一代监听addEvnetListener时, true和false都只会在事件冒泡阶段执行. 
