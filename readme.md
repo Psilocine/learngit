@@ -24,7 +24,7 @@ btn.removeEventListener('click', function() {
   alert('hi');
 }, false); 
 ```
-解决的方法就是给函数一个变量, 传入变量即可.
+解决的方法就是给函数一个变量, 传入变量即可.  
 3.addEventListener执行顺序是从上往下, ie的attachEvent则相反. ie和高级浏览器取消冒泡和取消默认行为也不一样, 需要做兼容.
 
 ### 2017年8月28日 15:28:51
