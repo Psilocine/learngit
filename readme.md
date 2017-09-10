@@ -8,7 +8,8 @@
 ### 2017年9月10日
 1. Flash提供了ExternalInterface接口与JavaScript通信, ExternalInterface有两个方法：call和addCallback. call让Flash调用js里的方法, addCallback是用来注册flash函数让js调用.
 2. a:link {} a:visited {} a:hover {} a:active {}  (固定顺序: LoVe HAte 记忆口诀 爱与恨).
-
+3. json字符串必须用双引号. stringify()把一个javascript对象序列化为json字符串, parse()把json字符串转为JavaScript对象. stringify还能传两个可选参数, 第一个是过滤器, 可以是数组,函数. stringify不传空格数是不包含空格字符和缩进的, 所以第二个参数是空格数(数值 最大为10), 可以传非数值. parse()有一个可选参数, 是一个函数(还原函数).
+4.
 ### 2017年9月9日
 ```JavaScript
 function Foo(){
@@ -21,7 +22,7 @@ var f1=Foo();
 f1();
 f1();
 ```
-1. 答案是 0 1 别被var i = 0给迷惑, 这里考点是闭包的性质. 这里可以看成var f1 = function(){document.write(i++);}; 闭包可以通过作用域链读取上层变量, 另一个重要的性质就是会把这些变量的值保存在内存中, 所以f1()后 i = 1 保存在内存中.
+1. 上述题目答案是 0 1 别被var i = 0给迷惑, 这里考点是闭包的性质. 这里可以看成var f1 = function(){document.write(i++);}; 闭包可以通过作用域链读取上层变量, 另一个重要的性质就是会把这些变量的值保存在内存中, 所以f1()后 i = 1 保存在内存中.
 2. console.log('Value is ' + (val != '0') ? 'define' : 'undefine'); 输出define, 前面的'Value is'是障眼法, 实际上考察三目运算符和符号优先级, 加号+优先级比? :高, 所以无论val有无定义, ('Value is' + (...))一定是true.
 3. try-catch-finally, 如果代码包含finally语句, 无论是try还是catch的return语句都会被忽略. 因此有finally就不用写catch了, ie7之前需要写catch, finally才会执行.
 
