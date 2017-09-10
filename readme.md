@@ -4,6 +4,11 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+
+### 2017年9月10日
+1. Flash提供了ExternalInterface接口与JavaScript通信, ExternalInterface有两个方法：call和addCallback. call让Flash调用js里的方法, addCallback是用来注册flash函数让js调用.
+2. a:link {} a:visited {} a:hover {} a:active {}  (固定顺序: LoVe HAte 记忆口诀 爱与恨).
+
 ### 2017年9月9日
 ```JavaScript
 function Foo(){
