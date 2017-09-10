@@ -10,7 +10,7 @@
 2. a:link {} a:visited {} a:hover {} a:active {}  (固定顺序: LoVe HAte 记忆口诀 爱与恨).
 3. json字符串必须用双引号. stringify()把一个javascript对象序列化为json字符串, parse()把json字符串转为JavaScript对象. stringify还能传两个可选参数, 第一个是过滤器, 可以是数组,函数. stringify不传空格数是不包含空格字符和缩进的, 所以第二个参数是空格数(数值 最大为10), 可以传非数值. parse()有一个可选参数, 是一个函数(还原函数).
 4. 跨域解决方案 CORS, ie8用XDomainRequest对象支持, 其他浏览器用XHR对象支持. 图像ping和jsonp也能解决跨域通信.
-
+5. 作用域安全的构造函数(可能漏写new, 保证函数健壮), 惰性载入函数(不必每次执行if语句).
 ### 2017年9月9日
 ```JavaScript
 function Foo(){
