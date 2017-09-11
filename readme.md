@@ -20,8 +20,7 @@
                 <i style=”position:absolute;float:left;width:100px;height:50px;”>hello</i>
             </span>
         </div>
-        
-span height继承div 所以高为200px 宽度auto由内容决定, i脱离文档流, span宽度为0.
+span height继承div 所以高为200px 宽度auto由内容决定, i脱离文档流, span宽度为0.  
 6. BFC: 满足以下一项即可成为BFC  
 float的值不为none;  
 overflow的值不为visible;  
