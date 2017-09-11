@@ -9,10 +9,7 @@
 2. Boolean([]); // => true,  Number([]); // => 0,  Number({}); // => NaN,  Number(false); // => 0  
    [] == false // => true,  {} == false // NaN == 0 => false.
 3. canvas绘制矢量图, svg绘制位图.
-4. 1. A:IE6.0的div的内嵌div可以把父级的高度撑大, 而FireFox不可以, 要自己设置高度;
-2. 当设置为三列布局时, IE6.0的float宽度不能达到100％, 而FireFox可以. 当设置为两列布局时, 两种浏览器都可以;
-3. FF非float的div前面有同一父级的float的div, 此div若有背景图, 要使用clear: both, 才能显示背景图, 而IE6.0中不用使用clear: both;
-4. 在[text-decoration:underline]的属性下, IE6.0显示的下划线会比FireFox低一点. 在FireFox中, 部分笔画会在下划线的下面1个象素左右.
+4. 1. A:IE6.0的div的内嵌div可以把父级的高度撑大, 而FireFox不可以, 要自己设置高度;2. 当设置为三列布局时, IE6.0的float宽度不能达到100％, 而FireFox可以. 当设置为两列布局时, 两种浏览器都可以;3. FF非float的div前面有同一父级的float的div, 此div若有背景图, 要使用clear: both, 才能显示背景图, 而IE6.0中不用使用clear: both;4. 在[text-decoration:underline]的属性下, IE6.0显示的下划线会比FireFox低一点. 在FireFox中, 部分笔画会在下划线的下面1个象素左右.
 
 ### 2017年9月10日
 1. Flash提供了ExternalInterface接口与JavaScript通信, ExternalInterface有两个方法：call和addCallback. call让Flash调用js里的方法, addCallback是用来注册flash函数让js调用.
