@@ -22,14 +22,14 @@
         </div>
 span height继承div 所以高为200px 宽度auto由内容决定, i脱离文档流, span宽度为0.  
 6. BFC: 满足以下一项即可成为BFC  
-float的值不为none;  
-overflow的值不为visible;  
-display的值为inline-block、table-cell、table-caption;  
-position的值为absolute或fixed;  
+    float的值不为none;  
+    overflow的值不为visible;  
+    display的值为inline-block、table-cell、table-caption;  
+    position的值为absolute或fixed;  
   用BFC来做什么:  
-  1.外边距折叠  
-  2.容器无高度包含浮动元素  
-  3.阻止文字环绕
+    1.外边距折叠  
+    2.容器无高度包含浮动元素  
+    3.阻止文字环绕
 
 ### 2017年9月10日
 1. Flash提供了ExternalInterface接口与JavaScript通信, ExternalInterface有两个方法：call和addCallback. call让Flash调用js里的方法, addCallback是用来注册flash函数让js调用.
