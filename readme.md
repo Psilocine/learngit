@@ -14,20 +14,22 @@
    3. FF非float的div前面有同一父级的float的div, 此div若有背景图, 要使用clear: both, 才能显示背景图, 而IE6.0中不用使用clear: both;
    4. 在[text-decoration:underline]的属性下, IE6.0显示的下划线会比FireFox低一点. 在FireFox中, 部分笔画会在下划线的下面1个象素左右.
 5. 非块级元素无法设宽高; float会把浮动元素变成块级元素; 绝对定位脱离文档流.
+
         <div style=”width:400px;height:200px;”>
             <span style=”float:left;width:auto;height:100%;”>
                 <i style=”position:absolute;float:left;width:100px;height:50px;”>hello</i>
             </span>
         </div>
+        
 span height继承div 所以高为200px 宽度auto由内容决定, i脱离文档流, span宽度为0.
-6. BFC: 满足以下一项即可成为BFC
-float的值不为none;
-overflow的值不为visible;
-display的值为inline-block、table-cell、table-caption;
-position的值为absolute或fixed;
-  用BFC来做什么:
-  1.外边距折叠
-  2.容器无高度包含浮动元素
+6. BFC: 满足以下一项即可成为BFC  
+float的值不为none;  
+overflow的值不为visible;  
+display的值为inline-block、table-cell、table-caption;  
+position的值为absolute或fixed;  
+  用BFC来做什么:  
+  1.外边距折叠  
+  2.容器无高度包含浮动元素  
   3.阻止文字环绕
 
 ### 2017年9月10日
