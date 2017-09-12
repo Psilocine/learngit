@@ -5,7 +5,7 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 ### 2017年9月12日
-1. 
+1. 函数返回值return和值之间不能空行, 不然返回undefined.
 
 ### 2017年9月11日
 1. with try-catch eval可以改变作用域链.
