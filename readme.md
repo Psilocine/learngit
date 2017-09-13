@@ -4,6 +4,11 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年9月13日
+1. 离线检测 navigator.onLine 值为true表示设备能上网, 正常工作; false表示设备离线, 执行离线状态时的任务. 实际上HTML5还定义了online offline两个事件, 对象都是window. 在加载页面后用navigator.onLine获得初始状态, 然后靠这两个事件来检测应用是否变化.
+2. 数据存储 HTTP Cookie, 也叫cookie. 一些限制: cookie绑定在特定的域名下, 无法被其他域访问; cookie总个数有限制, 如ie6最多20个; cookie容量不能超4KB. cookie由名称,值,域,路径,失效时间,安全标志构成. 服务器将上述发给浏览器, 而浏览器只能发键值给服务器,且都需要URL编码.
+3. Web storage存储机制 sessionStorage和globalStorage(被localStorage取代). 出现的原因是克服cookie的一些限制. 二者区别: session针对回话的小段数据存储, 即数据值保持到浏览器关闭. local除非用户通过js清除或清除浏览器缓存, 会一直存在. Web storage容量能达到5MB.
+
 ### 2017年9月12日
 1. 函数返回值return和值之间不能空行, 不然返回undefined.
 
