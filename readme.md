@@ -4,6 +4,37 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年9月14日
+1. 解耦HTML/JavaScript. HTML和JavaScript过于紧密耦合, 出现错误的时候就要判断错误是在HTML还是在JavaScript部分, 第一种情况是HTML中用script元素包含内联代码; 第二种情况就是JavaScript中用innerHTML包含html代码. 行为和数据需要保持分离. HTML和JavaScript解耦可以在调试过程中节省时间, 更加容易确定错误的来源和减轻维护的额难度.
+2. 解耦CSS/JavaScript. 在JavaScript中常常会用到element.style.color = 'red';这样来更改某些样式. 实际上让CSS和JavaScript完全解耦是不可能的, 不过我们可以将大部分样式信息留在CSS中, 通过动态定义类来最小程度上减轻耦合紧密度, elment.className = 'text-color';
+3. 解耦应用逻辑/事件处理程序. 将应用逻辑validateValue从事件处理程序汇总分离出来有几个好处, 第一不依赖事件处理, 只接受一个值, 后续如果有事件引发同样的逻辑, 可以调用它; validateValue更容易被触发, 在事件处理程序中如果发生错误, 你需要判断两边, 但分离后你手动传值就能判断出应用逻辑是否有错. 几条原则: 勿将event对象传给其他方法, 只传来自event对象中所需的数据; 任何可以在应用层面的动作都应该可以在不执行任何事件处理程序的情况下运行; 任何事件处理程序都应该处理事件, 然后将处理转交给应用逻辑.
+```JavaScript
+function handleKeyPress (event) {
+  event = EventUtil.getEvent(event);
+  if (event.keyCode == 13) {
+    var target = EventUtil.getTarget(event);
+    var value = 5 * parseInt(target.value);
+    if (value > 10) {
+      document.getElementById('error-msg').style.display = 'block';
+    }
+  }
+}
+----------------------------------
+function validateValue (value) {
+    value = 5 * parseInt(value);
+    if (value > 10) {
+      document.getElementById('error-msg').style.display = 'block';
+    }
+}
+function handleKeyPress (event) {
+  event = EventUtil.getEvent(event);
+  if (event.keyCode == 13) {
+    var targe = EventUtil.getTarget(event);
+    validateValue(target.value);
+  }
+}
+```
+
 ### 2017年9月13日
 1. 离线检测 navigator.onLine 值为true表示设备能上网, 正常工作; false表示设备离线, 执行离线状态时的任务. 实际上HTML5还定义了online offline两个事件, 对象都是window. 在加载页面后用navigator.onLine获得初始状态, 然后靠这两个事件来检测应用是否变化.
 2. 数据存储 HTTP Cookie, 也叫cookie. 一些限制: cookie绑定在特定的域名下, 无法被其他域访问; cookie总个数有限制, 如ie6最多20个; cookie容量不能超4KB. cookie由名称,值,域,路径,失效时间,安全标志构成. 服务器将上述发给浏览器, 而浏览器只能发键值给服务器,且都需要URL编码.
