@@ -9,30 +9,30 @@
 2. 解耦CSS/JavaScript. 在JavaScript中常常会用到element.style.color = 'red';这样来更改某些样式. 实际上让CSS和JavaScript完全解耦是不可能的, 不过我们可以将大部分样式信息留在CSS中, 通过动态定义类来最小程度上减轻耦合紧密度, elment.className = 'text-color';
 3. 解耦应用逻辑/事件处理程序. 将应用逻辑validateValue从事件处理程序汇总分离出来有几个好处, 第一不依赖事件处理, 只接受一个值, 后续如果有事件引发同样的逻辑, 可以调用它; validateValue更容易被触发, 在事件处理程序中如果发生错误, 你需要判断两边, 但分离后你手动传值就能判断出应用逻辑是否有错. 几条原则: 勿将event对象传给其他方法, 只传来自event对象中所需的数据; 任何可以在应用层面的动作都应该可以在不执行任何事件处理程序的情况下运行; 任何事件处理程序都应该处理事件, 然后将处理转交给应用逻辑.
 ```JavaScript
-function handleKeyPress (event) {
-  event = EventUtil.getEvent(event);
-  if (event.keyCode == 13) {
-    var target = EventUtil.getTarget(event);
-    var value = 5 * parseInt(target.value);
-    if (value > 10) {
-      document.getElementById('error-msg').style.display = 'block';
+    function handleKeyPress (event) {
+      event = EventUtil.getEvent(event);
+      if (event.keyCode == 13) {
+        var target = EventUtil.getTarget(event);
+        var value = 5 * parseInt(target.value);
+        if (value > 10) {
+          document.getElementById('error-msg').style.display = 'block';
+        }
+      }
     }
-  }
-}
-----------------------------------
-function validateValue (value) {
-    value = 5 * parseInt(value);
-    if (value > 10) {
-      document.getElementById('error-msg').style.display = 'block';
+    ----------------------------------
+    function validateValue (value) {
+        value = 5 * parseInt(value);
+        if (value > 10) {
+          document.getElementById('error-msg').style.display = 'block';
+        }
     }
-}
-function handleKeyPress (event) {
-  event = EventUtil.getEvent(event);
-  if (event.keyCode == 13) {
-    var targe = EventUtil.getTarget(event);
-    validateValue(target.value);
-  }
-}
+    function handleKeyPress (event) {
+      event = EventUtil.getEvent(event);
+      if (event.keyCode == 13) {
+        var targe = EventUtil.getTarget(event);
+        validateValue(target.value);
+      }
+    }
 ```
 
 ### 2017年9月13日
