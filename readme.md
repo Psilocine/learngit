@@ -4,6 +4,9 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年9月15日
+1. 前序遍历: 先遍历根结点, 然后遍历左子树, 最后遍历右子树. 中序遍历: 先遍历左子树, 然后遍历根结点, 最后遍历右子树. 后序遍历: 先遍历左子树, 然后遍历右子树,最后遍历根节点.
+
 ### 2017年9月14日
 1. 解耦HTML/JavaScript. HTML和JavaScript过于紧密耦合, 出现错误的时候就要判断错误是在HTML还是在JavaScript部分, 第一种情况是HTML中用script元素包含内联代码; 第二种情况就是JavaScript中用innerHTML包含html代码. 行为和数据需要保持分离. HTML和JavaScript解耦可以在调试过程中节省时间, 更加容易确定错误的来源和减轻维护的额难度.
 2. 解耦CSS/JavaScript. 在JavaScript中常常会用到element.style.color = 'red';这样来更改某些样式. 实际上让CSS和JavaScript完全解耦是不可能的, 不过我们可以将大部分样式信息留在CSS中, 通过动态定义类来最小程度上减轻耦合紧密度, elment.className = 'text-color';
