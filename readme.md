@@ -5,13 +5,37 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 ### 2017年9月16日
-1. 父元素透明不影响子元素. 高级浏览器下用opacity后, 子元素会一起变透明, 显然是不行的, 这时候可以用rbga来实现; ie6, 7 ,8, 9浏览器
+1. 父元素透明不影响子元素. 高级浏览器下用opacity后, 子元素会一起变透明, 显然是不行的, 这时候可以用rbga来实现; ie6, 7 ,8, 9浏览器下用专属的filter:Alpha(opacity=x), 再将子元素设为相对定位, 可以让子元素不透明. 除此之外还可以用两个div来重叠, 设置z-index即可.
 ```html
 <div>
   <p>text</p>
 </div>
 ```
-2. 父元素模糊不影响子元素.
+2. 父元素模糊不影响子元素. 通过伪类实现, ie下也可以通过方法支持伪类从而实现.
+```css
+.test {  
+  width:420px;
+  height:420px;
+}
+/* 亲测after也可用 */
+.test::before{ 
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  content: "";
+  
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+   -ms-filter: blur(10px);    
+       filter: blur(10px);
+  z-index: -1; /* z-index负值使子元素可见 */
+  background:url("") no-repeat;
+  background-size: cover;
+  overflow:hidden;  /* 边缘是否模糊, hidden为不模糊 */
+}
+```
 
 ### 2017年9月15日
 1. 前序遍历: 先遍历根结点, 然后遍历左子树, 最后遍历右子树. 中序遍历: 先遍历左子树, 然后遍历根结点, 最后遍历右子树. 后序遍历: 先遍历左子树, 然后遍历右子树,最后遍历根节点.
