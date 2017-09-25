@@ -4,6 +4,22 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年9月25日
+1. Math.min()比Math.max()大. Math.min() > Math.max() // true
+2. 正则表达式字面一致也不相等
+3. 函数名称不可改变
+4. 写出最简单的去重方式
+```JavaScript
+// es6的new Set()方法, 不过一般面试官肯定不会只满意这个
+let arr = [0, 1, 2, 1, 0];
+console.log(new Set(arr)); // => Set {0, 1, 2}
+
+// es5 filter过滤器
+arr.filter(function(elem, index, Array) {
+  return index === Array.indexOf(elem)
+})
+```
+
 ### 2017年9月16日
 1. 父元素透明不影响子元素. 高级浏览器下用opacity后, 子元素会一起变透明, 显然是不行的, 这时候可以用rbga来实现; ie6, 7 ,8, 9浏览器下用专属的filter:Alpha(opacity=x), 再将子元素设为相对定位, 可以让子元素不透明. 除此之外还可以用两个div来重叠, 设置z-index即可.
 ```html
