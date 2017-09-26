@@ -4,6 +4,9 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年9月26日
+1. visibility属性, 默认visible, 设为hidden元素不可见. 与opacity的区别: 都占据原本的空间, 区别是opacity会响应用户交互, visibility不会. 如绑定事件click, 点击opacity的元素还是会起作用.
+
 ### 2017年9月25日
 1. Math.min()比Math.max()大. Math.min() > Math.max() // true
 2. 正则表达式字面一致也不相等
@@ -185,7 +188,7 @@ function getName () { console.log('hssm'); }
 
 getName();
 ```
-输出结果为hssm, 函数表达式在作用域里会变量提升, 而函数声明会函数提升, 理解了这一点就好办了, 可以想象函数声明的任何函数, 都是在作用域的最上方, 因此会被函数表达式覆盖.
+输出结果为hsbds, 函数表达式在作用域里会变量提升, 而函数声明会函数提升, 理解了这一点就好办了, 可以想象函数声明的任何函数, 都是在作用域的最上方, 因此会被函数表达式覆盖.
 
 ### 2017年8月24日 13:06:05
 1. 操作节点的四种方法 appendChild(), insertBefore(), replaceChild(), removeChild().
