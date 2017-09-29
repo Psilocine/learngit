@@ -4,6 +4,10 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年9月29日
+1. vscode插件修改个人配置, 到C盘下所在用户文件夹下找到.vscode/extensions/插件所在文件夹, 找到相关文件修改, 重启vscode即可. 比如fileheader, 只需要修改package.json里的Author.
+2. 
+
 ### 2017年9月26日
 1. visibility属性, 默认visible, 设为hidden元素不可见. 与opacity的区别: 都占据原本的空间, 区别是opacity会响应用户交互, visibility不会. 如绑定事件click, 点击opacity的元素还是会起作用.
 
