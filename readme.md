@@ -5,7 +5,20 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 ### 2017年10月2日
-1. 
+1. 出于可移植性和易于书写的考虑, 一般只是用字母和数字来定义标识符(变量名), 但是js是允许标识符出现Unicode字符的, 意味着可以使用非英语语言或数字符号来书写标识符. eg: var π = 3.14;
+2. js字符串都是固定不变的, replace() toUpperCase()等方法都是返回新数组.
+3. 涉及++和--运算符时, 如果想将其作为后缀表达式, 必须和变量在同一行.
+```JavaScript
+x
+++
+y
+// js解释器将解析为x; ++y;
+x
+++;
+y
+// 报错 SyntaxError
+
+```
 
 ### 2017年9月29日
 1. vscode插件修改个人配置, 到C盘下所在用户文件夹下找到.vscode/extensions/插件所在文件夹, 找到相关文件修改, 重启vscode即可. 比如fileheader, 只需要修改package.json里的Author.
@@ -103,7 +116,7 @@ arr.filter(function(elem, index, Array) {
 3. Web storage存储机制 sessionStorage和globalStorage(被localStorage取代). 出现的原因是克服cookie的一些限制. 二者区别: session针对回话的小段数据存储, 即数据值保持到浏览器关闭. local除非用户通过js清除或清除浏览器缓存, 会一直存在. Web storage容量能达到5MB.
 
 ### 2017年9月12日
-1. 函数返回值return和值之间不能空行, 不然返回undefined.
+1. 函数返回值return和值之间不能换行, 不然返回undefined. 2017年10月2日补充, break, continue也同理.
 
 ### 2017年9月11日
 1. with try-catch eval可以改变作用域链.
