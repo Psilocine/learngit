@@ -9,7 +9,30 @@
 2. 三元运算符顺序, 从右至左. eg: q = a ? b : c ? d : e ? f : g; // => q = a ? b : (c ? d : (e ? f : g))
 3. y = x + z. 如果表达式x中的一个变量自增1, 这个变量在表达式z中使用, 那么实际上是先计算出了x的值在计算z的值. eg: b = (a++) + a. 假设a的值是1, b = 3; 
 4. 字符串比较是区分大小写的. 所有大写的ASCII字母都小于小写的ASCII字母 'Zoo' < 'asd' // => true
+5. 加号运算发更偏爱字符串, 有一个是字符串的话, 则进行字符串比较; 比较运算符更偏爱数字, 只有当两个操作数是字符串时, 才会进行字符串比较.
+```javascript
+var date = new Date(),
+    fun  = function(){return 1;},
+    arr  = [1, 2, 3],
+    reg  = /\d+/g,
+    date2,
+    fun2,
+    arr2,
+    reg2;
+    
+date2 = date + 1; // typeof date2 => String 下面同
+fun2 = fun + 1; // String
+arr2 = arr + 1; // String
+reg2 = reg + 1; // String
 
+date2 = date - 1; // Number
+fun2 = fun - 1; // Number
+arr2 = arr - 1; // Number
+reg2 = reg - 1; // Number
+----------------------
+'11' < 2 // 11 < 2 false
+'one' > 3 // NaN > 3 false 只要有Nan就是false
+```
 
 ### 2017年10月3日
 1. 包装对象. 
