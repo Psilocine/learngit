@@ -4,6 +4,41 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年10月7日
+1. 当有运算符副作用时, i=i+1和++i就不等价了. eg: data[i++] += 2; data[i++] = data[i++] + 2;
+2. eval()直接调用时, 会在调用它的上下文作用域内执行; 其他的间接调用则使用全局对象作为其上下文作用域, 并且无法读写局部变量和函数.
+```JavaScript
+var geval = eval;
+var x = 'global',
+    y = 'global';
+function f() {
+  var x = 'local';
+  eval('x += "changed";');
+  return x;
+}
+function g() {
+  var y = 'local';
+  geval('y += "changed";');
+  return y;
+}
+
+console.log(f(), x); // 直接调用, 改变局部变量. 输出'localchanged global'
+console.log(g(), y); // 间接调用, 改变全局变量. 输出'local globalchanged'
+```
+3. typeof(i) 等价 typeof i;
+4. delete运算符不能删除内置核心和客户端属性, 不能删除用户var出来的变量和用户通过function定义的函数;
+```javascript
+var a = 1;
+b = 1;
+delete a; // false 删除失败返回false, 严格模式下还会返回类型错误.
+delete b; // true
+a; // 1
+window.a; // 1
+b; // undefined
+window.b; // undefined
+```
+5. 逗号运算符返回右操作数. eg: i=0,j=1,k=2; 返回2;
+
 ### 2017年10月6日
 1. lval. left-value缩写, 左值指表达式只能出现在赋值运算符的左侧.
 2. 三元运算符顺序, 从右至左. eg: q = a ? b : c ? d : e ? f : g; // => q = a ? b : (c ? d : (e ? f : g))
