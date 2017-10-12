@@ -2,8 +2,12 @@
 [汇总](https://psilocine.github.io/learngit/)
 (全做完了哦~ FAUX!
 
-# 下面是自己的一些坑和笔记
+## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
+
+### 2017年10月12日
+1. continue在while语句和for语句里作用不一样. while语句的increment自增自减语句和执行语句在一起, continue跳过也会跳过而陷入死循环. for语句的continue跳出当前执行语句, 然后再进行increment自增自减.
+2. 严格模式下, 禁止使用with语句. 调用的函数(不是方法)中的this不是全局对象而是undefined. 
 
 ### 2017年10月11日
 1. 不考虑兼容性的情况下, 觉得滚动条太丑, 可以用css3自定义滚动条样式. -webkit-scrollbar, 纯css实现滚动条, 并且支持鼠标滑轮, 鼠标点击等操作.
