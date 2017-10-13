@@ -5,6 +5,48 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+
+### 2017年10月13日
+1. 属性特性. 数据属性的4个特性: value, writable, enumerable, configurable. 存储器4个特性: get, set, enumearble, configurable. 可以用Object.defineProperty(对象, "属性", {4个特性})来定义一个对象的属性. 不写的话默认false或undefined
+```javascript
+var o = {};
+// 可配置性configurable是true就可以修改4个特性, 但是要注意的是, 修改configurable为false后再也不能修改了
+Object.defindProperty(o, 'x', {value:1, writable:true, configurable:true}); // enumerable没写默认false.
+
+// x属性存在但不可枚举
+o.x; // => 1
+Object.keys(o) // => []
+
+// 对属性x做修改, 让它只读
+Object.defindProperty(o, 'x', {writable: false});
+o.x = 2; // 操作失败但不报错, 严格模式下抛出TypeError.
+o.x; // => 1
+
+// 修改可配置性
+Object.defindProperty(o, 'x', {configurable: false});
+Object.defindProperty(o, 'x', {configurable: true}); // error: Uncaught TypeError: Cannot redefine property: x
+
+// 存储器
+Object.defineProperty(o,"b",{
+  set:function(newValue){
+    console.log("你要赋值给我,我的新值是"+newValue)
+  },
+  get:function(){
+    console.log("你取我的值")
+      return 2;
+  }
+})
+o.b = 1; // 控制台输出"你要赋值给我,我的新值是1"
+o.b; // 控制台输出'你取我的值', 返回2
+
+// 对多个属性同时定义可用Object.defindProperties(o, {
+  x: {value:1},
+  b: {set: function()...}
+})
+```
+2. [,,]是两个元素而不是三个, 原因是数组直接量的语法允许有可选的结尾的逗号.
+
+
 ### 2017年10月12日
 1. continue在while语句和for语句里作用不一样. while语句的increment自增自减语句和执行语句在一起, continue跳过也会跳过而陷入死循环. for语句的continue跳出当前执行语句, 然后再进行increment自增自减.
 2. 严格模式下, 禁止使用with语句. 调用的函数(不是方法)中的this不是全局对象而是undefined. 
