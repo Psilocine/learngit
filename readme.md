@@ -6,6 +6,38 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 
+### 2017年10月15日
+1. 使用负数或非整数来索引数组, 数值转换为字符串, 字符串作为属性名来用; 使用非负整数的字符串, 它会被当做数组索引; 使用浮点数和一个整数箱等时的情况下, 也会被当成数组索引.
+```JavaScript
+var arr = [];
+// 负数非整数
+arr[-1.23] = 1; // 创建"-1.23"的属性
+
+// 非负整数字符串
+arr["5"] = 5; // arr[5] => 5
+
+// 浮点数
+arr[1.000] // 和a[1]等价
+```
+2. 稀疏数组, 就是length大于元素实际的个数. 当省略数组直接量中的值时, 所得的数组是稀疏数组.
+3. 设置length属性为一个小于当前长度的非负整数n时, 数组中那些索引值大于n的元素都将被删除.
+```JavaScript
+a = [1, 2, 3];
+a.length = 0;
+a // []
+a.length = 5;
+a // [undefined x 5]
+```
+4. 数组元素添加删除. delete并不影响数组长度, 可是会致使数组变为稀疏数组.
+```javascript
+a = [1, 2, 3];
+delete a[1];
+1 in a; // false: 数组索引1并未在数组中定义
+a.length; // => 3
+```
+5. pop(), shift()方法会删除数组元素并返回被删的值. 注意的是pop()方法会使length-1, shift()方法将所有元素的索引降1, 这是和delete不同的地方.
+
+
 ### 2017年10月13日
 1. 属性特性. 数据属性的4个特性: value, writable, enumerable, configurable. 存储器4个特性: get, set, enumearble, configurable. 可以用Object.defineProperty(对象, "属性", {4个特性})来定义一个对象的属性. 不写的话默认false或undefined
 ```javascript
