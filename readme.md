@@ -5,6 +5,11 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年10月16日
+1. Array.join(), Array.concat(), Array.slice(), toString(), toLocaleString(), 都不会修改原数组.
+2. Array.reverse(), Array.sort(), Array.splice(), push()pop() shift()unshift()会修改原数组.
+3. es5数组方法. forEach()修改原数组; map(), filter()不会修改原数组.
+4. 在空数组上调用时, every()返回true, some()返回false.
 
 ### 2017年10月15日
 1. 使用负数或非整数来索引数组, 数值转换为字符串, 字符串作为属性名来用; 使用非负整数的字符串, 它会被当做数组索引; 使用浮点数和一个整数箱等时的情况下, 也会被当成数组索引.
