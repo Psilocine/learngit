@@ -5,6 +5,14 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+
+
+### 2017年10月18日
+1. parentNode, parentElement区别. parentNode是W3C标准, parentElement只在IE中可用. 经测试后者也能在高级浏览器使用. parentNode返回元素的DOM树中的父元素. nodeType可以是多样的. 后者返回必须是元素节点, 否则返回null. 
+```javascript
+eg: document.body.parentNode.parentNode; // => #Document nodeType为9(Document); 
+document.body.parentElement.parentElement; // => null 因为nodeType !== 1(Element) 所以返回null;
+```
 ### 2017年10月16日
 1. Array.join(), Array.concat(), Array.slice(), toString(), toLocaleString(), 都不会修改原数组.
 2. Array.reverse(), Array.sort(), Array.splice(), push()pop() shift()unshift()会修改原数组.
