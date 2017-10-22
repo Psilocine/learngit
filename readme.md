@@ -5,7 +5,77 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年10月22日
+1. es6: 用let命令声明，不会发生变量提升。如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
+2. 字符串的扩展. 可以用反引号`标识, `There are <b>${basket.count}</b> items`, 省去+连接符的繁琐, 变量直接在${}里填写即可.
+3. 数值的扩展. 新增二进制和八进制的写法. 0b11 == 3, 0o11 == 9; 提供Number.isFinite(), Number.isNaN().
+4. 函数的扩展. 箭头函数有几个使用注意点
+```javascript
+（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。其实箭头函数内部没有自己的this，导致内部的this就是外层代码块的this。
 
+（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
+
+（3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
+
+// ES6
+function foo() {
+  setTimeout(() => {
+    console.log('id:', this.id);
+  }, 100);
+}
+
+// ES5
+function foo() {
+  var _this = this;
+
+  setTimeout(function () {
+    console.log('id:', _this.id);
+  }, 100);
+}
+```
+5. 数组的扩展. Array.from方法用于将两类对象转为真正的数组：类似数组的对象（array-like object）和可遍历（iterable）的对象; Array.of方法用于将一组值，转换为数组。
+```javascript
+let arrayLike = {
+    '0': 'a',
+    '1': 'b',
+    '2': 'c',
+    length: 3
+};
+let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
+
+Array.from('hello') // ['h', 'e', 'l', 'l', 'o']
+
+let namesSet = new Set(['a', 'b']) // Set { "a", "b" }
+Array.from(namesSet) // ['a', 'b']
+
+Array.of(3, 11, 8) // [3,11,8]
+Array.of(3) // [3]
+Array.of(3).length // 1
+```
+6. 对象的扩展. 属性的简洁表示法
+```JavaScript
+// 变量缩写
+function f(x, y) {
+  return {x, y};
+}
+// 等同于
+function f(x, y) {
+  return {x: x, y: y};
+}
+
+// 方法缩写
+const o = {
+  method() {
+    return "Hello!";
+  }
+};
+// 等同于
+const o = {
+  method: function() {
+    return "Hello!";
+  }
+};
+```
 
 ### 2017年10月18日
 1. parentNode, parentElement区别. parentNode是W3C标准, parentElement只在IE中可用. 经测试后者也能在高级浏览器使用. parentNode返回元素的DOM树中的父元素. nodeType可以是多样的. 后者返回必须是元素节点, 否则返回null. 
