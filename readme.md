@@ -5,6 +5,25 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年10月28日
+1. 数组方法 reduce(), reduceRight(). 两个参数, 第一个是执行化简操作的函数, 第二个(可选)的参数是一个传递给函数的初始值, 当没有指定初始值时将使用数组的第一个元素作为其初始值. reduceRight()工作原理和reduce()一致, 只是顺序是从右到左.
+```JavaScript
+var a = [1,2,3,4,5]
+var sum = a.reduce(function(x,y){ return x+y;}, 0);      // 数组求和 
+var product = a.reduce(function(x,y){ return x*y; }, 1); // 数组求积
+var max = a.reduce(function(x,y){ return (x>y)?x:y; });  // 求最大值, 初始值是1
+```
+2. 函数表达式也可以包含名称, 而且函数表达式适合用来定义只会用一次的函数.
+```JavaScript
+// 包含名称在递归的时候很有用
+var f = function factorial(x) { if(x<=1) return 1; return factorial(x-1); }
+
+// 函数表达式有时定义后立即调用
+var tensquared = (function(x){ return x*x;}(10));
+```
+3. 
+
+
 ### 2017年10月22日
 1. es6: 用let命令声明，不会发生变量提升。如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
 2. 字符串的扩展. 可以用反引号`标识, `There are <b>${basket.count}</b> items`, 省去+连接符的繁琐, 变量直接在${}里填写即可.
