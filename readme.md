@@ -5,6 +5,24 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年10月30日
+1. string中slice, substr, substring方法区别. slice两个参数(start, end), 返回开始和结束区域(不包含结束), 负数加上字符串总长度; substr两个参数(start, length), 返回开始index到长度长度, 第二个参数(length)不支持负数; subtring两个参数(start, end), 返回开始和结束区域(不包括结束index, 如果第二个参数比第一个参数小, 会调转位置), 负数直接置零.
+```JavaScript
+var str = 'hello world';
+str.slice(-3);     // rld
+str.substr(-3);    // rld
+str.substring(-3); // hello world
+
+str.slice(4, 7);     // 'o w'
+str.substr(4, 7);    // 'o world' 第二个参数7, 从索引4开始, 返回7个长度
+str.substring(4, 7); // 'o w'
+
+str.slice(3, -4);     // 'lo w'
+str.substr(3, -4);    // '', 长度-4返回空字符串
+str.substring(3, -4); // 'hel' -4置零, 变成str.substring(0, 3);
+```
+
+ 
 ### 2017年10月28日
 1. 数组方法 reduce(), reduceRight(). 两个参数, 第一个是执行化简操作的函数, 第二个(可选)的参数是一个传递给函数的初始值, 当没有指定初始值时将使用数组的第一个元素作为其初始值. reduceRight()工作原理和reduce()一致, 只是顺序是从右到左.
 ```JavaScript
