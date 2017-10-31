@@ -5,6 +5,22 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年10月31日
+1. toString()问题. 让我们来探索下3.toString(), 3..toString(), 3...toString()的结果.
+```javascript
+3.toString();   // error
+3..toString();  // '3'
+3...toString(); // error
+
+var a = 3;
+a.toString();   // '3'
+a..toString();  // error
+
+// 上面看完是不是晕了, 其实在js中, (3.3), (3.), (.3)都是合法的数字, 3.toString()里的 . 到底是 (3.)还是方法调用? 结果是(3.),
+// 因为编译从左到右, 所以 3. .toString()才是唯一不报错的那个. 当然我们可以加括号
+(3).toString(); // '3'
+```
+
 ### 2017年10月30日
 1. string中slice, substr, substring方法区别. slice两个参数(start, end), 返回开始和结束区域(不包含结束), 负数加上字符串总长度; substr两个参数(start, length), 返回开始index到长度长度, 第二个参数(length)不支持负数; subtring两个参数(start, end), 返回开始和结束区域(不包括结束index, 如果第二个参数比第一个参数小, 会调转位置), 负数直接置零.
 ```JavaScript
@@ -21,7 +37,6 @@ str.slice(3, -4);     // 'lo w'
 str.substr(3, -4);    // '', 长度-4返回空字符串
 str.substring(3, -4); // 'hel' -4置零, 变成str.substring(0, 3);
 ```
-
  
 ### 2017年10月28日
 1. 数组方法 reduce(), reduceRight(). 两个参数, 第一个是执行化简操作的函数, 第二个(可选)的参数是一个传递给函数的初始值, 当没有指定初始值时将使用数组的第一个元素作为其初始值. reduceRight()工作原理和reduce()一致, 只是顺序是从右到左.
@@ -39,12 +54,16 @@ var f = function factorial(x) { if(x<=1) return 1; return factorial(x-1); }
 // 函数表达式有时定义后立即调用
 var tensquared = (function(x){ return x*x;}(10));
 ```
-3. 
+3. 函数调用4种, 作为函数, 作为方法, 作为构造函数, 通过call()apply().
 
 
 ### 2017年10月22日
 1. es6: 用let命令声明，不会发生变量提升。如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
-2. 字符串的扩展. 可以用反引号`标识, `There are <b>${basket.count}</b> items`, 省去+连接符的繁琐, 变量直接在${}里填写即可.
+2. 字符串的扩展. 可以用反引号`标识, 
+```javascript
+`There are <b>${basket.count}</b> items`
+```
+省去+连接符的繁琐, 变量直接在${}里填写即可.
 3. 数值的扩展. 新增二进制和八进制的写法. 0b11 == 3, 0o11 == 9; 提供Number.isFinite(), Number.isNaN().
 4. 函数的扩展. 箭头函数有几个使用注意点
 ```javascript
