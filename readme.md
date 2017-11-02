@@ -5,6 +5,21 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年11月2日
+1. arguments并不是真正的数组, 它是一个实参对象. 每个实参对象都包含以数字为索引的一组元素以及length属性, 但它毕竟不是真正的数组, 可以理解成它是一个对象, 只是碰巧具有以数字为索引的属性. 在严格模式下不能给arguments赋值, 和使用arguments作为变量名.
+2. caller, callee属性. ECMAScript标准规范规定callee属性指代当前正在执行的函数, caller是非标准的, 指代调用当前正在执行的函数的函数. 通过caller可以访问调用栈. callee在递归调用非常有用.
+3. 宁愿程序在传入非法值时报错, 也不愿非法值导致程序在执行时报错.
+4. 闭包. 作用域在函数定义时决定的.
+```JavaScript
+var scope = 'global scope';
+function checkscope() {
+  var scope = 'local scope';
+  function f() { return scope; }
+  return f;
+}
+checkscope()();   // 'local scope'
+```
+
 ### 2017年10月31日
 1. toString()问题. 让我们来探索下3.toString(), 3..toString(), 3...toString()的结果.
 ```javascript
