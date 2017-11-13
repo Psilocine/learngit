@@ -5,6 +5,12 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年11月13日
+今天讨论js单线程的机制
+1. 任务队列task queue. js是单线程的, 先执行一行一行的代码, 这属于同步任务, 后去任务队列运行里面的任务, 属异步操作, 只有主线程即同步任务空了, 才会去执行任务队列. 
+2. macrotask microtask. microtask: promise, Object.observe等; macrotask: setTimeout setInterval等. 值得注意的是整个script代码也是macrotask
+3. 具体的流程是, 先执行macrotask(整个script代码), 同步代码运行完后有microtask就先执行, 没有microtask执行下一个macrotask, 依次列推.
+
 ### 2017年11月2日
 1. arguments并不是真正的数组, 它是一个实参对象. 每个实参对象都包含以数字为索引的一组元素以及length属性, 但它毕竟不是真正的数组, 可以理解成它是一个对象, 只是碰巧具有以数字为索引的属性. 在严格模式下不能给arguments赋值, 和使用arguments作为变量名.
 2. caller, callee属性. ECMAScript标准规范规定callee属性指代当前正在执行的函数, caller是非标准的, 指代调用当前正在执行的函数的函数. 通过caller可以访问调用栈. callee在递归调用非常有用.
