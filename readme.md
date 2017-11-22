@@ -11,14 +11,15 @@
 ```JavaScript
 var arr = [1,2,3,4];
 // 数组结尾添加元素
-1.arr.push(n)最简单;     // 返回arr长度, 并且arr改变
-2.arr[arr.length] = n;  // 返回n, arr改变
-3.arr2 = arr.concat(n); // arr不变
-从效率来说, 第3种是最吃性能的, 也就是最慢的; 而通常最先想到的push方法, 也不是最优的解决方法, 综上考虑采取第2种方法效率性能能快上不少, 在不同浏览器上都能快50%以上(safari浏览器除外)
+1. arr.push(n)最简单;     // 返回arr长度, 并且arr改变
+2. arr[arr.length] = n;  // 返回n, arr改变
+3. arr2 = arr.concat(n); // arr不变
+从效率来说, 第3种是最吃性能的, 也就是最慢的; 而通常最先想到的push方法, 也不是最优的解决方法, 
+综上考虑采取第2种方法效率性能能快上不少, 在不同浏览器上都能快50%以上(safari浏览器除外)
 
 // 数组头部添加元素
-1.arr.unshift(n); // 原数组改变
-2.[n].concat(arr); // 返回新数组, arr不变
+1. arr.unshift(n); // 原数组改变
+2. [n].concat(arr); // 返回新数组, arr不变
 令人意外的是unshift()方法比concat平均慢了一倍不止(safari浏览器除外)
 
 // 数组中间添加元素
