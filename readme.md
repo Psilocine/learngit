@@ -5,6 +5,27 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年12月4日
+1. 让img变成黑白照片. 使用filter:gragscale(100%). 常见还有blur(px)模糊, opacity(%)透明度.
+2. li间隙边框. 可以使用.nav li:not(:last-child) { border-left: xxx } 来出去最后一个li的边框.
+3. li逗号分隔. ul li:not(:last-child)::after { content: ',' }
+4. 继承box-sizing
+```css
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+```
+5. 当a元素没有文本值，但 href 属性有链接的时候显示链接:
+```css
+a[href^="http"]:empty::before {
+  content: attr(href);
+}
+```
+6. transparent: 用来指定全透明色彩. eg: color: transparent; 浏览器显示空白.
+
 ### 2017年11月17日
 插入数组的不同方法性能对比
 1. 向数组中插入元素, 能有几种方法?
