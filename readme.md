@@ -5,6 +5,13 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年12月19日
+hexo支持图片本地链接, 原本以为需要靠七牛云等来存储图片, 原因hexo早就支持了.
+1. 首先根目录配置文件 _config.yml 中有 post_asset_folder设为true
+2. 根目录下 npm/cnpm install https://github.com/CodeFalling/hexo-asset-image --save
+安装完后发现放置文章的_posts文件夹中, 一旦你new一篇文章, 就会出现同名的文件夹, 只需把图片放进去, 用相对路径引用即可
+ 
+
 ### 2017年12月4日
 1. 让img变成黑白照片. 使用filter:gragscale(100%). 常见还有blur(px)模糊, opacity(%)透明度.
 2. li间隙边框. 可以使用.nav li:not(:last-child) { border-left: xxx } 来出去最后一个li的边框.
