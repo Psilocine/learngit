@@ -5,11 +5,19 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2017年12月30日
+1. 统计字符串中字符出现的次数.
+```JavaScript
+var str = 'abacdcab';
+var output = str.split('').reduce( (p, k) => (p[k]++ || (p[k] = 1), p), {} );
+console.log(output); // {a: 2, b: 1, c: 2, d: 2};
+```
+
 ### 2017年12月28日
 1. 普通空格&nbsp比较常见, 但是除了这个还有两个比较实用的, &ensp半个汉字宽度, &emsp一个汉字宽度
 
 ### 2017年12月19日
-hexo支持图片本地链接, 原本以为需要靠七牛云等来存储图片, 原因hexo早就支持了.
+最近hexo写文章需要用到图片, 原本以为需要靠七牛云等来存储图片, 原来hexo早就支持了.
 1. 首先根目录配置文件 _config.yml 中有 post_asset_folder设为true
 2. 根目录下 npm/cnpm install https://github.com/CodeFalling/hexo-asset-image --save
 安装完后发现放置文章的_posts文件夹中, 一旦你new一篇文章, 就会出现同名的文件夹, 只需把图片放进去, 用相对路径引用即可
