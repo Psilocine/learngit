@@ -5,6 +5,12 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年1月6日
+```javascript
+<input type='button' value='按钮'>
+<button>按钮</button>
+```
+1. 上述两种按钮写法看起来无异, 可是while-space属性不同, input当value多到超过容器宽度时, 并不会换行.
 ### 2018年1月3日
 1. 张鑫旭老师的css世界建议购买读几遍, 是一本好书, 不过好像都卖断货了.
 
