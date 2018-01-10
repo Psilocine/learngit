@@ -5,6 +5,12 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年1月10日
+1. max-width比!important权值还大
+
+### 2018年1月7日
+1. 模拟书籍的目录效果可以用content的计数器, 非常实用
+
 ### 2018年1月6日
 ```javascript
 <input type='button' value='按钮'>
