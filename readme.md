@@ -5,6 +5,9 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年1月18日
+1. 利用padding结合background-clip: content-box, 可以用单个标签制作出三横的图标效果. background-clip: content-box可以将padding部分的背景致为透明
+
 ### 2018年1月15日
 1. hover要让图片背景变化, 如果图片的背景已经是白色该怎么办, 可以在图片套个父元素, 给父元素颜色然后修改图片透明度, hover时再改变透明度比例就可以了, 算是小技巧
 
