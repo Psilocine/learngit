@@ -5,8 +5,12 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年1月19日
+1. css clip:rect(top, right, bottom, left)矩阵裁剪功能, 而且四个属性都基于左上角而言. clip: rect(0, 10px, 10px, 0), 表示只显示左上角10px的正方形.
+
 ### 2018年1月18日
-1. 利用padding结合background-clip: content-box, 可以用单个标签制作出三横的图标效果. background-clip: content-box可以将padding部分的背景致为透明
+1. 利用padding结合background-clip: content-box, 可以用单个标签制作出三横的图标效果. background-clip: content-box可以将padding部分的背景致为透明;
+2. 同理, 轮播图的小圆点也能通过这个属性制作.
 
 ### 2018年1月15日
 1. hover要让图片背景变化, 如果图片的背景已经是白色该怎么办, 可以在图片套个父元素, 给父元素颜色然后修改图片透明度, hover时再改变透明度比例就可以了, 算是小技巧
