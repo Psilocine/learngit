@@ -5,6 +5,12 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年1月21日
+1. 每个单词首字母大写, 一句代码. 
+```javascript
+const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperCase());
+capitalizeEveryWord('hello world!') // Hello World
+```
 ### 2018年1月19日
 1. css clip:rect(top, right, bottom, left)矩阵裁剪功能, 而且四个属性都基于左上角而言. clip: rect(0, 10px, 10px, 0), 表示只显示左上角10px的正方形.
 
