@@ -5,6 +5,10 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年1月23日
+1. vertical-align属性值是支持数值百分比的, 甚至支持负值. 因此有时候vertical-align: middle并不是垂直居中的最好选择, 用middle只是起到类似'垂直居中'的效果而已.
+2. 能够基于vertical-align实现纯css+html的弹窗, 并且能永远在浏览器窗口居中的效果, 省去js resize和offset宽高定位的代码. 后续具体见我的博客文章.
+
 ### 2018年1月22日
 1. margin和padding的百分比赋值不管是水平方向还是垂直方向, 都是针对宽度计算, 因为height的auto问题.
 2. writing-mode是个很有趣的css属性, 能让文档流垂直走向, 文字至右从左. 但是有些细节也会改变, 比如margin垂直方向合并.
