@@ -5,6 +5,11 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年1月25日
+1. 因float而出现的高度崩塌才是正常现象, float最早出现就是为了破坏文档流, 实现文字环绕效果, 但是目前主流都把float当做布局来用, 清除浮动也在所难免.
+2. vertical-align的属性值 sub super和 html标签<sub><sup>显示效果差不多, 区别就是html标签会把font-size调小一号, 而vertical-align不会.
+
+
 ### 2018年1月23日
 1. vertical-align属性值是支持数值百分比的, 甚至支持负值. 因此有时候vertical-align: middle并不是垂直居中的最好选择, 用middle只是起到类似'垂直居中'的效果而已.
 2. 能够基于vertical-align实现纯css+html的弹窗, 并且能永远在浏览器窗口居中的效果, 省去js resize和offset宽高定位的代码. 后续具体见我的博客文章.
