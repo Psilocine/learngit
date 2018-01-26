@@ -5,14 +5,27 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+
+### 2018年1月26日
+1. clear属性只有块元素有效, 而伪元素默认是内联的, 这也就是为什么清除浮动时用::after::before的时候需要加上displa: 块级.
+2. 想完美去除浮动, 最好用BFC, BFC内部的元素不会影响到外部布局, 也就是绝对不可能发生margin垂直重叠的原因. 具体触发条件以前列出过了.
+3. 文字溢出...效果, 需要三个css属性同时声明.
+```css
+.ell {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+```
+
 ### 2018年1月25日
 1. 因float而出现的高度崩塌才是正常现象, float最早出现就是为了破坏文档流, 实现文字环绕效果, 但是目前主流都把float当做布局来用, 清除浮动也在所难免.
 2. vertical-align的属性值 sub super和 html标签<sub><sup>显示效果差不多, 区别就是html标签会把font-size调小一号, 而vertical-align不会.
 
-
 ### 2018年1月23日
 1. vertical-align属性值是支持数值百分比的, 甚至支持负值. 因此有时候vertical-align: middle并不是垂直居中的最好选择, 用middle只是起到类似'垂直居中'的效果而已.
 2. 能够基于vertical-align实现纯css+html的弹窗, 并且能永远在浏览器窗口居中的效果, 省去js resize和offset宽高定位的代码. 后续具体见我的博客文章.
+3. 另外vertical-align对块级元素无效.
 
 ### 2018年1月22日
 1. margin和padding的百分比赋值不管是水平方向还是垂直方向, 都是针对宽度计算, 因为height的auto问题.
@@ -382,6 +395,15 @@ o.b; // 控制台输出'你取我的值', 返回2
 
 ### 2017年10月11日
 1. 不考虑兼容性的情况下, 觉得滚动条太丑, 可以用css3自定义滚动条样式. -webkit-scrollbar, 纯css实现滚动条, 并且支持鼠标滑轮, 鼠标点击等操作.
+```css
+::-webkit-scrollbar /* 整体部分 常用 */ 
+::-webkit-scrollbar-button /* 两端按钮 */
+::-webkit-scrollbar-track /* 外层轨道 常用 */
+::-webkit-scrollbar-track-piece /* 内层轨道 */
+::-webkit-scrollbar-thumb /* 滚动滑块 常用 */
+::-webkit-scrollbar-corner /* 边角 */
+
+```
 
 ### 2017年10月10日
 1. switch语句里的case和表达式匹配是用全等'==='来衡量, 换句话说, 表达式和acse的匹配并不会做任何类型转换.
