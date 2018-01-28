@@ -5,6 +5,8 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年1月28日
+1. 设置了position属性, float会失效, 原因是二者都能产生破坏流和包裹性, 且position更强大, 因此float属性失效; 第二点是position能产生包裹性, 那就意味着display: inline-block是多此一举, 大可不必写内联块属性这一句.
 
 ### 2018年1月26日
 1. clear属性只有块元素有效, 而伪元素默认是内联的, 这也就是为什么清除浮动时用::after::before的时候需要加上displa: 块级.
@@ -20,7 +22,7 @@
 
 ### 2018年1月25日
 1. 因float而出现的高度崩塌才是正常现象, float最早出现就是为了破坏文档流, 实现文字环绕效果, 但是目前主流都把float当做布局来用, 清除浮动也在所难免.
-2. vertical-align的属性值 sub super和 html标签<sub><sup>显示效果差不多, 区别就是html标签会把font-size调小一号, 而vertical-align不会.
+2. vertical-align的属性值 sub super和 html标签sub sup显示效果差不多, 区别就是html标签会把font-size调小一号, 而vertical-align不会.
 
 ### 2018年1月23日
 1. vertical-align属性值是支持数值百分比的, 甚至支持负值. 因此有时候vertical-align: middle并不是垂直居中的最好选择, 用middle只是起到类似'垂直居中'的效果而已.
