@@ -5,6 +5,30 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年1月31日
+1. 裁剪属性clip, 在chrome下仍占据空间, 即宽高数值都在, 在ie和ff下, 仅显示裁剪完的占据空间.
+2. 相对定位应该保持最小化原则. 如div右上角定位一个图标
+```css
+// 不推荐
+<div style='position: relative;'>
+  <img src='icon.png' style='position: absolute; right: 0; top: 0''>
+  <p>内容</p>
+  <p>内容</p>
+  <p>内容</p>
+</div>
+
+// 推荐
+<div>
+  <div style='position: relative;'>
+    <img src='icon.png' style='position: absolute; right: 0; top: 0''>
+  </div>
+  <p>内容</p>
+  <p>内容</p>
+  <p>内容</p>
+</div>
+```
+3. relative对fixed并无效果. fixed的相对定位元素只能是html
+4. 
 
 ### 2018年1月30日
 1. position基于padding-box定位, 例如要把一个图标定位在右上, 如果父元素有padding, 那么定位元素的right和top也要进行相应的负值, 这样维护起来并不方便, 可以考虑设置透明的border, 这样如果图标位置要改变, 也只需修改定位元素的css属性即可.
@@ -59,7 +83,7 @@ const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperC
 capitalizeEveryWord('hello world!') // Hello World
 ```
 ### 2018年1月19日
-1. css clip:rect(top, right, bottom, left)矩阵裁剪功能, 而且四个属性都基于左上角而言. clip: rect(0, 10px, 10px, 0), 表示只显示左上角10px的正方形.
+1. css clip:rect(top, right, bottom, left)矩阵裁剪功能, 而且四个属性都基于左上角而言. 例如clip: rect(0, 10px, 10px, 0), 表示只显示左上角10px的正方形.
 
 ### 2018年1月18日
 1. 利用padding结合background-clip: content-box, 可以用单个标签制作出三横的图标效果. background-clip: content-box可以将padding部分的背景致为透明;
