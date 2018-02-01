@@ -10,6 +10,7 @@
 ### 2018年2月1日
 1. font-size与ex em rem, ex是字符x的高度, font-size越大, ex也就越大. 结合vertical-align使用. em, 一个字模的高度, 也是汉字的高度. rem, root em, em是根据当前font-size计算, 布局中用em太麻烦, rem只针对根元素的font-size变化, 布局利器.
 2. font-size支持长度, 百分比. 但是其实还支持关键字. font-size: smaller, larger, xx-large, large, medium等. smaller与larger在不同浏览器表现有差异.
+3. 除了text-indent缩进隐藏外, 对于文本可以用font-size:0 隐藏. 大家都知道浏览器对font-size最小值有限制, chrome最小12px, 设置font-size: 10px; 还是会被渲染成12px; font-size: 0.0001px也是一样的, 但是font-size:0却是实实在在的0.
 
 ### 2018年1月31日
 1. 裁剪属性clip, 在chrome下仍占据空间, 即宽高数值都在, 在ie和ff下, 仅显示裁剪完的占据空间.
