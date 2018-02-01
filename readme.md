@@ -5,6 +5,12 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+
+
+### 2018年2月1日
+1. font-size与ex em rem, ex是字符x的高度, font-size越大, ex也就越大. 结合vertical-align使用. em, 一个字模的高度, 也是汉字的高度. rem, root em, em是根据当前font-size计算, 布局中用em太麻烦, rem只针对根元素的font-size变化, 布局利器.
+2. font-size支持长度, 百分比. 但是其实还支持关键字. font-size: smaller, larger, xx-large, large, medium等. smaller与larger在不同浏览器表现有差异.
+
 ### 2018年1月31日
 1. 裁剪属性clip, 在chrome下仍占据空间, 即宽高数值都在, 在ie和ff下, 仅显示裁剪完的占据空间.
 2. 相对定位应该保持最小化原则. 如div右上角定位一个图标
