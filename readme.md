@@ -5,9 +5,30 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年2月5日
+1. font简写的话 font-size和font-family都是必须的, 不用属性不生效, 但是想要简写的话, font-family又很麻烦, 可以如下写css
+```css
+.font {
+  font: 30px/30px 'a';  /* 输入不存在的字体, 这里是a字体 */
+  font-family: inherit;
+}
+/* 这样可以快速定义行高和字体大小 */
+```
+2. 多种字体后缀名. eot, ie6-ie8支持的唯一字体, 因此兼容低版本ie就需要; svg, 兼容ios4.1之前的版本, 现在几乎可以考虑舍弃; woff, web open font format, 专门为web开发设计的字体, 尺寸小, 加载快, Android4.4后支持; woff2, 比woff尺寸更小的字体, 第一首选. Chrome和ff支持的比较好; ttf, 老版本安卓支持
+3. text-indent只对第一行有效, 而且支持百分比属性值.
+4. word-spacing只对空格有效, 这里的空格包括space, 换行符, Tab等.
+5. word-break和word-wrap区别
+```css
+word-break: normal || break-all || keep-all
+word-wrap: normal || break-word
+/* 这里只对比break-all和break-word的区别 */
+word-breal: break-all会将长单词切断. 行末尾不会留空白.
+word-wrap: break-word, 如果有长单词在行末尾, 那在这长单词前断行, 行末尾会空一片出来
+```
+
 ### 2018年2月3日
 1. 我们都知道font-family的属性值可以中文也可以英文, 微软雅黑等同于'Microsoft Yahei', 有空格的字体需要加上引号, 但最好都用英文, 避免乱码. 第二点就是其实font-family属性值不区分大小写, 可以直接用小写字母.
-2. ch单位, 与em等医院是长度单位, 1ch表示阿拉伯数字0的宽度. 配合等宽字体能起奇效
+2. ch单位, 与em等一样是长度单位, 1ch表示阿拉伯数字0的宽度. 配合等宽字体能起奇效
 3. font-weight, 我们有时候会发现属性值200, 300, 800好像并没有用, 只有normal和bold的渲染效果, 其实是因为机器缺少这些详细字体的字号, 所以渲染不出. OS X系统中的'苹方'就能够渲染出来.
 
 ### 2018年2月1日
