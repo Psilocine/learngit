@@ -5,6 +5,17 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年2月6日
+1. 下划线text-decoration: underline的问题, 当有中文的时候, 例如 '三, 金'等下边缘和下划线贴在一起, 文字显示难免模糊, 可以用border-bottom替代.
+```css
+a {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+注意这里的border-color不要定死, 当hover字体颜色变化时, 这样border-bottom也就可以一起变化; 而且还可以加padding撑得更开; 再者还能用dashed等出现不同的下划线形状
+``` 
+2. text-transform字符大小写. text-transform: lowercase 全小写. 看起来鸡肋, 实则有用武之地. 如验证码的输入, 让键盘输入的字母都大写能避免验证码大小写的问题.
+
 ### 2018年2月5日
 1. font简写的话 font-size和font-family都是必须的, 不用属性不生效, 但是想要简写的话, font-family又很麻烦, 可以如下写css
 ```css
