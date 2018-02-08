@@ -6,6 +6,71 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 
+### 2018年2月8日
+1. 元素不可见的多种选择.
+```JavaScript
+// 1. 同时不占据空间, 辅助设备无法访问, 同时不渲染, 可以使用script标签
+<script type='text/html'>
+  <img src='1.jpg'>
+</script>
+
+// 2. 同时不占据空间, 辅助设备无法访问, 但资源有加载, DOM可访问.
+.dn {
+  display: none;
+}
+
+// 3. 同时不占据空间, 辅助设备无法访问, 但是显示隐藏有transition淡入淡出效果.
+.hidden {
+  position: absulute;
+  visibility: hidden;
+}
+
+// 4. 不能点击, 辅助设备无法访问, 但占据空间保留.
+.vh {
+  visibility: hidden;
+}
+
+// 5. 不能点击, 不占据空间, 但键盘可以访问
+.clip {
+  position: absolute;
+  clip: rect(0 0 0 0);
+}
+.out {
+  posiiton: relative;
+  left: -999em;
+}
+
+// 6. 不能点击, 但占据空间, 键盘可访问
+.lower {
+  position: relative;
+  z-index: -1;
+}
+
+// 7. 但可以点击, 不占据空间, 可以使用透明度
+.opacity {
+  position: absolute;
+  opacity: 0;
+  filter: Alpha(opacity=0);
+}
+
+// 8. 位置保留, 可以点击可以选择, 直接透明度变0
+.opacity {
+  opacity: 0.;
+  filter: Alpha(opacity=0);
+}
+```
+2. display为none时背景图片资源的请求
+```JavaScript
+ff: 不加载, 甚至是父元素dn(display: none), 子元素的背景图片也不加载.
+chrome, safari: 父元素dn, 不加载; 自身元素dn, 图片加载.
+ie: 无论如何都加载.
+```
+3. h5新增hidden的特性, 可以让元素天生dn. eg:
+```html
+<div hidden>你看不到我~</div>
+```
+4. transition不支持css属性display, 但是却支持visibility, 想要淡入淡出, 就使用visibility. 我最近的一个项目就使用visibility+transition解决了hover时弹出下拉列表的烦恼. 用display的话, 每次hover都出现, 即使你只是鼠标经过.
+
 ### 2018年2月6日
 1. 下划线text-decoration: underline的问题, 当有中文的时候, 例如 '三, 金'等下边缘和下划线贴在一起, 文字显示难免模糊, 可以用border-bottom替代.
 ```css
