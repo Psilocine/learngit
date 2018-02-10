@@ -6,31 +6,61 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 
+### 2018年2月10日
+1. 为了规避submit按钮UI很难保持与网站一致(submit按钮很丑), 需要使用label元素来移花接木.
+```html
+<input id='submitBtn' type='submit'>
+<label class='btn' for='submitBtn'>提交</label>
+
+[type='submit'] {
+  position: absolute;
+  clip: rect(0 0 0 0);
+}
+.btn {
+  统一UI样式
+}
+```
+2. cursor是当下关键字属性值最多的css属性. 其默认值不是default, 而是auto, 在iuput框时候变成text, 在带href的a标签变成pointer. 
+```css
+cursor: default; 默认状态下的光标.
+cursor: none; 将鼠标隐藏, 如全屏的时候, 光标静止几秒不动, 设置成none. 
+cursor: help; 带问号的鼠标. 
+cursor: progress; 进行中的光标, 如loading.
+cursor: wait; 没有光标, window7下显示一个动态的圆圈.
+cursor: crosshair; 十字光标.
+cursor: cell; 单元格光标, Excel里面的宽十字.
+cursor: move; 示意可以移动的光标.
+cursor: copy; 示意当前元素可以被复制.
+cursor: not-allowed; 禁止的光标.
+...
+```
+3. user-select: none; 设置了这个css属性后文本不能被选中.
+
 ### 2018年2月8日
 1. 元素不可见的多种选择.
 ```JavaScript
-// 1. 同时不占据空间, 辅助设备无法访问, 同时不渲染, 可以使用script标签
+// (1) 同时不占据空间, 辅助设备无法访问, 同时不渲染, 可以使用script标签
 <script type='text/html'>
   <img src='1.jpg'>
 </script>
 
-// 2. 同时不占据空间, 辅助设备无法访问, 但资源有加载, DOM可访问.
+// (2) 同时不占据空间, 辅助设备无法访问, 但资源有加载, DOM可访问.
 .dn {
   display: none;
 }
 
-// 3. 同时不占据空间, 辅助设备无法访问, 但是显示隐藏有transition淡入淡出效果.
+// (3) 同时不占据空间, 辅助设备无法访问, 但是显示隐藏有transition淡入淡出效果.
 .hidden {
   position: absulute;
   visibility: hidden;
 }
 
-// 4. 不能点击, 辅助设备无法访问, 但占据空间保留.
+// (4) 不能点击, 辅助设备无法访问, 但占据空间保留.
 .vh {
   visibility: hidden;
 }
 
-// 5. 不能点击, 不占据空间, 但键盘可以访问
+// (5) 不能点击, 不占据空间, 但键盘可以访问
 .clip {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -40,20 +70,20 @@
   left: -999em;
 }
 
-// 6. 不能点击, 但占据空间, 键盘可访问
+// (6) 不能点击, 但占据空间, 键盘可访问
 .lower {
   position: relative;
   z-index: -1;
 }
 
-// 7. 但可以点击, 不占据空间, 可以使用透明度
+// (7) 但可以点击, 不占据空间, 可以使用透明度
 .opacity {
   position: absolute;
   opacity: 0;
   filter: Alpha(opacity=0);
 }
 
-// 8. 位置保留, 可以点击可以选择, 直接透明度变0
+// (8) 位置保留, 可以点击可以选择, 直接透明度变0
 .opacity {
   opacity: 0.;
   filter: Alpha(opacity=0);
