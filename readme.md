@@ -6,8 +6,11 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 
+### 2018年2月11日
+1. derection
+
 ### 2018年2月10日
-1. 为了规避submit按钮UI很难保持与网站一致(submit按钮很丑), 需要使用label元素来移花接木.
+1. 为了规避submit按钮UI很难保持与网站一致(说白就是submit按钮很丑), 需要使用label元素来移花接木.
 ```html
 <input id='submitBtn' type='submit'>
 <label class='btn' for='submitBtn'>提交</label>
