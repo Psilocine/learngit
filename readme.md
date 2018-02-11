@@ -7,7 +7,7 @@
 
 
 ### 2018年2月11日
-1. derection
+1. 改变水平流向的css属性. derection: rtl(right to left); derection: ltr(left to right); eg: 确认取消按钮居中, 桌面端确认在左边, 移动端确认键在右边, 就可以使用该属性, 不用去写两套, 不用去动js, 用媒体查询直接写即可.
 
 ### 2018年2月10日
 1. 为了规避submit按钮UI很难保持与网站一致(说白就是submit按钮很丑), 需要使用label元素来移花接木.
