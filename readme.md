@@ -5,6 +5,15 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年2月13日
+1. 生成占位图片可用(//iph.href.lu/width x(字母x) height), 而且图片极小. eg:
+```html
+<!-- 生成头像占位符 -->
+<img src='//iph.href.lu/30x30' style='border-radius: 50%;'>
+
+<!-- 生成背景图片占位符 -->
+<div style='background-image: url(//iph.href.lu/400x200)'>
+```
 
 ### 2018年2月11日
 1. 改变水平流向的css属性. derection: rtl(right to left); derection: ltr(left to right); eg: 确认取消按钮居中, 桌面端确认在左边, 移动端确认键在右边, 就可以使用该属性, 不用去写两套, 不用去动js, 用媒体查询直接写即可.
