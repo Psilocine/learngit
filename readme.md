@@ -5,6 +5,9 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年2月14日
+1. textarea是不支持伪元素before after. 因此聊天气泡尖角只能另寻方法.
+
 ### 2018年2月13日
 1. 生成占位图片可用(//iph.href.lu/width x(字母x) height), 而且图片极小. eg:
 ```html
@@ -13,6 +16,13 @@
 
 <!-- 生成背景图片占位符 -->
 <div style='background-image: url(//iph.href.lu/400x200)'>
+
+<!-- 还可传参 -->
+text=[自定义文字, 默认宽x高]
+bg=[图片背景色, 默认ccc]
+fg=[文字颜色, 默认666]
+
+//iph.href.lu/300x200?text=占位图片&fg=000&bg=fff
 ```
 
 ### 2018年2月11日
