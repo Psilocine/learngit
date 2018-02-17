@@ -6,7 +6,7 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 ### 2018年2月14日
-1. textarea是不支持伪元素before after. 因此聊天气泡尖角只能另寻方法.
+1. textarea是不支持伪元素before after. 因此聊天气泡尖角只能另寻方法. 比如外框div.
 
 ### 2018年2月13日
 1. 生成占位图片可用(//iph.href.lu/width x(字母x) height), 而且图片极小. eg:
