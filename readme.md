@@ -5,6 +5,9 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年2月20日
+1. jquery也可以使用 JavaScript 的 &&, 当两句语句用&&连在一起, 如果前一语句是false, 如length. 后一语句也不会执行.
+
 ### 2018年2月14日
 1. textarea是不支持伪元素before after. 因此聊天气泡尖角只能另寻方法. 比如外框div.
 
@@ -130,7 +133,8 @@ a {
   text-decoration: none;
   border-bottom: 1px solid;
 }
-注意这里的border-color不要定死, 当hover字体颜色变化时, 这样border-bottom也就可以一起变化; 而且还可以加padding撑得更开; 再者还能用dashed等出现不同的下划线形状
+// 注意这里的border-color不要定死, 当hover字体颜色变化时, 这样border-bottom也就可以一起变化; 而且还可以加padding撑得更开; 
+// 再者还能用dashed等出现不同的下划线形状.
 ``` 
 2. text-transform字符大小写. text-transform: lowercase 全小写. 看起来鸡肋, 实则有用武之地. 如验证码的输入, 让键盘输入的字母都大写能避免用户不知道验证码大小写的问题.
 3. rgb颜色实际上还支持百分比, 100% = 255, 0% = 0. 不过需要统一格式, eg: rgb(100%, 0%, 20%) 生效; rbg(100%, 0, 20%) 失败;
@@ -188,7 +192,6 @@ word-wrap: break-word, 如果有长单词在行末尾, 那在这长单词前断�
 </div>
 ```
 3. relative对fixed并无效果. fixed的相对定位元素只能是html
-4. 
 
 ### 2018年1月30日
 1. position基于padding-box定位, 例如要把一个图标定位在右上, 如果父元素有padding, 那么定位元素的right和top也要进行相应的负值, 这样维护起来并不方便, 可以考虑设置透明的border, 这样如果图标位置要改变, 也只需修改定位元素的css属性即可.
