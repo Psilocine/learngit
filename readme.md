@@ -1,9 +1,22 @@
-# 2017IFE任务汇总:
+......# 2017IFE任务汇总:
 [汇总](https://psilocine.github.io/learngit/)
 (全做完了哦~ FAUX!
 
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
+
+### 2018年2月21日
+1. box-sizing的初始化.
+```css
+/* 不推荐, 因为内联元素宽度auto, 无效 */
+* {
+  box-sizing: border-box;
+}
+/* 推荐 */
+input, textarea, video, img, object {
+  box-sizing: border-box;
+}
+```
 
 ### 2018年2月20日
 1. jquery也可以使用 JavaScript 的 &&, 当两句语句用&&连在一起, 如果前一语句是false, 如length. 后一语句也不会执行.
