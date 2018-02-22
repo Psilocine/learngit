@@ -5,6 +5,19 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年2月22日
+1. css样式推荐书写顺序, 参考国服第一切图仔
+```css
+css {
+  content 属性
+  Positioning Model 布局方式、位置，相关属性包括：position / top / right / bottom / left / z-index / display / float
+  Box Model 盒模型，相关属性包括：width / height / padding / margin / border / overflow
+  Typographic 文本排版，相关属性包括：font / line-height / text-align / word-wrap
+  Visual 视觉外观，相关属性包括：color / background / list-style / transform / animation / transition
+}
+```
+2. 尽量不使用!important属性, 可以多写个类选择器覆盖, 避免后期维护麻烦. 顺带一提, min-height/width, max-height/width都是!important限制不了的.
+
 ### 2018年2月21日
 1. box-sizing的初始化.
 ```css
