@@ -5,6 +5,31 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年2月25日
+1.改变placeholder颜色, pc端独占. - -?
+```css
+input::-webkit-input-placeholder {
+  color:
+}
+
+input::-moz-input-placeholder {
+  ..
+}
+/* 其他同理 */
+```
+
+### 2018年2月23日
+1. 移动端的viewport设置. 宽度是设备宽度, 缩放比例为1, 最小和最大比例都为1, 禁止用户缩放.
+```html
+  <meta name='viewport' 
+        content='width=device-width,
+                 initial-scale=1.0,
+                 minimum-scale=1.0,
+                 maximun-scale=1.0,
+                 user-scalable=no' />
+  
+```
+
 ### 2018年2月22日
 1. css样式推荐书写顺序, 参考国服第一切图仔
 ```css
