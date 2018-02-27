@@ -5,8 +5,18 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年2月27日
+1. 想要vue的过渡transition组件有效, 必须和下列其一搭配
+```css
+1. v-if（条件渲染）
+2. v-show（条件展示）
+3. 动态组件
+4. 在组建的根节点上，并且被vue实例DOM方法触发，如appendTo方法把组件添加到某个根节点上
+```
+2. transition只改变x轴y z其中一轴, 但是却使用translate3d? 原因是因为translate3d开启硬件加速, 让动画更流畅.
+
 ### 2018年2月25日
-1.改变placeholder颜色, pc端独占. - -?
+1.改变placeholder颜色, 但是pc端独占. - -?
 ```css
 input::-webkit-input-placeholder {
   color:
