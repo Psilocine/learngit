@@ -9,6 +9,16 @@
 1. v-once只渲染一次
 2. $watch()里不能用箭头函数, 因为箭头函数本身没有this, 因此会导致undefined
 3. v-html用法, 例如data有个属性包含html标签, 直接用双花括号渲染会原封不动将html标签渲染成字符串, v-html会将HTML标签渲染成html标签. 但是不推荐用, 因为容易导致xss攻击
+4. 在计算属性computed定义的方法和在methods里定义的方法有什么不同? computed里的方法适合性能开销大的计算, 因为它会缓存起来, 如果相应变量不改变, 它就只会计算一次, 后续的调用从缓存拿; methods每次都会重复算
+5. v-if也能给多个元素加, 和template标签配合即可. 最终的渲染结果不包括template标签
+```html
+<template v-if='condition'>
+  <p>hello</p>
+  <p>world</p>
+  <p>!!!!!</p>
+</template>
+```
+6. v-show不能与v-else一起用, 也不用给多个元素加
 
 ### 2018年2月27日
 1. 想要vue的过渡transition组件有效, 必须和下列其一搭配
