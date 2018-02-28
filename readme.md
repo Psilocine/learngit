@@ -5,6 +5,56 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年3月1日
+1. 当已经创建的实例用添加属性, 该属性并不能有响应式变化, 如下例子刚开始只渲染第一个p标签.
+```JavaScript
+<p>{{vm.name}}</p>
+<p>{{vm.sex}}</p>
+
+new vm = new Vue({
+  ...
+  data () {
+    name: 'Psilo'
+  },
+  ...
+})
+
+vm.sex = 'man'
+// 添加属性成功, 但是渲染无效.
+// 查看后发现原因是因为name有setter和getter, 后添加的sex没有
+// 解决方法 1
+Vue.set(vm, 'sex', 'man')
+// 解决方法 2
+vm.$set(vm, 'sex', 'man')
+```
+2. v-for也可以和v-if一样, 和template标签渲染多个元素
+3. 组件注册两种方法, 一种局部 一种全局
+```javascript
+// 局部, 一种导入(假设为header) 一种当前作用域定义注册
+var footer = {
+  template: '<div>i am footer</div>'
+}
+new Vue({
+  ...,
+  components: {
+    'v-header': header // 导入
+    'v-footer': footer // 作用域注册 不常用
+  },
+  ...
+})
+// 全局
+var footer = {
+  template: '<div>i am footer</div>'
+}
+// 注意 一定要在new之前注册, 否则无效
+Vue.component('v-footer', {
+  footer
+})
+new Vue({
+  ...
+})
+```
+
 ### 2018年2月28日
 1. v-once只渲染一次
 2. $watch()里不能用箭头函数, 因为箭头函数本身没有this, 因此会导致undefined
@@ -19,6 +69,7 @@
 </template>
 ```
 6. v-show不能与v-else一起用, 也不用给多个元素加
+7. v-if和v-for一起用, v-for比v-if高优先权
 
 ### 2018年2月27日
 1. 想要vue的过渡transition组件有效, 必须和下列其一搭配
