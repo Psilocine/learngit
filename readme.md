@@ -8,8 +8,8 @@
 ### 2018年3月1日
 1. 当已经创建的实例用添加属性, 该属性并不能有响应式变化, 如下例子刚开始只渲染第一个p标签.
 ```JavaScript
-<p>{{vm.name}}</p>
-<p>{{vm.sex}}</p>
+<p>{{name}}</p>
+<p>{{sex}}</p>
 
 new vm = new Vue({
   ...
@@ -54,9 +54,69 @@ new Vue({
   ...
 })
 ```
+4. 一般来说只允许浮父组件向子组件传值(props), 称为props单向数据流, 为了防止子组件无意间改变父组件的状态
+5. 子组件向父组件怎么传值? 自定义事件. 父组件里用v-on:自定义事件名字='监听方法名'; 子组件在监听方法名里用this.$emit('自定义事件名字')
+6. 非父子组件怎么通信
+```JavaScript
+// 可以使用一个空的Vue实例来做媒介
+var bus = new Vue()
+
+// 需要传递值的组件
+bus.$emit('someMethods')
+
+// 需要接受值的组件
+bus.$on('someMethods', function (val) {
+  // 监听
+  // ...
+})
+
+// 情况复杂的话需要vuex状态管理
+```
+7. 插槽分发slot标签. 在设计组合使用的组件时, 内容分发API非常有用
+8. $refs只在组件渲染完成后才填充, 只是直接操作的应急方案, 应当避免在模板或计算属性中使用
+9. v-on的修饰符
+```javascript
+// 事件修饰符
+.stop // evnet.preventDefault() v-on:click.stop='doThis'
+.prevent // event.stopPropagation
+.capture // 事件捕获
+.once // 执行一次
+.self // event.target是当前元素才触发
+
+注意修饰符的顺序也有影响: 
+@:click.self.prevent // 阻止自身元素默认行为 
+@:click.prevent.self // 阻止所有的点击
+
+// 按键修饰符
+@:keyup.13 = 'submit' // keyup且keyCode是13才触发
+@.keyup.enter = 'submit' // 同理
+
+.enter
+.tab // Tab键, 当focus到视口外失效, 如最后一个元素
+.delete (捕获“删除”和“退格”键)
+.esc
+.space
+.up // ↑键
+.down
+.left
+.right
+
+// 系统修饰键
+.ctrl
+.alt
+.shift
+.meta // mac对应command, windows对应左下微软标识键
+
+@keyup.ctrl.67='something' // ctrl + c 复制时候触发事件
+
+// 鼠标按键修饰符
+.left
+.right
+.middle
+```
 
 ### 2018年2月28日
-1. v-once只渲染一次
+1. v-once只渲染一次, 适合包含大量静态内容
 2. $watch()里不能用箭头函数, 因为箭头函数本身没有this, 因此会导致undefined
 3. v-html用法, 例如data有个属性包含html标签, 直接用双花括号渲染会原封不动将html标签渲染成字符串, v-html会将HTML标签渲染成html标签. 但是不推荐用, 因为容易导致xss攻击
 4. 在计算属性computed定义的方法和在methods里定义的方法有什么不同? computed里的方法适合性能开销大的计算, 因为它会缓存起来, 如果相应变量不改变, 它就只会计算一次, 后续的调用从缓存拿; methods每次都会重复算
@@ -79,7 +139,7 @@ new Vue({
 3. 动态组件
 4. 在组建的根节点上，并且被vue实例DOM方法触发，如appendTo方法把组件添加到某个根节点上
 ```
-2. transition只改变x轴y z其中一轴, 但是却使用translate3d? 原因是因为translate3d开启硬件加速, 让动画更流畅.
+2. transition只改变x轴y z其中一轴, 但是却使用translate3d? 原因是因为translate3d开启硬件加速, 让动画更流畅. 缺点是移动端更耗电
 
 ### 2018年2月25日
 1.改变placeholder颜色, 但是pc端独占. - -?
