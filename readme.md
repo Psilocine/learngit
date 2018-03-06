@@ -1,9 +1,29 @@
-......# 2017IFE任务汇总:
+# 2017IFE任务汇总:
 [汇总](https://psilocine.github.io/learngit/)
 (全做完了哦~ FAUX!
 
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
+
+### 2018年3月6日
+1. document.write()什么时候会覆盖页面, 什么时候不会覆盖. 众所周知, document.write也可以用来延迟加载资源```JavaScript
+// 覆盖
+window.onload = function () {
+  document.write('cover')
+}
+
+// 不覆盖
+window.onload = document.write('cover')
+
+// 函数调用 调用时覆盖
+function cover () {
+  document.write('cover')
+}
+cover()  // 覆盖
+
+// 综上, 函数调用会覆盖
+```
+2. Vue在2.0已经抛弃了ready()的生命周期, 可以用mounted()代替.
 
 ### 2018年3月1日
 1. 当已经创建的实例用添加属性, 该属性并不能有响应式变化, 如下例子刚开始只渲染第一个p标签.
