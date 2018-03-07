@@ -5,6 +5,30 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年3月7日
+1. bind和call, apply的区别
+```JavaScript
+var a = 'global'
+var obj = {
+  a: 'local',
+  showA () {
+    console.log(this.a)
+  }
+}
+
+var otherObj = obj.showA
+otherObj() // 'global'
+otherObj.bind(obj) // showA () { ... }
+otherObj.bind(obj)() // 'global'
+otherObj.call(obj) // 'global'
+
+// 有上述可知, bind后返回的是一个函数, 还需要再执行一次
+```
+2. npm run build 打包报错原因
+```JavaScript
+1.确保你的package.json有写 build 的脚本指令
+2.要不你就是和我一样犯傻, 把build文件夹误以为是打包后的dist文件夹给删了 T T
+```
 ### 2018年3月6日
 1. document.write()什么时候会覆盖页面, 什么时候不会覆盖. 众所周知, document.write也可以用来延迟加载资源```JavaScript
 // 覆盖
