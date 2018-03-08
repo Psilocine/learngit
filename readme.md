@@ -5,6 +5,15 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年3月9日
+1. swiper轮播插件. 滚动一张的宽度是按container算的, 比如宽900的容器, 里面有5张图片容器, 这样swiper给每个图片容器的宽度为900/5=180px, 实际上我们希望图片容器有间距, 但是设置margin对swiper没用, 设padding图片容器多出空白又不好看.
+```JavaScript
+第一个想法: 我的解决方法, 比较笨, 在图片容器外面再包一层div, 这个div设置margin, 
+里面的图片容器可以按我们希望的宽度来, 这样每次滚动的宽度距离能确保和图片容器外层div一致.
+第二个想法: padding + background-clip: content-box, 发现swiper给的宽度还是180, 并不会因为有padding而减少, 最后加上box-sizing, 成功, 比第一种想法便捷许多
+第三个想法: 设置border + 透明宽度, 发现不行, 失败. 加上box-sizing, 成功!
+```
+
 ### 2018年3月7日
 1. bind和call, apply的区别
 ```JavaScript
