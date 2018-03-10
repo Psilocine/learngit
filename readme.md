@@ -5,6 +5,23 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年3月10日
+1. async await是干嘛的. async用在function前头, 用来申明是异步方法, await用于等待一个异步方法执行完成
+```JavaScript
+async function testAsync() {
+  return 'hello'
+}
+
+testAsync() // 返回一个Promise对象
+testAsync().then(resolve => {
+  console.log(resolve)  // 'hello'
+})
+
+await testAsync()
+
+async await的诞生是因为Promise在步骤多时传递参数太麻烦
+```
+
 ### 2018年3月9日
 1. swiper轮播插件. 滚动一张的宽度是按container算的, 比如宽900的容器, 里面有5张图片容器, 这样swiper给每个图片容器的宽度为900/5=180px, 实际上我们希望图片容器有间距, 但是设置margin对swiper没用, 设padding图片容器多出空白又不好看.
 ```JavaScript
