@@ -5,6 +5,86 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+
+### 2018年3月15日
+1. js是静态作用域. 函数的作用域在函数定义时决定, 而不是调用时决定
+```JavaScript
+// 静态作用域
+var value = 1;
+
+function foo() {
+  console.log(value);
+}
+
+function bar() {
+  var value = 2;
+  foo();
+}
+
+bar(); // 1
+```
+2. js进入执行上下文时，首先会处理函数声明，其次会处理变量声明，如果如果变量名称跟已经声明的形式参数或函数相同，则变量声明不会干扰已经存在的这类属性。
+```JavaScript
+console.log(foo); // 会打印函数 而不是undefined
+
+function foo(){
+  console.log("foo");
+}
+
+var foo = 1;
+```
+3. 什么是闭包? 闭包 = 函数 + 函数能够访问的自由变量.
+4. 什么是自由变量? 指在函数中使用的，但既不是函数参数也不是函数的局部变量的变量。
+```JavaScript
+var a = 1;
+
+function foo() {
+  console.log(a);
+}
+
+foo();
+// a既不是foo函数的局部变量, 也不是foo函数的参数. a是自由变量
+```
+5. 函数参数的传递方式
+```JavaScript
+// 如果是基本类型, 按值传递
+var value = 1;
+function foo(v) {
+  v = 2;
+  console.log(v); //2
+}
+foo(value);
+console.log(value) // 1
+
+// 如果是引用类型, 引用传递
+var obj = {
+  value: 1
+};
+function foo(o) {
+  o.value = 2;
+  console.log(o.value); //2
+}
+foo(obj);
+console.log(obj.value) // 2
+
+// 如果是传递引用类型, 但是将该参数完全修改而不是修改其属性值, 共享传递
+var obj = {
+    value: 1
+};
+function foo(o) {
+  o = 2;
+  console.log(o); //2
+}
+foo(obj);
+console.log(obj.value) // 1 obj还是引用类型 而不是基本类型的数值2
+
+foo(obj.value);
+console.log(obj.value) // 2 按值传递
+console.log(obj)       // { value: 2 }
+
+// 注意： 按引用传递是传递对象的引用，而按共享传递是传递对象的引用的副本！
+```
+
 ### 2018年3月10日
 1. async await是干嘛的. async用在function前头, 用来申明是异步方法, await用于等待一个异步方法执行完成
 ```JavaScript
