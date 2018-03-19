@@ -84,6 +84,23 @@ console.log(obj)       // { value: 2 }
 
 // 注意： 按引用传递是传递对象的引用，而按共享传递是传递对象的引用的副本！
 ```
+6. linux中管道命令符|的作用. 把第一个命令的输出值当做第二个命令的输入值执行. 如 ls -al | more
+7. jQuery对象和Dom对象怎么互相转换?
+```JavaScript
+var $div = $('#div')
+$div.innerHTML()   // 报错
+
+// jQuery对象转Dom对象 方法1
+var div = $div[0]  // div 是Dom对象
+div.innerHTML()
+// jQuery对象转Dom对象 方法2
+var div = $div.get(0)
+
+// Dom对象转jQuery对象
+var div2 = document.getElementById('div2')
+var $div2 = $(div2) // $div2 是jQuery对象
+```
+
 
 ### 2018年3月10日
 1. async await是干嘛的. async用在function前头, 用来申明是异步方法, await用于等待一个异步方法执行完成
@@ -99,7 +116,9 @@ testAsync().then(resolve => {
 
 await testAsync()
 
-async await的诞生是因为Promise在步骤多时传递参数太麻烦
+// async await的诞生是因为Promise在步骤多时传递参数太麻烦
+// await只能在async里
+// async可以不要await  await必须要有async
 ```
 
 ### 2018年3月9日
@@ -136,7 +155,8 @@ otherObj.call(obj) // 'global'
 2.要不你就是和我一样犯傻, 把build文件夹误以为是打包后的dist文件夹给删了 T T
 ```
 ### 2018年3月6日
-1. document.write()什么时候会覆盖页面, 什么时候不会覆盖. 众所周知, document.write也可以用来延迟加载资源```JavaScript
+1. document.write()什么时候会覆盖页面, 什么时候不会覆盖. 众所周知, document.write也可以用来延迟加载资源
+```JavaScript
 // 覆盖
 window.onload = function () {
   document.write('cover')
@@ -153,6 +173,7 @@ cover()  // 覆盖
 
 // 综上, 函数调用会覆盖
 ```
+
 2. Vue在2.0已经抛弃了ready()的生命周期, 可以用mounted()代替.
 
 ### 2018年3月1日
@@ -382,8 +403,10 @@ fg=[文字颜色, 默认666]
   统一UI样式
 }
 ```
-2. cursor是当下关键字属性值最多的css属性. 其默认值不是default, 而是auto, 在iuput框时候变成text, 在带href的a标签变成pointer. 
-```css
+
+2. cursor是当下关键字属性值最多的css属性. 其默认值不是default, 而是auto, 在iuput框时候变成text, 在带href的a标签变成pointer.
+
+```javascript
 cursor: default; 默认状态下的光标.
 cursor: none; 将鼠标隐藏, 如全屏的时候, 光标静止几秒不动, 设置成none. 
 cursor: help; 带问号的鼠标. 
@@ -395,7 +418,9 @@ cursor: move; 示意可以移动的光标.
 cursor: copy; 示意当前元素可以被复制.
 cursor: not-allowed; 禁止的光标.
 ...
+
 ```
+
 3. user-select: none; 设置了这个css属性后文本不能被选中.
 
 ### 2018年2月8日
