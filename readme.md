@@ -6,6 +6,20 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 
+### 2018年3月20日
+1. es7 includes用法
+```JavaScript
+// 两个参数, 第一个参数是需要匹配的值, 第二个可选参数是起始位置
+[1,2,3].includes(3) // true
+[1,2,3].includes(4) // false
+[1,2, NaN].includes(NaN) // true
+
+[1,2,3].includes(3, 3) // false
+[1,2,3].includes(3, -1) // true 如果第二个参数负值小于总长度, 则从0开始索引
+
+inlcudes判断NaN是indexOf所没有的功能
+```
+
 ### 2018年3月15日
 1. js是静态作用域. 函数的作用域在函数定义时决定, 而不是调用时决定
 ```JavaScript
