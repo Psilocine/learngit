@@ -6,6 +6,25 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 
+### 2018年3月23日
+MVC MVP MVVM
+```javascript
+M数据保存 V用户界面 C业务逻辑
+通信方式 V->C->M->V
+1.View 传送指令到 Controller
+2.Controller 完成业务逻辑后，要求 Model 改变状态
+3.Model 将新的数据发送到 View，用户得到反馈
+
+M数据保存 V用户界面 P业务逻辑
+通信方式 V<->P<->M
+1.双向通讯
+2.V和M不发生联系, 都通过P传递
+
+M数据保存 V用户界面 VM与V双向绑定
+通信方式 V<->VM<->M
+1.V变动直接反映在VM上, 反之也是.
+```
+
 ### 2018年3月20日
 1. es7 includes用法
 ```JavaScript
