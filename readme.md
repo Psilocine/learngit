@@ -5,6 +5,12 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年3月28日
+1. -S 是 --save， -D 是 --save-dev
+```javascript
+npm i vue -S
+```
+2. style scoped属性. 只影响style标签的父元素和它所有的后代元素. 如果该组件大量运用 不建议写
 
 ### 2018年3月23日
 MVC MVP MVVM
