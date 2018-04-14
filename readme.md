@@ -8,6 +8,7 @@
 ### 2018年4月12日
 1. $nextTice()如果在方法里使用, 好像会执行两次? 待解决. 比如饿了么的resetFields, 会执行两次.
 2. stringify会把参数变成字符串, 比如你需要传一个数组, 但是你stringify后, 数组变成字符串, 请求就会报错.
+3. mounted和created区别, mounted是在dom渲染后加载.
 
 ### 2018年4月10日
 1. watch也能watch到$route.params的属性变化
