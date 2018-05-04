@@ -5,6 +5,12 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2018年5月4日
+1. vue报错Maximum call stack size exceeded, 翻译过来就是栈溢出, 可能是递归死循环. 我这里的情况是因为$logger放进计算属性, 导致报错. 
+
+### 2018年4月27日
+1. package.json里的script, 不能运行报错, NPM err 一堆, 不要着急, 可能是环境不一样, mac环境如"NODE_ENV=production node build/build.js" 语句间不用逻辑与, windows环境下如果这样写, 会报错, "set NODE_ENV=production && node build/build.js", 即可
+
 ### 2018年4月16日
 1. 忘记切分支, 在dev修改代码, 又不想让代码付诸东流怎么办. 先git stash保存起来, 再切自己分支, 然后git stash pop即可.
 
