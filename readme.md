@@ -5,6 +5,9 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年2月13日
+1. 计算月份总天数moment有个daysInMonth()方法, 十分便捷. 以前我是用下个月的当天减去这个月的当天获得月份总天数: moment().diff(moment().add(1, "M"), 'days')
+
 ### 2018年11月12日
 1. Node的path.resolve(), path.join(): 拼接参数; __dirname的意思: 当前文件的路径; process是全局变量, 不用require引入
 
