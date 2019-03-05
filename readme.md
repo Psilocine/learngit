@@ -5,6 +5,19 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年3月5日
+1. Vue中计算属性computed默认是getter方法, 没有默认值. 当遇到校验需要给定默认值的类型时, 会报错, 可以用以下来
+```JavaScript
+computed: {
+	xxx () {
+		get () {
+			// 原来的逻辑
+		},
+		default: [] // 这里定义默认值
+	}
+}
+```
+
 ### 2019年2月13日
 1. 计算月份总天数moment有个daysInMonth()方法, 十分便捷. 以前我是用下个月的当天减去这个月的当天获得月份总天数: moment().diff(moment().add(1, "M"), 'days')
 
