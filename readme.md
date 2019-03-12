@@ -5,6 +5,18 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年3月12日
+1. 数字金额千分位格式化可以用Number.prototype.toLocaleString()实现
+```JavaScript
+var num = 123456789;
+num.toLocaleString(); // 123,456,789
+
+// 缺点是会四舍五入千分位后的的值
+var num2 = 123456789.987654321;
+num2.toLocaleString(); // 123,456,789.988
+```
+2. JSON.parse(JSON.stringify(Object))会把undefined, symbol, function类型过滤掉, 且date类型会转成字符串类型
+
 ### 2019年3月7日
 1. 饿了么组件的@input事件, @change事件, 要传第二个参数, 就需要获取改变的值(第一个参数), 可用$event来当第一个参数.
 
