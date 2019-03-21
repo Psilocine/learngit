@@ -5,6 +5,25 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年3月21日
+1. 预编译: 变量和函数同名 js是怎么处理的
+```JavaScript
+console.log(fn);
+// 1.
+function fn () { console.log('function'); }
+var fn = 'string';
+// 2.
+var fn = 'string';
+function fn () { console.log('function'); }
+
+// 答案都是打印出fn函数, 会预编译成如下代码
+var fn;
+function fn () { ... }
+console.log(fn); // 变量fn被函数fn覆盖
+
+fn = 'string';
+```
+
 ### 2019年3月15日
 1. npm版本号 '~' 和 '^'的区别
 ```JavaScript
