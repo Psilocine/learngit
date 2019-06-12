@@ -5,6 +5,19 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年6月12日
+1. 汉字数据按字母排序
+```JavaScript
+const arr = ['福建', '广东', '北京']
+arr.sort((a, b) => a.localeCompare(b, 'zh-Hans-CN', { sensitivity: 'accent' }))
+// arr = ['北京', '福建', '广东'] 该例子为a-z正序, 倒叙改变a,b位置即可
+
+// 后发现可简写成
+arr.sort((a, b) => a.localeCompare(b))
+// 可能是根据当前地区判断了国家'zh-Hans-CN'
+```
+2. 举一反三, js都有汉字按字母排序了, 按笔画排序会有吗? 答案是没有, 找了半天, 只有大佬造好了的轮子
+
 ### 2019年3月21日
 1. 预编译: 变量和函数同名 js是怎么处理的
 ```JavaScript
@@ -17,7 +30,7 @@ var fn = 'string';
 function fn () { console.log('function'); }
 
 // 答案都是打印出fn函数, 会预编译成如下代码
-var fn;
+var fn; // 函数变量提升
 function fn () { ... }
 console.log(fn); // 变量fn被函数fn覆盖
 
