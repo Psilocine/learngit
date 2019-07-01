@@ -5,6 +5,34 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年7月1日
+1. 利用a标签解析url
+```JavaScript
+function parseUrl(url) {
+	var a = document.createElement('a');
+	a.href = url;
+	return {
+		host: a.hostname,
+		port: a.port,
+		pathname: a.pathname,
+		query: a.search,
+		hash: a.hash.replace('#', ''),
+		params: (function () {
+			var ret = {},
+				seg = a.search.replace(/^\?/, '').split('&'),
+				len = seg.length, i = 0, s;
+			for (; i < len; i++) {
+				if (!seg[i]) { continue; }
+				s = seg[i].split('=');
+				ret[s[0]] = s[1];
+			}
+			return ret;
+		})()
+	};
+}
+```
+2. 下述汉字排序可能遇到的问题: 多音字汉字可能排序错误, 如厦(sha)门
+
 ### 2019年6月12日
 1. 汉字数据按字母排序
 ```JavaScript
