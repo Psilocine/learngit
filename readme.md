@@ -5,6 +5,22 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年7月3日
+1. 一些不常用的vue指令
+```JavaScript
+<!-- v-for 可以渲染对象 -->
+<div v-for="(value, keyName, index) in object">
+	{{index}}.{{keyName}}:{{value}}
+</div>
+
+<!-- v-pre: 跳过这个元素和它的子元素的编译过程 -->
+<span v-pre>{{ 这里的内容不会被编译 }}</span>
+
+<!-- v-once: 只渲染一次 -->
+<p v-once>{{msg}}</p>  //msg不会改变
+<p>{{msg}}</p> // msg会不断变化
+```
+
 ### 2019年7月1日
 1. 利用a标签解析url
 ```JavaScript
