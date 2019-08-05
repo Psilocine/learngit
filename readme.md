@@ -5,6 +5,17 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年8月5日
+1. animation是可以暂停的
+```css
+div:hover {
+	animation-play-state: paused;
+}
+```
+
+### 2019年7月10日
+1. el-table-column条件渲染报错: h.$scopedSlots.default is not a function. 原因是因为Vue的渲染优化机制, 相同标签会被复用, 给标签加key即可.
+
 ### 2019年7月3日
 1. 一些不常用的vue指令
 ```JavaScript
