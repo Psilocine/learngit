@@ -5,6 +5,34 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年8月14日
+1. axios有取消请求的api, 名为cancelToken, 原生的话是abort()这个方法, 原理是promise的resolve赋值给外部变量, 从而获取控制权
+```JavaScript
+// 1. 原生使用方法
+var currentAjax = null;
+$('.get-ajax').click(() => {
+	currentAjax = $.ajax({
+		...,
+		error: function (err) { console.log('fail!'); }
+	});
+});
+$('.cancel').click(() => {
+	if(currentAjax) currentAjax.abort();
+});
+
+// click '.cancel' btn -> 'fail!'
+
+// 2. axios.CancelToken
+let CancelToken = axios.CancelToken;
+let me = this;
+axios.get(url, {
+	cancelToken: new CancelToken(cancelFn => {
+		// 达到某些条件
+		cancelFn();
+	});
+}).then().catch();
+```
+
 ### 2019年8月5日
 1. animation是可以暂停的
 ```css
