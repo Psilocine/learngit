@@ -5,6 +5,9 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年9月6号
+1. go2shell可以在当前路径启动终端，自带的终端只能在根目录启动
+
 ### 2019年8月14日
 1. axios有取消请求的api, 名为cancelToken, 原生的话是abort()这个方法, 原理是promise的resolve赋值给外部变量, 从而获取控制权
 ```JavaScript
