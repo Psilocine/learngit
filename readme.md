@@ -5,6 +5,30 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年10月16日
+1. 原生input标签，当拼写汉字但汉字还未填充到文本框（选词中）时就会触发input事件，这并不是我们想要的。实际上已经有api可以解决这个问题：compositionstart、compositionend，配合操作锁变量
+```javascript
+<input id='input' type='text' />
+
+var lock = true;
+var input = document.getElementById('input');
+input.addEventListener('compositionstart', () => {
+  lock = false;
+});
+
+input.addEventListener('compositionend', () => {
+  lock = true;
+});
+
+input.addEventListener('input', () => {
+  setTimeout(function () { // 为什么需要加定时器，为了改变事件流，让 lock 为准确值
+    if (lock) {
+      // ...
+    }
+  }, 0);
+});
+```
+
 ### 2019年10月14日
 1. 正则需要变量来传参又需要其他规则如^、$怎么办，利用new RegExp('^' + 参数变量)
 2. nrm是npm镜像源管理工具，可以切换/添加/删除 npm 的源，可用于私有的镜像源
