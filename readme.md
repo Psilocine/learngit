@@ -5,6 +5,20 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年10月22日
+1. vue-cli2本地处理跨域 conf/index.js的proxyTable 里定义
+```javascript
+proxyTable: {
+  '/api': { // 自定义host名
+    target:'http://目标地址’,
+    changeOrigin:true, //允许跨域
+    pathRewrite:{
+      '^/api': '' // 自定义的名字需要处理掉
+    }
+  }
+}
+```
+
 ### 2019年10月16日
 1. 原生input标签，当拼写汉字但汉字还未填充到文本框（选词中）时就会触发input事件，这并不是我们想要的。实际上已经有api可以解决这个问题：compositionstart、compositionend，配合操作锁变量
 ```javascript
