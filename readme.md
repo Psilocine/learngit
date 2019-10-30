@@ -5,6 +5,12 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年10月30日
+1. Img路径如果用相对路径，如果以后换了当前页面的路径，将会是灾难性的难维护，解决方法可以如下
+```html
+<img src="~assets/images/xxx.png" />
+```
+
 ### 2019年10月22日
 1. vue-cli2本地处理跨域 conf/index.js的proxyTable 里定义
 ```javascript
