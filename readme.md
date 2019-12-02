@@ -6,7 +6,8 @@
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
 ### 2019年12月2日
-1. vue-cli3的静态文件夹不是路径下的static而是public
+1. vue-cli3 的静态文件夹不是路径下的 static 而是 public。
+2. webpack-dev-server 出于安全考虑，默认检查 hostname，如果未匹配则不能访问，在 devServer 添加属性 disableHostCheck: true 就可以跳过检查。
 
 ### 2019年11月27日
 1. 今天遇到的坑：绑定clear方法不执行，原因：claer是JavaScript的关键字，换个方法名即可；其实关键字这块理论早就涉及，但是没运用到实际场景就忘了，值得反思
