@@ -8,6 +8,16 @@
 ### 2019年12月4日
 1. history模式弊端：当所有项目部署在统一域名下不同文件夹时就会出现问题，这时候切换路由会把路径全部切换，需要服务端协同解决
 2. web端可以访问本地服务，只需要把接口路径改成127.0.0.1:port的前缀（需注意跨域）即可
+3. git配置用户名密码除了配置全局还可以配置单独工程，我用这个方法解决了github上commit日历没有提交的问题
+```javascript
+// 全局
+git config --global user.name xx
+git config --global user.email xx
+
+// 单独工程
+git config --local user.name xx
+git config --local user.name xx
+```
 
 ### 2019年12月2日
 1. vue-cli3 的静态文件夹不是路径下的 static 而是 public。
