@@ -5,6 +5,19 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年12月13日
+1. 接口返回文件流的图片，该如何转成 base64，用 axios 请求时就要加上 responseType 的参数。
+```javascript
+axios.get(url, {
+  ...,
+  responseType: 'arraybuffer'
+}).then(res => {
+  return `data:image/png;base64,${btoa(
+    new Uint8Array(res.data).reduce((data, byte) => data + String.fromCharCode(byte), '')
+  )}`; // 返回什么后缀就用什么后缀，png 就用 data:image/png, gif 就用 data:image/gif
+});
+```
+
 ### 2019年12月4日
 1. history模式弊端：当所有项目部署在统一域名下不同文件夹时就会出现问题，这时候切换路由会把路径全部切换，需要服务端协同解决
 2. web端可以访问本地服务，只需要把接口路径改成127.0.0.1:port的前缀（需注意跨域）即可
