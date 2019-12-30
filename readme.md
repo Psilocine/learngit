@@ -5,6 +5,21 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2019年12月30日
+1. 类的静态方法调用同类的静态方法，可以用this也可以用类名
+```javascript
+class Dog() {
+  ...,
+  static eat() {
+    //
+  }
+  static sleep() {
+    Dog.eat();
+    this.eat();
+  }
+}
+```
+
 ### 2019年12月23日
 1. hexo部署报错：git@github.com: Permission denied (publickey)，排查后发现是密钥的权限过于开放导致无法连接：Permissions 0777 for 'id_rsa' are too open. 重制密钥的权限 700 即可.
 
