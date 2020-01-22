@@ -5,6 +5,18 @@
 ## 下面是自己的一些坑和笔记
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020年1月22日
+1. 一行代码实现优雅的判断类型
+```javascript
+const isType = type => target => `[object ${type}]` === Object.propotype.toString.call(target)
+
+const isArray = isType('Array')
+const isString = isType('String')
+
+isArray([]) // true
+isString('') // true
+```
+
 ### 2019年12月30日
 1. 类的静态方法调用同类的静态方法，可以用this也可以用类名
 ```javascript
