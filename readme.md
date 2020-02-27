@@ -7,6 +7,40 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 2 月 27 日
+1. 在vue下，webpack的url-loader把图片转成base64时，页面template里img的src符合条件的时候会变成[object Module]导致显示失败，在url-loader配置加上esModule = false即可
+```html
+<img src='[object Module]' />
+```
+```javascript
+// vue.config.js
+chainWebpack: (config => {
+  config.module
+    .rule('images')
+    .use('url-loader')
+    .loader('url-loader')
+    .tap(options => Object.assign(options, { limit: 10000, esModule: false }));
+});
+
+// or vue-cli2
+module: {
+  rules: [
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      use: [
+        {
+          loader: 'url-loader', // 'file-loader'
+          options: {
+            limit: 10000,
+            esModule: false
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
 ### 2020 年 2 月 25 日
 
 1. ios 不支持 webp 的图片格式
