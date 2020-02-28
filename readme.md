@@ -7,6 +7,9 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 2 月 28 日
+1. test
+
 ### 2020 年 2 月 27 日
 1. 在vue下，webpack的url-loader把图片转成base64时，页面template里img的src符合条件的时候会变成[object Module]导致显示失败，在url-loader配置加上esModule = false即可
 ```html
