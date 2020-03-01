@@ -7,23 +7,39 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
-### 2020 年 2 月 28 日
-1. test
+### 2020 年 3 月 1 日
+
+1. Blob 配合 URL.createObjectURL 可以做简易爬虫
+
+```javascript
+var obj = { a: 2 }; // 需要爬虫的数据
+var blob = new Blob([JSON.stringify(obj, null, 2)]);
+
+var blobHref = URL.createObjectURL(blob); // 得到 blob: 开头的blob流地址
+
+var a = document.createElement("a");
+a.href = blobHref;
+a.download = "xxx.json"; // 下载名称
+a.click();
+```
 
 ### 2020 年 2 月 27 日
-1. 在vue下，webpack的url-loader把图片转成base64时，页面template里img的src符合条件的时候会变成[object Module]导致显示失败，在url-loader配置加上esModule = false即可
+
+1. 在 vue 下，webpack 的 url-loader 把图片转成 base64 时，页面 template 里 img 的 src 符合条件的时候会变成[object Module]导致显示失败，在 url-loader 配置加上 esModule = false 即可
+
 ```html
-<img src='[object Module]' />
+<img src="[object Module]" />
 ```
+
 ```javascript
 // vue.config.js
-chainWebpack: (config => {
+chainWebpack: config => {
   config.module
-    .rule('images')
-    .use('url-loader')
-    .loader('url-loader')
+    .rule("images")
+    .use("url-loader")
+    .loader("url-loader")
     .tap(options => Object.assign(options, { limit: 10000, esModule: false }));
-});
+};
 
 // or vue-cli2
 module: {
@@ -32,7 +48,7 @@ module: {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
       use: [
         {
-          loader: 'url-loader', // 'file-loader'
+          loader: "url-loader", // 'file-loader'
           options: {
             limit: 10000,
             esModule: false
@@ -40,7 +56,7 @@ module: {
         }
       ]
     }
-  ]
+  ];
 }
 ```
 
@@ -54,13 +70,13 @@ module: {
 
 ```javascript
 const isType = type => target =>
-  `[object ${type}]` === Object.propotype.toString.call(target)
+  `[object ${type}]` === Object.propotype.toString.call(target);
 
-const isArray = isType("Array")
-const isString = isType("String")
+const isArray = isType("Array");
+const isString = isType("String");
 
-isArray([]) // true
-isString("") // true
+isArray([]); // true
+isString(""); // true
 ```
 
 ### 2019 年 12 月 30 日
@@ -161,17 +177,17 @@ proxyTable: {
 1. 原生 input 标签，当拼写汉字但汉字还未填充到文本框（选词中）时就会触发 input 事件，这并不是我们想要的。实际上已经有 api 可以解决这个问题：compositionstart、compositionend，配合操作锁变量
 
 ```javascript
-;<input id="input" type="text" />
+<input id="input" type="text" />;
 
-var lock = true
-var input = document.getElementById("input")
+var lock = true;
+var input = document.getElementById("input");
 input.addEventListener("compositionstart", () => {
-  lock = false
-})
+  lock = false;
+});
 
 input.addEventListener("compositionend", () => {
-  lock = true
-})
+  lock = true;
+});
 
 input.addEventListener("input", () => {
   setTimeout(function() {
@@ -179,8 +195,8 @@ input.addEventListener("input", () => {
     if (lock) {
       // ...
     }
-  }, 0)
-})
+  }, 0);
+});
 ```
 
 ### 2019 年 10 月 14 日
@@ -1097,8 +1113,7 @@ word-wrap: break-word, 如果有长单词在行末尾, 那在这长单词前断�
 
 ```css
 // 不推荐
-<divstyle='position: relative;'>
-  <img src='icon.png' style='position: absolute; right: 0; top: 0''>
+<divstyle='position: relative;'><img src='icon.png' style='position: absolute; right: 0; top: 0''>
   <p>内容</p>
   <p>内容</p>
   <p>内容</p>
@@ -1174,8 +1189,8 @@ p {
 
 ```javascript
 const capitalizeEveryWord = str =>
-  str.replace(/\b[a-z]/g, char => char.toUpperCase())
-capitalizeEveryWord("hello world!") // Hello World
+  str.replace(/\b[a-z]/g, char => char.toUpperCase());
+capitalizeEveryWord("hello world!"); // Hello World
 ```
 
 ### 2018 年 1 月 19 日
@@ -1399,7 +1414,7 @@ var tensquared = (function(x){ return x*x;}(10));
 2. 字符串的扩展. 可以用反引号`标识,
 
 ```javascript
-;`There are <b>${basket.count}</b> items`
+`There are <b>${basket.count}</b> items`;
 ```
 
 省去+连接符的繁琐, 变量直接在\${}里填写即可.
@@ -1439,17 +1454,17 @@ let arrayLike = {
   "1": "b",
   "2": "c",
   length: 3
-}
-let arr2 = Array.from(arrayLike) // ['a', 'b', 'c']
+};
+let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
 
-Array.from("hello") // ['h', 'e', 'l', 'l', 'o']
+Array.from("hello"); // ['h', 'e', 'l', 'l', 'o']
 
-let namesSet = new Set(["a", "b"]) // Set { "a", "b" }
-Array.from(namesSet) // ['a', 'b']
+let namesSet = new Set(["a", "b"]); // Set { "a", "b" }
+Array.from(namesSet); // ['a', 'b']
 
-Array.of(3, 11, 8) // [3,11,8]
-Array.of(3) // [3]
-Array.of(3).length // 1
+Array.of(3, 11, 8); // [3,11,8]
+Array.of(3); // [3]
+Array.of(3).length; // 1
 ```
 
 6. 对象的扩展. 属性的简洁表示法
@@ -1483,8 +1498,8 @@ const o = {
 1. parentNode, parentElement 区别. parentNode 是 W3C 标准, parentElement 只在 IE 中可用. 经测试后者也能在高级浏览器使用. parentNode 返回元素的 DOM 树中的父元素. nodeType 可以是多样的. 后者返回必须是元素节点, 否则返回 null.
 
 ```javascript
-eg: document.body.parentNode.parentNode // => #Document nodeType为9(Document);
-document.body.parentElement.parentElement // => null 因为nodeType !== 1(Element) 所以返回null;
+eg: document.body.parentNode.parentNode; // => #Document nodeType为9(Document);
+document.body.parentElement.parentElement; // => null 因为nodeType !== 1(Element) 所以返回null;
 ```
 
 ### 2017 年 10 月 16 日
@@ -1524,10 +1539,10 @@ a // [undefined x 5]
 4. 数组元素添加删除. delete 并不影响数组长度, 可是会致使数组变为稀疏数组.
 
 ```javascript
-a = [1, 2, 3]
-delete a[1]
-1 in a // false: 数组索引1并未在数组中定义
-a.length // => 3
+a = [1, 2, 3];
+delete a[1];
+1 in a; // false: 数组索引1并未在数组中定义
+a.length; // => 3
 ```
 
 5. pop(), shift()方法会删除数组元素并返回被删的值. 注意的是 pop()方法会使 length-1, shift()方法将所有元素的索引降 1, 这是和 delete 不同的地方.
@@ -1629,14 +1644,14 @@ console.log(g(), y); // 间接调用, 改变全局变量. 输出'local globalcha
 4. delete 运算符不能删除内置核心和客户端属性, 不能删除用户 var 出来的变量和用户通过 function 定义的函数;
 
 ```javascript
-var a = 1
-b = 1
-delete a // false 删除失败返回false, 严格模式下还会返回类型错误.
-delete b // true
-a // 1
-window.a // 1
-b // undefined
-window.b // undefined
+var a = 1;
+b = 1;
+delete a; // false 删除失败返回false, 严格模式下还会返回类型错误.
+delete b; // true
+a; // 1
+window.a; // 1
+b; // undefined
+window.b; // undefined
 ```
 
 5. 逗号运算符返回右操作数. eg: i=0,j=1,k=2; 返回 2;
@@ -1652,26 +1667,26 @@ window.b // undefined
 ```javascript
 var date = new Date(),
   fun = function() {
-    return 1
+    return 1;
   },
   arr = [1, 2, 3],
   reg = /\d+/g,
   date2,
   fun2,
   arr2,
-  reg2
+  reg2;
 
-date2 = date + 1 // typeof date2 => String 下面同
-fun2 = fun + 1 // String
-arr2 = arr + 1 // String
-reg2 = reg + 1 // String
+date2 = date + 1; // typeof date2 => String 下面同
+fun2 = fun + 1; // String
+arr2 = arr + 1; // String
+reg2 = reg + 1; // String
 
-date2 = date - 1 // Number
-fun2 = fun - 1 // Number
-arr2 = arr - 1 // Number
-reg2 = reg - 1 // Number
-----------------------"11" < 2 // 11 < 2 false
-"one" > 3 // NaN > 3 false 只要有Nan就是false
+date2 = date - 1; // Number
+fun2 = fun - 1; // Number
+arr2 = arr - 1; // Number
+reg2 = reg - 1; // Number
+----------------------"11" < 2; // 11 < 2 false
+"one" > 3; // NaN > 3 false 只要有Nan就是false
 ```
 
 ### 2017 年 10 月 3 日
@@ -1872,14 +1887,14 @@ arr.filter(function(elem, index, Array) {
 6.  BFC: 满足以下一项即可成为 BFC
 
 ```javascript
-float: left | right
-position: fixed | absolute
+float: left | right;
+position: fixed | absolute;
 display: (inline - block) |
   (table - cell) |
   (table - caption) |
   flex |
-  (inline - flex)
-overflow: hidden | scroll | auto
+  (inline - flex);
+overflow: hidden | scroll | auto;
 ```
 
     用BFC来做什么:1.外边距折叠; 2.容器无高度包含浮动元素; 3.阻止文字环绕
@@ -1934,23 +1949,23 @@ addEventListener 和 attachEvent 的一些细节
 2. 解除监听的时候需要和添加监听时候的参数相同
 
 ```javascript
-var btn = document.getElementById("myBtn")
+var btn = document.getElementById("myBtn");
 btn.addEventListener(
   "click",
   function() {
-    alert("hi")
+    alert("hi");
   },
   false
-)
+);
 
 // 解除无效, 此时的 function(){} 并不是上述那一个.
 btn.removeEventListener(
   "click",
   function() {
-    alert("hi")
+    alert("hi");
   },
   false
-)
+);
 ```
 
 解决的方法就是给函数一个变量, 传入变量即可.  
@@ -1966,13 +1981,13 @@ btn.removeEventListener(
 
 ```javascript
 var getName = function() {
-  console.log("hsbds")
-}
+  console.log("hsbds");
+};
 function getName() {
-  console.log("hssm")
+  console.log("hssm");
 }
 
-getName()
+getName();
 ```
 
 输出结果为 hsbds, 函数表达式在作用域里会变量提升, 而函数声明会函数提升, 理解了这一点就好办了, 可以想象函数声明的任何函数, 都是在作用域的最上方, 因此会被函数表达式覆盖.
@@ -1983,38 +1998,38 @@ getName()
    最常用的 appendChild(), 一个参数, 用于在父节点的类数组 childNodes 列表末尾添加一个节点. 添加完成后, childNodes 的最后一个节点关系指针得到相应更新. 更新完成后, appendChild()返回新增节点.
 
 ```javascript
-var returnedNode = someNode.appendChild(newNode)
-alert(returnedNode == newNode) // true
-alert(newNode == someNode.lastChild) // true
+var returnedNode = someNode.appendChild(newNode);
+alert(returnedNode == newNode); // true
+alert(newNode == someNode.lastChild); // true
 ```
 
 如果要把节点放在 childNodes 的特定位置, 使用 insertBefore(), 两个参数, 第一个是需要插入的节点, 第二个是插入节点的位置. 第二个参数如果是 null, 和 appendChild()效果一致.
 
 ```javascript
-var returnedNode = someNode.insertBefore(newNode, null)
-alert(returnedNode == someNode.lastChild) // true
+var returnedNode = someNode.insertBefore(newNode, null);
+alert(returnedNode == someNode.lastChild); // true
 
-var returnedNode = someNode.insertBefore(newNode, someNode.firstChild)
-alert(returnedNode == newNode) // true
-alert(newNode == someNode.firstChild) // true
+var returnedNode = someNode.insertBefore(newNode, someNode.firstChild);
+alert(returnedNode == newNode); // true
+alert(newNode == someNode.firstChild); // true
 
-var returnedNode = someNode.insertBefore(newNode, someNode.lastChild)
-alert(returnedNode == newNode) // true
-alert(newNode == someNode.childNode[someNode.childNode.length - 2]) // true  newNode位于倒二
+var returnedNode = someNode.insertBefore(newNode, someNode.lastChild);
+alert(returnedNode == newNode); // true
+alert(newNode == someNode.childNode[someNode.childNode.length - 2]); // true  newNode位于倒二
 ```
 
 replaceChild(), 替换节点, 两个参数, 第二个参数是要移除的节点.
 
 ```javascript
 // 替换第一个子节点 替换成newNode
-var returnedNode = someNode.replaceChild(newNode, someNode.firstChild)
+var returnedNode = someNode.replaceChild(newNode, someNode.firstChild);
 ```
 
 removeChild(), 移除节点, 一个参数.
 
 ```javascript
 // 移除第一个子节点
-var returnedNode = someNode.removeChild(someNode.firstChild)
+var returnedNode = someNode.removeChild(someNode.firstChild);
 ```
 
 还有 cloneNode(), 可传参布尔值 true, cloneNode(true)表示深拷贝, 反之为浅. 还要有上述的添加节点方法, 不然拷贝完的副本是没有父节点的, 不在 Dom 树上.
