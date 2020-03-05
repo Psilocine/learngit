@@ -7,6 +7,10 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 3 月 6 日
+
+1. vue-router 报 NavigationDuplicated 错是因为 push/replace 同样的路由导致.
+
 ### 2020 年 3 月 1 日
 
 1. Blob 配合 URL.createObjectURL 可以做简易爬虫
@@ -1113,7 +1117,7 @@ word-wrap: break-word, 如果有长单词在行末尾, 那在这长单词前断�
 
 ```css
 // 不推荐
-<divstyle='position: relative;'><img src='icon.png' style='position: absolute; right: 0; top: 0''>
+<divstyle='position: relative;'><imgsrc='icon.png' style='position: absolute; right: 0; top: 0''>
   <p>内容</p>
   <p>内容</p>
   <p>内容</p>
