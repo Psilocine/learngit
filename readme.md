@@ -1969,6 +1969,11 @@ btn.removeEventListener(
 解决的方法就是给函数一个变量, 传入变量即可.  
 3.addEventListener 执行顺序是从上往下, ie 的 attachEvent 则相反. ie 和高级浏览器取消冒泡和取消默认行为也不一样, 需要做兼容.
 
+```javascript
+阻止冒泡: stopPropagation() / cancelBubble = true;
+阻止默认事件: preventDefault() / returnValue = false;
+```
+
 ### 2017 年 8 月 28 日 15:28:51
 
 1. css 选择器的问题关于.的连接, 如 li.open.menu 是找到 li 元素同时有 open 和 menu 的类. li.open#menu, 找到 id 是 menuclass 是 open 的 li, .open.menu 是找到同时具有这两个类名的任意标签
