@@ -73,8 +73,7 @@ module: {
 1. 一行代码实现优雅的判断类型
 
 ```javascript
-const isType = type => target =>
-  `[object ${type}]` === Object.propotype.toString.call(target);
+const isType = type => target => `[object ${type}]` === Object.propotype.toString.call(target);
 
 const isArray = isType("Array");
 const isString = isType("String");
@@ -1117,7 +1116,7 @@ word-wrap: break-word, 如果有长单词在行末尾, 那在这长单词前断�
 
 ```css
 // 不推荐
-<divstyle='position: relative;'><imgsrc='icon.png' style='position: absolute; right: 0; top: 0''>
+<divstyle='position: relative;'><imgsrc='icon.png'style='position: absolute; right: 0; top: 0''>
   <p>内容</p>
   <p>内容</p>
   <p>内容</p>
@@ -1192,8 +1191,7 @@ p {
 1. 每个单词首字母大写, 一句代码.
 
 ```javascript
-const capitalizeEveryWord = str =>
-  str.replace(/\b[a-z]/g, char => char.toUpperCase());
+const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperCase());
 capitalizeEveryWord("hello world!"); // Hello World
 ```
 
@@ -1893,11 +1891,7 @@ arr.filter(function(elem, index, Array) {
 ```javascript
 float: left | right;
 position: fixed | absolute;
-display: (inline - block) |
-  (table - cell) |
-  (table - caption) |
-  flex |
-  (inline - flex);
+display: (inline - block) | (table - cell) | (table - caption) | flex | (inline - flex);
 overflow: hidden | scroll | auto;
 ```
 
@@ -2040,7 +2034,7 @@ var returnedNode = someNode.removeChild(someNode.firstChild);
 
 ### 2017 年 8 月 23 日 23:44:38
 
-1. scss 写伪类的时候会有 bug
+1. scss 写伪类的时候会有 bug(其实是自己没查文档)
 
 ```javascript
   a {
@@ -2097,7 +2091,37 @@ var returnedNode = someNode.removeChild(someNode.firstChild);
 ### 2017 年 8 月 12 日 15:48:39
 
 1. 要知道 DOMContentLoaded 和 window.onload 的区别
+
+```javascript
+DOMContentLoaed: dom内容加载完毕, script会阻塞dom的解析, 这也是script要后置的原因
+load:页面所有的资源(图片、音频、视频等)加载完毕
+```
+
 2. 了解从输入 url 到得到 html 的详细过程、html css js 渲染过程等
+
+```javascript
+1.把域名解析成对应ip
+  本地host文件是否有映射, 没有进入下一步
+  查找本地DNS解析器缓存, 没有进入下一步
+  查找本地DNS服务器, 没有进入下一步
+  查询(根域名服务器 -> 顶级域服务器 -> 第二层域 -> 子域)
+2.与ip的服务器建立连接(三次握手)
+  三次握手为了防止已失效的连接请求报文段突然又传送到服务端,而产生错误
+  client向server发送报文确认通道,
+  server向client发送已收到ack, 并发送报文确认通道,
+  client向server发送已收到ack, 开始传输
+3.与服务器建立连接后发送请求
+4.服务器接受请求之后,处理请求并完成响应
+5.浏览器的接受数据和页面渲染,构建DOM树
+  根据HTML解析出DOM树
+  根据CSS解析生产CSS规则树(CSSOM)
+  结合DOM树和CSS规则树,生成渲染树(Render Tree)
+  根据渲染树计算每一个节点的信息
+  根据计算好的信息绘制页面
+6.关闭tcp连接(四次拜拜)
+  tcp连接是全双工的,需要双方都主动关闭
+```
+
 3. 横向 nav li 有间距. 这是因为用了 inline-block 后, html 的文本节点也就是空格也会算进去,解决方法大概分以下几种:
    1. 用 float left 代替 display inline-block;
    2. li 标签之间不要有文本节点, (压缩后没此问题;
@@ -2123,7 +2147,7 @@ var returnedNode = someNode.removeChild(someNode.firstChild);
 
 ### 2017 年 5 月 18 日 17:04:42
 
-1. type='submit' 会刷新页面, 填入的数据都刷没了
+1. input type='submit' 会刷新页面, 填入的数据都刷没了
 2. hexo d 更新时, 会把不是 hexo 的文件渲染掉(包括 readme.md 解决方法就是在根目录的 \_config.yml 里面找到 skip_render: 写入你不想被渲染掉的文件, 然后把文件放入 public 即可.
 3. MongoDB 连接时, mongod --dbpath 这条的路径最好在根目录下建个目录, 即一层目录, 不然会连接失败.
 4. .jade 格式的文件不要用 tab 不然会错误, 用空格即可.(我用的 notepad++来编辑, 在设置里可以把 tab 设置为空格
@@ -2152,11 +2176,28 @@ var returnedNode = someNode.removeChild(someNode.firstChild);
 
 1. 理解文本流和文档流(normal flow)区别 =>2017 年 5 月 20 日 00:14:04 解决
 2. 什么是 dom 和 cssom => 2017 年 8 月 12 日 16:05:14 解决
-3. box-sizing 干什么的 => 2017 年 8 月 12 日 16:05:26 解决 两种模式下区别
+3. box-sizing 干什么的 => 2017 年 8 月 12 日 16:05:26 解决 两种模式下区别, box-sizing 给了开发者选择盒子模型的权利, border-box: w3c 标准盒子模型, content-box: IE 盒子模型
 
 ### 2017 年 3 月 1 日 00:05:24
 
 1. 双飞翼布局和圣杯布局 要搞透 =>2017 年 5 月 20 日 00:13:49 解决
+
+```javascript
+// 双飞翼
+<div class="wrap"><
+  <div class="center"></div> 两边设margin
+</div>
+<div class="left"></div> margin-left: -100%
+<div class="right"></div> margin-left: 负值width
+
+// 圣杯 DOM结构更加自然和自观 符合日常开发的习惯
+<div class="wrap"> 两边设padding
+  <div class="center"></div>
+  <div class="left"></div> margin-left: -100%
+  <div class="right"></div> margin-right: 负值width
+</div>
+```
+
 2. 文本首行缩进用 css { text-indent: 属性值 ;}
 
 ### 2017 年 2 月 26 日 22:02:37
