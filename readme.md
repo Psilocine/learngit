@@ -9,7 +9,7 @@
 
 ### 2020 年 3 月 26 日
 
-1. 时间对象 event
+1. 事件对象 event
 
 ```javascript
 MouseEvent: {
@@ -24,8 +24,8 @@ MouseEvent: {
   layerX: 0, // 相对当前盒子模型的左上角距离, border起算
   offsetX: 0, // 相对当前盒子模型的左上角距离, content起算
 
-  target: dom, // firefox, 实测也有srcElement
-  srcElement: dom, // ie
+  target: dom, // firefox, 实测也有高级浏览器也有srcElement
+  srcElement: dom, // ie才有
 }
 ```
 
