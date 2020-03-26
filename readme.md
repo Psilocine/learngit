@@ -7,6 +7,28 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 3 月 26 日
+
+1. 时间对象 event
+
+```javascript
+MouseEvent: {
+  isTrusted: true, // 是否用户触发
+  metaKey: false, // meta键是否被按下并保持住(macOS Cmd键/ windows Win键)
+  type: "click", // 事件类型
+  bubbles: true, // 事件是否冒泡
+  cancelable: true, // 是否可以取消事件的默认事件
+  defaultPrevented: false, // 是否调用了preventDefault
+  cancelBubble: false, // 是否阻止冒泡
+  returnValue: true, //  是否阻止默认事件
+  layerX: 0, // 相对当前盒子模型的左上角距离, border起算
+  offsetX: 0, // 相对当前盒子模型的左上角距离, content起算
+
+  target: dom, // firefox, 实测也有srcElement
+  srcElement: dom, // ie
+}
+```
+
 ### 2020 年 3 月 6 日
 
 1. vue-router 报 NavigationDuplicated 错是因为 push/replace 同样的路由导致.
@@ -791,8 +813,8 @@ bus.$on('someMethods', function (val) {
 
 ```javascript
 // 事件修饰符
-.stop // evnet.preventDefault() v-on:click.stop='doThis'
-.prevent // event.stopPropagation
+.stop // evnet.stopPropagation() v-on:click.stop='doThis' 阻止冒泡
+.prevent // event.preventDefault 阻止默认行为
 .capture // 事件捕获
 .once // 执行一次
 .self // event.target是当前元素才触发
@@ -819,7 +841,7 @@ bus.$on('someMethods', function (val) {
 .ctrl
 .alt
 .shift
-.meta // mac对应command, windows对应左下微软标识键
+.meta // mac对应Command, windows对应左下微软标识键 win
 
 @keyup.ctrl.67='something' // ctrl + c 复制时候触发事件
 
@@ -952,7 +974,7 @@ object {
 
 ### 2018 年 2 月 11 日
 
-1. 改变水平流向的 css 属性. derection: rtl(right to left); derection: ltr(left to right); eg: 确认取消按钮居中, 桌面端确认在左边, 移动端确认键在右边, 就可以使用该属性, 不用去写两套, 不用去动 js, 用媒体查询直接写即可.
+1. 改变水平流向的 css 属性. direction: rtl(right to left); direction: ltr(left to right); eg: 确认取消按钮居中, 桌面端确认在左边, 移动端确认键在右边, 就可以使用该属性, 不用去写两套, 不用去动 js, 用媒体查询直接写即可.
 
 ### 2018 年 2 月 10 日
 
@@ -1114,9 +1136,10 @@ word-wrap: break-word, 如果有长单词在行末尾, 那在这长单词前断�
 1. 裁剪属性 clip, 在 chrome 下仍占据空间, 即宽高数值都在, 在 ie 和 ff 下, 仅显示裁剪完的占据空间.
 2. 相对定位应该保持最小化原则. 如 div 右上角定位一个图标
 
-```css
+```html
 // 不推荐
-<divstyle='position: relative;'><imgsrc='icon.png'style='position: absolute; right: 0; top: 0''>
+<div style="position: relative;">
+  <img src="icon.png" style="position: absolute; right: 0; top: 0" />
   <p>内容</p>
   <p>内容</p>
   <p>内容</p>
@@ -1124,10 +1147,13 @@ word-wrap: break-word, 如果有长单词在行末尾, 那在这长单词前断�
 
 // 推荐
 <div>
-  <div style='position: relative;
-'><imgsrc='icon.png' style='position: absolute;
-right: 0;
-top: 0 "" > </div> <p>内容</p> <p>内容</p> <p>内容</p> </div>;
+  <div style="position: relative;">
+    <img src="icon.png" style="position: absolute;right: 0;top: 0" />
+  </div>
+  <p>内容</p>
+  <p>内容</p>
+  <p>内容</p>
+</div>
 ```
 
 3. relative 对 fixed 并无效果. fixed 的相对定位元素只能是 html
@@ -1135,7 +1161,7 @@ top: 0 "" > </div> <p>内容</p> <p>内容</p> <p>内容</p> </div>;
 ### 2018 年 1 月 30 日
 
 1. position 基于 padding-box 定位, 例如要把一个图标定位在右上, 如果父元素有 padding, 那么定位元素的 right 和 top 也要进行相应的负值, 这样维护起来并不方便, 可以考虑设置透明的 border, 这样如果图标位置要改变, 也只需修改定位元素的 css 属性即可.
-2. 有 absolute 属性的元素, 实际上父元素的 text-align 对其有效, 但并不是特别的对其. 前提是这个定位元素起始是内联元素, 另外对 text-align 起作用的实际上是定位元素前面的一个空白节点.
+2. 有 absolute 属性的元素, 实际上父元素的 text-align 对齐有效, 但并不是特别的对齐. 前提是这个定位元素起始是内联元素, 另外对 text-align 起作用的实际上是定位元素前面的一个空白节点.
 
 ### 2018 年 1 月 28 日
 
@@ -1162,8 +1188,8 @@ top: 0 "" > </div> <p>内容</p> <p>内容</p> <p>内容</p> </div>;
 
 ### 2018 年 1 月 23 日
 
-1. vertical-align 属性值是支持数值百分比的, 甚至支持负值. 因此有时候 vertical-align: middle 并不是垂直居中的最好选择, 用 middle 只是起到类似'垂直居中'的效果而已.
-2. 能够基于 vertical-align 实现纯 css+html 的弹窗, 并且能永远在浏览器窗口居中的效果, 省去 js resize 和 offset 宽高定位的代码. 后续具体见我的博客文章.
+1. vertical-align 属性值是支持数值百分比的, 甚至支持负值. 因此有时候 vertical-align: middle 并不是垂直居中的最好选择, 用 middle 只是起到类似'垂直居中'的效果而已. 笔者认为是幽灵空白节点存在导致不够居中
+2. 能够基于 vertical-align 实现纯 css+html 的弹窗, 并且能永远在浏览器窗口居中的效果, 省去 js resize 和 offset 宽高定位的代码.
 3. 另外 vertical-align 对块级元素无效.
 
 ### 2018 年 1 月 22 日
@@ -1197,7 +1223,7 @@ capitalizeEveryWord("hello world!"); // Hello World
 
 ### 2018 年 1 月 19 日
 
-1. css clip:rect(top, right, bottom, left)矩阵裁剪功能, 而且四个属性都基于左上角而言. 例如 clip: rect(0, 10px, 10px, 0), 表示只显示左上角 10px 的正方形.
+1. css clip:rect(top, right, bottom, left)矩阵裁剪功能, 而且四个属性都基于左上角而言. 例如 clip: rect(0, 10px, 10px, 0), 表示只显示左上角 10px 的正方形. 只能作用于绝对定位或者 fixed 的盒子
 
 ### 2018 年 1 月 18 日
 
@@ -1222,7 +1248,22 @@ capitalizeEveryWord("hello world!"); // Hello World
 
 ### 2018 年 1 月 7 日
 
-1. 模拟书籍的目录效果可以用 content 的计数器, 非常实用
+1. 模拟书籍的目录效果可以用 content 和 counter 的计数器, 非常实用
+
+```css
+body {
+  counter-reset: title 0;
+  counter-reset: subtitle 0;
+}
+h1:before {
+  counter-increment: title;
+  content: "Section " counter(title) ". ";
+}
+h2:before {
+  counter-increment: subtitle;
+  content: counter(title) "-" counter(subtitle) " ";
+}
+```
 
 ### 2018 年 1 月 6 日
 
@@ -1305,7 +1346,7 @@ var arr = [1,2,3,4];
 // 数组头部添加元素
 1. arr.unshift(n); // 原数组改变
 2. [n].concat(arr); // 返回新数组, arr不变
-令人意外的是unshift()方法比concat平均慢了一倍不止(safari浏览器除外)
+令人意外的是unshift()方法比concat平均慢了一倍不止, 前提是长度够大, 怀疑是unshift方法让每一个元素的index后移引起的性能问题(safari浏览器除外)
 
 // 数组中间添加元素
 1. arr.splice(arr.length/2, 0, n); // arr改变, 返回空数组 arr = [1,2,n,3,4];
@@ -1412,7 +1453,7 @@ var tensquared = (function(x){ return x*x;}(10));
 
 ### 2017 年 10 月 22 日
 
-1. es6: 用 let 命令声明，不会发生变量提升。如果区块中存在 let 和 const 命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
+1. es6: 用 let 命令声明，不会发生变量提升。如果区块中存在 let 和 const 命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域(暂时性死区)。凡是在声明之前就使用这些变量，就会报错。
 2. 字符串的扩展. 可以用反引号`标识,
 
 ```javascript
@@ -1425,7 +1466,8 @@ var tensquared = (function(x){ return x*x;}(10));
 4. 函数的扩展. 箭头函数有几个使用注意点
 
 ```javascript
-（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。其实箭头函数内部没有自己的this，导致内部的this就是外层代码块的this。
+（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+其实箭头函数内部没有自己的this，导致内部的this就是外层代码块的this。
 
 （2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
 
@@ -1508,12 +1550,12 @@ document.body.parentElement.parentElement; // => null 因为nodeType !== 1(Eleme
 
 1. Array.join(), Array.concat(), Array.slice(), toString(), toLocaleString(), 都不会修改原数组.
 2. Array.reverse(), Array.sort(), Array.splice(), push()pop() shift()unshift()会修改原数组.
-3. es5 数组方法. forEach()修改原数组; map(), filter()不会修改原数组.
+3. es5 数组方法. forEach(), map(), filter()不会修改原数组.
 4. 在空数组上调用时, every()返回 true, some()返回 false.
 
 ### 2017 年 10 月 15 日
 
-1. 使用负数或非整数来索引数组, 数值转换为字符串, 字符串作为属性名来用; 使用非负整数的字符串, 它会被当做数组索引; 使用浮点数和一个整数箱等时的情况下, 也会被当成数组索引.
+1. 使用负数或非整数来索引数组, 数值转换为字符串, 字符串作为属性名来用; 使用非负整数的字符串, 它会被当做数组索引; 使用浮点数和一个整数相等时的情况下, 也会被当成数组索引.
 
 ```JavaScript
 var arr = [];
@@ -1584,7 +1626,8 @@ Object.defineProperty(o,"b",{
 o.b = 1; // 控制台输出"你要赋值给我,我的新值是1"
 o.b; // 控制台输出'你取我的值', 返回2
 
-// 对多个属性同时定义可用Object.defindProperties(o, {
+// 对多个属性同时定义可用
+Object.defindProperties(o, {
   x: {value:1},
   b: {set: function()...}
 })
@@ -1614,7 +1657,7 @@ o.b; // 控制台输出'你取我的值', 返回2
 
 ### 2017 年 10 月 10 日
 
-1. switch 语句里的 case 和表达式匹配是用全等'==='来衡量, 换句话说, 表达式和 acse 的匹配并不会做任何类型转换.
+1. switch 语句里的 case 和表达式匹配是用全等'==='来衡量, 换句话说, 表达式和 case 的匹配并不会做任何类型转换.
 2. for 语句. for(initialize; test; increment) statement; 循环中三个表达式中的任何一个都可以忽略, 但是两个分号必不可少. for(;;).
 3. break 语句带不带标签, 它的控制权都无法越过函数的边界. 对于一条带标签的函数定义语句来说, 不能从函数内部通过这个标签来跳转到函数外部.
 
@@ -1687,8 +1730,9 @@ date2 = date - 1; // Number
 fun2 = fun - 1; // Number
 arr2 = arr - 1; // Number
 reg2 = reg - 1; // Number
-----------------------"11" < 2; // 11 < 2 false
-"one" > 3; // NaN > 3 false 只要有Nan就是false
+
+"11" < 2; // 11 < 2 false
+"one" > 3; // NaN > 3 false 只要有NaN就是false
 ```
 
 ### 2017 年 10 月 3 日
@@ -1733,7 +1777,7 @@ n.toPrecision(10) // "123456.7890"
 对象到字符串的转换:
 1. 如果对象具有toString(), 则调用这个方法, 如果它返回一个原始值, JavaScript将对这个值转换为字符串,
    并返回这个字符串结果.
-2. 如果对象没有toString(), 或者这个方法并不会烦一个原始值, 那么JavaScript会调用valueOf()方法. 如
+2. 如果对象没有toString(), 或者这个方法并不会返回一个原始值, 那么JavaScript会调用valueOf()方法. 如
    果存在这个方法, 则调用它, 如果返回值是原始值, JavaScript将这个值转换为字符串, 并返回这个字符串结果.
 3. 否则, JavaScript会抛出一个类型错误异常
 对象到数字的转换: 将上述1, 2点反转一下.
@@ -1762,6 +1806,12 @@ y
 1. vscode 插件修改个人配置, 到 C 盘下所在用户文件夹下找到.vscode/extensions/插件所在文件夹, 找到相关文件修改, 重启 vscode 即可. 比如 fileheader, 只需要修改 package.json 里的 Author.
 2. 犀牛书的直接量和高程里的字面量是一个东西.
 
+```javascript
+赤裸裸直接使用的数据, 没有进行封装;
+var test = "hello world";
+// "hello world" 为字符串字面量
+```
+
 ### 2017 年 9 月 26 日
 
 1. visibility 属性, 默认 visible, 设为 hidden 元素不可见. 与 opacity 的区别: 都占据原本的空间, 区别是 opacity 会响应用户交互, visibility 不会. 如绑定事件 click, 点击 opacity 的元素还是会起作用.
@@ -1769,6 +1819,21 @@ y
 ### 2017 年 9 月 25 日
 
 1. Math.min()比 Math.max()大. Math.min() > Math.max() // true
+
+```javascript
+Math.min()不传参数就是返回 Infinity, Math.max()不传参数就是返回 -Infinity
+不好理解的话就换个算法的角度来看, 如果我们写方法返回最大值, 初始值(max)应该设什么呢?
+function miniumn(arr) {
+  let max = 0; // <- -Infinity
+  arr.forEach(item => {
+    if (item > max) {
+      max = item;
+    }
+  })
+  return max;
+}
+```
+
 2. 正则表达式字面一致也不相等
 3. 函数名称不可改变
 4. 写出最简单的去重方式
@@ -1801,7 +1866,7 @@ arr.filter(function(elem, index, Array) {
   width: 420px;
   height: 420px;
 }
-/* 亲测after也可用 */
+/* 或者after */
 .test::before {
   position: absolute;
   width: 100%;
@@ -1824,6 +1889,15 @@ arr.filter(function(elem, index, Array) {
 ### 2017 年 9 月 15 日
 
 1. 前序遍历: 先遍历根结点, 然后遍历左子树, 最后遍历右子树. 中序遍历: 先遍历左子树, 然后遍历根结点, 最后遍历右子树. 后序遍历: 先遍历左子树, 然后遍历右子树,最后遍历根节点.
+
+```javascript
+前序: 根左右
+中序: 左根右
+后序: 左右根
+
+已知前序后序, 不能确定唯一二叉树, 不能确定左右子节点
+已知前序中序/中序后序, 可以确认唯一二叉树: 通过前序第一位或者后序最后一位确认根节点, 在通过中序判断根节点的左右子节点
+```
 
 ### 2017 年 9 月 14 日
 
@@ -1862,7 +1936,29 @@ arr.filter(function(elem, index, Array) {
 
 1. 离线检测 navigator.onLine 值为 true 表示设备能上网, 正常工作; false 表示设备离线, 执行离线状态时的任务. 实际上 HTML5 还定义了 online offline 两个事件, 对象都是 window. 在加载页面后用 navigator.onLine 获得初始状态, 然后靠这两个事件来检测应用是否变化.
 2. 数据存储 HTTP Cookie, 也叫 cookie. 一些限制: cookie 绑定在特定的域名下, 无法被其他域访问; cookie 总个数有限制, 如 ie6 最多 20 个; cookie 容量不能超 4KB. cookie 由名称,值,域,路径,失效时间,安全标志构成. 服务器将上述发给浏览器, 而浏览器只能发键值给服务器,且都需要 URL 编码.
-3. Web storage 存储机制 sessionStorage 和 globalStorage(被 localStorage 取代). 出现的原因是克服 cookie 的一些限制. 二者区别: session 针对回话的小段数据存储, 即数据值保持到浏览器关闭. local 除非用户通过 js 清除或清除浏览器缓存, 会一直存在. Web storage 容量能达到 5MB.
+3. Web storage 存储机制 sessionStorage 和 globalStorage(被 localStorage 取代). 出现的原因是克服 cookie 的一些限制.
+
+```javascript
+二者区别:
+// 存储大小
+cookie: 一般不超过4k, 且数量只能20个左右; Web storage 容量能达到 5MB 或者更大.
+
+// 数据有效期
+cookie 一般由服务器生成, 可以设置失效时间; session 针对回话的小段数据存储, 即数据值保持到浏览器关闭. local 除非用户通过 js 清除或清除浏览器缓存, 会一直存在.
+
+// 作用域
+cookie 在所有同源窗口中共享
+sessionStorage 同一个浏览器窗口共享
+localStorage 所有同源窗口中共享
+
+// 通信
+cookie 携带在http请求中, cookie保存过多数据会造成性能问题
+Web storage 只在客户端(浏览器)中保存
+
+// 易用性
+cookie 没有api, 需要用户自己进行封装
+Web storage 有原生api可以调用 setItem/getItem/removeItem/clear()
+```
 
 ### 2017 年 9 月 12 日
 
@@ -1871,8 +1967,14 @@ arr.filter(function(elem, index, Array) {
 ### 2017 年 9 月 11 日
 
 1.  with try-catch eval 可以改变作用域链.
-2.  Boolean([]); // => true, Number([]); // => 0, Number({}); // => NaN, Number(false); // => 0  
-    [] == false // => true, {} == false // NaN == 0 => false.
+2.  Boolean([]); // => true, 只有 0, null, false, NaN, undefined, ""才会是 falst  
+    Number([]); // => 0,  
+    Number({}); // => NaN,  
+    Number(false); // => 0  
+    [] == false // => true,  
+    {} == false // => false
+    NaN == 0 // => false
+    NaN == NaN // => false
 3.  canvas 绘制矢量图, svg 绘制位图.
 4.  1. A:IE6.0 的 div 的内嵌 div 可以把父级的高度撑大, 而 FireFox 不可以, 要自己设置高度;
     2. 当设置为三列布局时, IE6.0 的 float 宽度不能达到 100％, 而 FireFox 可以. 当设置为两列布局时, 两种浏览器都可以;
@@ -1900,9 +2002,9 @@ overflow: hidden | scroll | auto;
 ### 2017 年 9 月 10 日
 
 1. Flash 提供了 ExternalInterface 接口与 JavaScript 通信, ExternalInterface 有两个方法：call 和 addCallback. call 让 Flash 调用 js 里的方法, addCallback 是用来注册 flash 函数让 js 调用.
-2. a:link {} a:visited {} a:hover {} a:active {} (固定顺序: LoVe HAte 记忆口诀 爱与恨).
+2. a:link {} a:visited {} a:hover {} a:active {} (固定顺序: LoVe HAte 记忆口诀 爱与恨). 其实不是固定的, 这个顺序的体验是最好的
 3. json 字符串必须用双引号. stringify()把一个 javascript 对象序列化为 json 字符串, parse()把 json 字符串转为 JavaScript 对象. stringify 还能传两个可选参数, 第一个是过滤器, 可以是数组,函数. stringify 不传空格数是不包含空格字符和缩进的, 所以第二个参数是空格数(数值 最大为 10), 可以传非数值. parse()有一个可选参数, 是一个函数(还原函数).
-4. 跨域解决方案 CORS, ie8 用 XDomainRequest 对象支持, 其他浏览器用 XHR 对象支持. 图像 ping 和 jsonp 也能解决跨域通信.
+4. 跨域解决方案 CORS, ie8 用 XDomainRequest 对象支持, 其他浏览器用 XHR 对象支持. 图像 ping 和 jsonp 也能解决跨域通信(均只能 GET).
 5. 作用域安全的构造函数(可能漏写 new, 保证函数健壮), 惰性载入函数(不必每次执行 if 语句).
 6. console.log(1+ +"2"+"2"); // 32 +"2" + => 一元运算符, 1+ +"2" 相当于 1+2.
 
@@ -1926,18 +2028,65 @@ f1();
 
 ### 2017 年 9 月 1 日
 
-1. html5 事件 contenxtmenu 可以自定义右键菜单. 通过事件绑定的方式定义范围, 然后右键就可以触发写好的菜单(需要阻止默认行为和绝对定位用 client 来定位), 这里需要注意的是 ie 和高级浏览器的阻止默认行为写法不一样. ie: event.returnValue = false; 高级浏览器: event.preventDefault();
+1. html5 事件 contextmenu 可以自定义右键菜单. 通过事件绑定的方式定义范围, 然后右键就可以触发写好的菜单(需要阻止默认行为和绝对定位用 client 来定位), 这里需要注意的是 ie 和高级浏览器的阻止默认行为写法不一样. ie: event.returnValue = false; 高级浏览器: event.preventDefault();
 
 ### 2017 年 8 月 31 日
 
 1. 事件委托可以解决多个事件监听内存多性能差的问题, 原理是利用了事件冒泡, 和 event 的 target 配合, 只添加一个事件处理程序, 用 switch 方法处理子节点的所有事件.
 
+```html
+<ul id="list">
+  <li>item 1</li>
+  <li>item 2</li>
+  <li>item 3</li>
+</ul>
+```
+
+```javascript
+const LIST = document.getElementById("list");
+LIST.addEventListener("click", function(e) {
+  let event = e || window.event;
+  let target = event.target || event.srcElement;
+
+  if (target.tagName.toLowerCase() === "li") {
+    console.log("content: ", target.innerHTML());
+  }
+});
+```
+
 ### 2017 年 8 月 30 日
 
 1. clientX, clientY pageX, pageY screenX, screenY 区别
+
+```javascript
+client: 相对屏幕左上角的距离;
+page: 相对当前页面左上角的距离, 包含滚动条;
+screen: 相对视口左上角的距离;
+layer: 相对盒子模型左上角, border起算;
+offset: 相对盒子模型左上角, content起算;
+
+当页面的视口宽高和屏幕的宽高一样时: client和screen数值一样;
+```
+
 2. mouseenter, mouseleave mouseover, mouseout 区别
-3. click dblclick 触发原理, mousedown mouseup click, mousedown mouseup click mousedown mouseup click dblclick. mousedown, mouseup 被取消, click 失效
-4. typeof function(){} => 'function'; typeof (function(){})() => 'undefined' 没有 return 都是 undefined; typeof (function(){return 1})() => 'number'
+
+```javascript
+mouseover优先于mouseenter触发, mouseout优先于mouseleave触发
+mouseenter、mouseleave只对绑定的元素有效,
+而mouseover、mouseout对绑定的子元素也会触发
+```
+
+3. click dblclick 触发原理
+
+```javascript
+mousedown mouseup click,
+mousedown mouseup click mousedown mouseup click dblclick.
+mousedown, mouseup 被取消, click 失效
+```
+
+4. typeof function(){} => 'function';  
+   typeof (function(){})() => 'undefined' 没有 return 都是 undefined;  
+   typeof (function(){return 1})() => 'number'
 
 ### 2017 年 8 月 29 日
 
