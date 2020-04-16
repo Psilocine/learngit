@@ -7,23 +7,40 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 4 月 16 日
+
+1. vuex 中多个 modules 如何共用 mapActions
+
+```javascript
+methods: {
+  ...mapActions({
+    'method1': 'module1/method1',
+    'method2': 'module2/method2'
+  })
+}
+```
+
 ### 2020 年 4 月 4 日
-1. Number.MAX_SAFE_INTEGER: JavaScript能够准确表示的整数范围在-2^53到2^53之间（不含两个端点），超过这个范围，无法精确表示这个值
+
+1. Number.MAX_SAFE_INTEGER: JavaScript 能够准确表示的整数范围在-2^53 到 2^53 之间（不含两个端点），超过这个范围，无法精确表示这个值
+
 ```javascript
 var a = Math.pow(2, 53);
 var b = Math.pow(2, 53) + 1;
 var c = Math.pow(2, 53) - 1;
-a === b // true
+a === b; // true
 
 // es6 引进 Number.MIN_SAFE_INTEGER和Number.MAX_SAFE_INTEGER两个常量, 来表示这个范围的上下限
 var d = Number.MAX_SAFE_INTEGER;
-c === d // 
+c === d; //
 
 Number.MIN_SAFE_INTEGER; // -9007199254740991 or -(2^53 - 1)
 ```
-2. es6新增Number.isSafeInteger()则是用来判断一个整数是否落在这个范围之内
+
+2. es6 新增 Number.isSafeInteger()则是用来判断一个整数是否落在这个范围之内
+
 ```javascript
-Number.isSafeInteger('a'); // false
+Number.isSafeInteger("a"); // false
 Number.isSafeInteger(1.2); // false
 Number.isSafeInteger(3); // true
 ```
@@ -123,12 +140,12 @@ a.click();
 
 ```javascript
 // vue.config.js
-chainWebpack: config => {
+chainWebpack: (config) => {
   config.module
     .rule("images")
     .use("url-loader")
     .loader("url-loader")
-    .tap(options => Object.assign(options, { limit: 10000, esModule: false }));
+    .tap((options) => Object.assign(options, { limit: 10000, esModule: false }));
 };
 
 // or vue-cli2
@@ -159,7 +176,7 @@ module: {
 1. 一行代码实现优雅的判断类型
 
 ```javascript
-const isType = type => target => `[object ${type}]` === Object.propotype.toString.call(target);
+const isType = (type) => (target) => `[object ${type}]` === Object.propotype.toString.call(target);
 
 const isArray = isType("Array");
 const isString = isType("String");
@@ -279,7 +296,7 @@ input.addEventListener("compositionend", () => {
 });
 
 input.addEventListener("input", () => {
-  setTimeout(function() {
+  setTimeout(function () {
     // 为什么需要加定时器，为了改变事件流，让 lock 为准确值
     if (lock) {
       // ...
@@ -1281,7 +1298,7 @@ p {
 1. 每个单词首字母大写, 一句代码.
 
 ```javascript
-const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperCase());
+const capitalizeEveryWord = (str) => str.replace(/\b[a-z]/g, (char) => char.toUpperCase());
 capitalizeEveryWord("hello world!"); // Hello World
 ```
 
@@ -1775,7 +1792,7 @@ window.b; // undefined
 
 ```javascript
 var date = new Date(),
-  fun = function() {
+  fun = function () {
     return 1;
   },
   arr = [1, 2, 3],
@@ -2108,7 +2125,7 @@ f1();
 
 ```javascript
 const LIST = document.getElementById("list");
-LIST.addEventListener("click", function(e) {
+LIST.addEventListener("click", function (e) {
   let event = e || window.event;
   let target = event.target || event.srcElement;
 
@@ -2163,7 +2180,7 @@ addEventListener 和 attachEvent 的一些细节
 var btn = document.getElementById("myBtn");
 btn.addEventListener(
   "click",
-  function() {
+  function () {
     alert("hi");
   },
   false
@@ -2172,7 +2189,7 @@ btn.addEventListener(
 // 解除无效, 此时的 function(){} 并不是上述那一个.
 btn.removeEventListener(
   "click",
-  function() {
+  function () {
     alert("hi");
   },
   false
@@ -2196,7 +2213,7 @@ btn.removeEventListener(
 1. 函数表达式和函数声明
 
 ```javascript
-var getName = function() {
+var getName = function () {
   console.log("hsbds");
 };
 function getName() {
