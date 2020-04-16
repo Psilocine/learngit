@@ -17,6 +17,39 @@
 存储容量不同, c一般4kb且只能保存20个, s无限制
 ```
 
+2. position 有几种属性
+
+```css
+initial /* 默认值 */
+inherit /* 继承父级 */
+relative /* 相对定位, 没脱离文档流, 但能使z-index生效 */
+absolute /* 绝对定位, 相对有relative的父元素定位 */
+fixed /* 固定定位, 相对视口定位 */
+sticky /* 粘性定位, 兼容性不好 */
+```
+
+3. http 状态码
+
+```javascript
+1xx: 临时的响应
+  100 continue
+2xx: 服务器成功的接收了客户端请求
+  200 ok
+3xx: 客户端浏览器必须采取更多操作来实现请求
+  301 Moved Permanently 被请求的资源已永久移动到新位置
+  302 Found 临时重定向
+  304 Not Modified
+4xx: 客户端发生错误
+  400 Bad Request 服务器无法理解请求的格式
+  403 Forbidden 禁止访问
+  404 Not Found 找不到如何与 URI 相匹配的资源
+  405 Method Not Allowed 请求行中指定的请求方法不能被用于请求相应的资源
+5xx: 服务端发生错误
+  500 Internal Server Error 服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理
+  502 Bad Gateway 一般是在部署更新
+  503 Service Unavailable 由于临时的服务器维护或者过载，服务器当前无法处理请求
+```
+
 ### 2020 年 3 月 26 日
 
 1. 事件对象 event
