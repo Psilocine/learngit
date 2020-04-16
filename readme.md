@@ -7,6 +7,27 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 4 月 4 日
+1. Number.MAX_SAFE_INTEGER: JavaScript能够准确表示的整数范围在-2^53到2^53之间（不含两个端点），超过这个范围，无法精确表示这个值
+```javascript
+var a = Math.pow(2, 53);
+var b = Math.pow(2, 53) + 1;
+var c = Math.pow(2, 53) - 1;
+a === b // true
+
+// es6 引进 Number.MIN_SAFE_INTEGER和Number.MAX_SAFE_INTEGER两个常量, 来表示这个范围的上下限
+var d = Number.MAX_SAFE_INTEGER;
+c === d // 
+
+Number.MIN_SAFE_INTEGER; // -9007199254740991 or -(2^53 - 1)
+```
+2. es6新增Number.isSafeInteger()则是用来判断一个整数是否落在这个范围之内
+```javascript
+Number.isSafeInteger('a'); // false
+Number.isSafeInteger(1.2); // false
+Number.isSafeInteger(3); // true
+```
+
 ### 2020 年 3 月 27 日
 
 1. cookie、session 区别
