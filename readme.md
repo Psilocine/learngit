@@ -7,6 +7,10 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 5 月 6 日
+
+1. wbr（Word Break Opportunity）标签可以规定在文本中的何处适合添加换行符，XML/wbr/HTTP/wbr/Request
+
 ### 2020 年 4 月 16 日
 
 1. vuex 中多个 modules 如何共用 mapActions
