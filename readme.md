@@ -7,6 +7,17 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 6 月 10 日
+
+1. document.execcommand 复制功能，当 select 的元素不能有下述几种情况，否则无效
+
+```
+1. input、textarea的display:none
+2. input、textare有disabled=true
+3. input 宽||高为0
+4. input有hidden=true
+```
+
 ### 2020 年 5 月 6 日
 
 1. wbr（Word Break Opportunity）标签可以规定在文本中的何处适合添加换行符，XML/wbr/HTTP/wbr/Request
