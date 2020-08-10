@@ -7,6 +7,27 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 8 月 10 日
+
+1. 解构赋值可以剔除不想暴露或不想要的属性
+
+```javascript
+const obj = { a: 1, b: 2, c: 3 };
+
+const { a, ...variable } = obj;
+// a属性排除，variable = { b: 2, c:3 }
+```
+
+2. 解构赋值还可以给定默认值，防止代码执行中报错的可能
+
+```javascript
+const obj = { a: 1, b: 2, c: 3 };
+
+const { d } = obj; // d = undefined
+
+const { a = 10, d = 4 } = obj; // a = 1 默认值被实际值覆盖， d = 4
+```
+
 ### 2020 年 6 月 10 日
 
 1. document.execcommand 复制功能，当 select 的元素不能有下述几种情况，否则无效
