@@ -7,6 +7,17 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 8 月 31 日
+ios9下快速滚动到底部会导致固定元素不可点击，设置一下样式可以解决
+```css
+html,
+body {
+  height: 100%;
+  overflow-y: scroll; /* must be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+}
+```
+
 ### 2020 年 8 月 18 日
 
 提供给 lottie 使用的 json 如果有额外图片资源，可能会导致图片加载不出来
