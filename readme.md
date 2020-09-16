@@ -1,17 +1,26 @@
-# 2017IFE 任务汇总:
-
-[汇总](https://psilocine.github.io/learngit/)
-(全做完了哦~ FAUX!
-
 ## 下面是自己的一些坑和笔记
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 9 月 16 日
+
+audio 标签在 ios 下会出现只能播放第一次的问题，通过 new Audio 解决
+
+```javascript
+if (isIOS) {
+  const audio = new Audio("音源");
+  audio.play();
+}
+```
+
 ### 2020 年 9 月 1 日
-ios下transparent属性不是全透明，而是偏黑色，需要使用rgba(255,255,255,0)来兼容透明
+
+ios 下 transparent 属性不是全透明，而是偏黑色，需要使用 rgba(255,255,255,0)来兼容透明
 
 ### 2020 年 8 月 31 日
-ios9下快速滚动到底部会导致固定元素不可点击，设置一下样式可以解决
+
+ios9 下快速滚动到底部会导致固定元素不可点击，设置一下样式可以解决
+
 ```css
 html,
 body {
@@ -1633,9 +1642,9 @@ function foo() {
 
 ```javascript
 let arrayLike = {
-  "0": "a",
-  "1": "b",
-  "2": "c",
+  0: "a",
+  1: "b",
+  2: "c",
   length: 3
 };
 let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
