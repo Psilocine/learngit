@@ -2,6 +2,17 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 9 月 17 日
+
+苹果全面屏底部按钮留白的适配，参考小程序的 safe area。缺点是只支持 ios11 以上
+
+```css
+/* 首先head里配置 meta name='viewport' content='viewport-fit=cover' */
+padding-bottom: constant(safe-area-inset-bottom)
+padding-bottom: env(safe-area-inset-bottom) /* 兼容 ios11.2+，且要写在constant之后 */
+/* 同理还有 top left right 的安全区域距离*/
+```
+
 ### 2020 年 9 月 16 日
 
 audio 标签在 ios 下会出现只能播放第一次的问题，通过 new Audio 解决
