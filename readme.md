@@ -2,6 +2,26 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 9 月 23 日
+
+v-html 里样式无效的问题，需要用样式穿透才能渲染 v-html 里的标签类名
+
+```vue
+<style scope>
+.father >>> .child {
+}
+</style>
+
+<style scope lang="scss">
+.father {
+  &::v-deep {
+    .child {
+    }
+  }
+}
+</style>
+```
+
 ### 2020 年 9 月 17 日
 
 苹果全面屏底部按钮留白的适配，参考小程序的 safe area。缺点是只支持 ios11 以上
