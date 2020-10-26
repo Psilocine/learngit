@@ -2,6 +2,16 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 10 月 26 日
+
+react 和 vue 的局部样式实现的区别
+
+```javascript
+vue通过PostCSS给有scoped属性的style赋值独一的动态属性，如：data-v-1234567
+
+react是编译后直接在样式名后面加随机字符串，改变样式名从而达到局部样式无污染的效果
+```
+
 ### 2020 年 10 月 12 日
 
 安卓微信浏览器 window.location.reload 无效，解决方法是在链接地址后加时间戳传参
