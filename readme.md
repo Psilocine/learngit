@@ -2,6 +2,24 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2020 年 12 月 2 日
+vue-router跳转，path和params一起传参，params会失效。因为path里可以写params参数
+```javascript
+// 解决办法 1
+// 用 name 代替 path
+router.push({
+  name: '',
+  params: {}
+})
+
+// 2
+// 用query代替
+router.push({
+  path: "/foo",
+  query: {}
+})
+```
+
 ### 2020 年 10 月 26 日
 
 react 和 vue 的局部样式实现的区别
