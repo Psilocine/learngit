@@ -2,6 +2,9 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2021 年 2月 25日
+svg的viewBox、height、width属性渲染的时候就会计算好，如果想通过fontSize去改变svg的大小，需要把svg的内容重新渲染才会更新property属性
+
 ### 2020 年 12 月 2 日
 vue-router跳转，path和params一起传参，params会失效。因为path里可以写params参数
 ```javascript
