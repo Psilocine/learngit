@@ -2,6 +2,15 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2021 年 3月 30日
+分享两个兼容性差但好用的特性。
+1. 最近的业务需要输入法的确认直接搜索触发方法。input标签的`enterkeyhint`这个attr能够增加用户的意识和体验，现在兼容性还很不好，但是能增加一部分系统的用户体验。下面会把输入法的右下角按钮变成我们想要的文案，比如`search`就是“搜索”、`done`是“完成”、`send`是“发送”、`go`是“前往”等等。结合keypress方法就可以实现比较完整的逻辑
+```html
+<input enterkeyhint="search" />
+```
+
+2. 遇到包含回车符↵的整串字符串，v-html不能完全正确解析，要么replace全局替换成换行符，要么用`white-space`:`break-spaces`, 十分好用。
+
 ### 2021 年 2月 25日
 svg的viewBox、height、width属性渲染的时候就会计算好，如果想通过fontSize去改变svg的大小，需要把svg的内容重新渲染才会更新property属性
 
