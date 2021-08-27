@@ -2,6 +2,9 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2021 年 8月 27日
+1. iOS9.3的Element.classList.value是undefined，可以通过逻辑或className解决。奇怪的是caniuse上iOS9是支持classList的
+
 ### 2021 年 3月 30日
 分享两个兼容性差但好用的特性。
 1. 最近的业务需要输入法的确认直接搜索触发方法。input标签的`enterkeyhint`这个attr能够增加用户的意识和体验，现在兼容性还很不好，但是能增加一部分系统的用户体验。下面会把输入法的右下角按钮变成我们想要的文案，比如`search`就是“搜索”、`done`是“完成”、`send`是“发送”、`go`是“前往”等等。结合keypress方法就可以实现比较完整的逻辑
