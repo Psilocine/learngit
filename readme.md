@@ -2,6 +2,15 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2021 年 9月 1日
+1. vue composition-api使用ref获取template的ref节点，别忘了setup方法return出去，否则声明的ref出错
+```javascript
+setup () {
+  const someRef = ref(null); // 如果不 return 这个变量，则只是 value 为 null 的变量
+  const someRef = ref(""); // 同理
+}
+```
+
 ### 2021 年 8月 27日
 1. iOS9.3的Element.classList.value是undefined，可以通过逻辑或className解决。奇怪的是caniuse上iOS9是支持classList的
 
