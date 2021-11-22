@@ -2,6 +2,14 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2021 年 11 月 22日
+1. 正则匹配的反向引用，要注意的是引用的是匹配后的字符，而不是匹配的规则
+```javascript
+const reg = /('|")http\1/
+const str = "'http'" // 匹配到
+const str2 = "'http\"" // null
+```
+
 ### 2021 年 9月 1日
 1. vue composition-api使用ref获取template的ref节点，别忘了setup方法return出去，否则声明的ref出错
 ```javascript
