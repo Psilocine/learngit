@@ -2,7 +2,12 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
-### 2021 年 11 月 22日
+### 2022 年 04月 05 日
+uniapp + vue3 的坑
+1. 组件用 defineProps 解构的 props，watch 和 computed 都没有效果
+2. 在微信小程序里不能用官方的组件名引入组件，比如 Button
+
+### 2021 年 11 月 22 日
 1. 正则匹配的反向引用，要注意的是引用的是匹配后的字符，而不是匹配的规则
 ```javascript
 const reg = /('|")http\1/
@@ -10,7 +15,7 @@ const str = "'http'" // 匹配到
 const str2 = "'http\"" // null
 ```
 
-### 2021 年 9月 1日
+### 2021 年 9月 1 日
 1. vue composition-api使用ref获取template的ref节点，别忘了setup方法return出去，否则声明的ref出错
 ```javascript
 setup () {
@@ -19,10 +24,10 @@ setup () {
 }
 ```
 
-### 2021 年 8月 27日
+### 2021 年 8月 27 日
 1. iOS9.3的Element.classList.value是undefined，可以通过逻辑或className解决。奇怪的是caniuse上iOS9是支持classList的
 
-### 2021 年 3月 30日
+### 2021 年 3月 30 日
 分享两个兼容性差但好用的特性。
 1. 最近的业务需要输入法的确认直接搜索触发方法。input标签的`enterkeyhint`这个attr能够增加用户的意识和体验，现在兼容性还很不好，但是能增加一部分系统的用户体验。下面会把输入法的右下角按钮变成我们想要的文案，比如`search`就是“搜索”、`done`是“完成”、`send`是“发送”、`go`是“前往”等等。结合keypress方法就可以实现比较完整的逻辑
 ```html
@@ -31,7 +36,7 @@ setup () {
 
 2. 遇到包含回车符↵的整串字符串，v-html不能完全正确解析，要么replace全局替换成换行符，要么用`white-space`:`break-spaces`, 十分好用。
 
-### 2021 年 2月 25日
+### 2021 年 2月 25 日
 svg的viewBox、height、width属性渲染的时候就会计算好，如果想通过fontSize去改变svg的大小，需要把svg的内容重新渲染才会更新property属性
 
 ### 2020 年 12 月 2 日
