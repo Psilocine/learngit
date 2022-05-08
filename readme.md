@@ -2,6 +2,52 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2022 年 05月 07 日
+1. 尾调用：当一个函数执行时的最后一个步骤是返回另一个函数的调用，这就叫做尾调用。
+函数在调用时有调用栈记录，函数执行结束后依次上外弹出。
+函数嵌套调用没有使用 return，js 引擎会认为没执行完，保留调用栈记录
+如果所有的函数都是尾调用，那么在调用栈始终只有一条调用帧，这样会节省大量的内存，成为尾调用优化
+```typescript
+function foo():void {
+  bar();
+}
+function bar():void {
+  console.log('bar')
+}
+foo();
+
+// 优化后
+function foo():void {
+  return bar();
+}
+function bar():void {
+  console.log('bar')
+}
+foo();
+```
+2. 尾递归：了解了尾调用，尾递归就是在最后调用（return）自身。尾递归和递归有什么区别呢？
+```typescript
+// 阶乘
+function factorial (num: number): {
+  if (num === 1) return 1;
+  return num * factorial(num - 1);
+}
+factorial(5);            // 120
+factorial(500000);       // Uncaught RangeError: Maximum call stack size exceeded
+
+// num 也视作当前调用帧的变量。操作引擎分配给 js 引擎调用栈内存是有大小限制的
+// 如果超出内存范围，就会栈溢出错误
+
+// 尾递归
+function factorial (num: number, total: number): {
+  if (num === 1) return total;
+  return factorial(num - 1, num * total);
+}
+
+factorial(500000, 1); // ok
+// 通过尾递归优化，把空间复杂度从 O(n) 变为 O(1)
+```
+
 ### 2022 年 04月 05 日
 uniapp + vue3 的坑
 1. 组件用 defineProps 解构的 props，watch 和 computed 都没有效果
