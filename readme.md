@@ -2,6 +2,64 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2022 年 05月 20 日
+1. 大数相加
+```typescript
+function twoSum(a: string, b: string): string {
+  // 获得最大长度方便补0
+  const len: number = Math.max(a.length, b.length)
+  a = a.padStart(len, '0')
+  b = b.padStart(len, '0')
+
+  // 从后往前逐位相加
+  let flag: number = 0; // 进位
+  let temp: number = 0; // 累加的值
+  let sum: string = '';
+  for (let i = len - 1; i >= 0; --i) {
+    temp = parseInt(a[i]) + parseInt(b[i]) + flag;
+    flag = Math.floor(temp / 10)
+    sum = temp % 10 + sum
+  }
+  // 最后一位的考虑
+  if (flag > 0) {
+    sum = flag + sum;
+  }
+
+  return sum;
+}
+```
+2. 大数相乘
+```typescript
+function twoMultiply (num1: string, num2: string): string {
+  const len1 = num1.length;
+  const len2 = num2.length;
+  const ans: number[] = new Array(len1 + len2 - 1).fill(0);
+
+  for (let i = len1 - 1; i >= 0; i--) {
+    for (let j = len2 - 1; j >= 0; j--) {
+      if (!ans[i + j]) {
+        ans[i + j] = 0;
+      }
+      ans[i + j] += parseInt(num1[i]) * parseInt(num2[j]);
+    }
+  }
+  let flag = 0;
+  let temp = 0;
+  for (let i = ans.length - 1; i >= 0; i--) {
+    temp = ans[i] + flag;
+    flag = Math.floor(temp / 10);
+    ans[i] = temp % 10;
+  }
+
+  // 说明首位还有进位
+  if (flag) {
+    ans.unshift(flag);
+  }
+
+  return ans.join("");
+}
+```
+
 ### 2022 年 05月 07 日
 1. 尾调用：当一个函数执行时的最后一个步骤是返回另一个函数的调用，这就叫做尾调用。
 函数在调用时有调用栈记录，函数执行结束后依次上外弹出。
