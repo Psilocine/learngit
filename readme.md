@@ -2,6 +2,36 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2022 年 05月 22 日
+Moriss 遍历
+1. cur 指向根节点
+2. cur 无左树 cur = cur.right
+3. cur 有左树，找到左树的最右节点 mostRight
+  a. mostRight 的右节点为 null, mostRight.right = cur; cur = cur.left;
+  b. mostRight 的右节点为 cur, mostRight.right = null; cur = cur.right;
+4. cur === null, 结束
+
+```javascript
+let cur = root;
+let mostRight = null;
+
+while(cur !== null) {
+  mostRight = cur.left;
+  while(mostRight) {
+    while(mostRight.right !== null && mostRight.right !== cur) {
+      mostRight = mostRight.right;
+    }
+    if (mostRight === null) {
+      mostRight.right = cur;
+      cur = cur.left;
+      continue;
+    } else {
+      mostRight.right = null;
+    }
+  }
+  cur = cur.right;
+}
+```
 ### 2022 年 05月 20 日
 1. 大数相加
 ```typescript
