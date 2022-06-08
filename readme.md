@@ -2,7 +2,55 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
-### 2022 年 05月 22 日
+
+### 2022年 06月 08日
+js 原生方法的时间复杂度
+1. pop O(1)
+2. push O(m) m 为 arguments 的长度
+3. shift、unshift 时间复杂度 O(n)
+
+以下是模拟实现
+```javascript
+Array.prototype.mypop = function () {
+  const last = this[this.length - 1]
+  this.length--;
+
+  return last;
+}
+
+// 按照 v8 的实现，如果是多参数 push，时间复杂度是 O(n)，
+// 但是查阅了很多资料和测试，都说是 O(1) 这里令我十分疑惑
+Array.prototype.mypush = function () {
+  const m = this.length;
+  const n = arguments.length;
+  for (let i = 0; i < n; i++) {
+    this[m + i] = arguments[i]
+  }
+
+  this.length = m + n;
+  return m + n;
+}
+
+Array.prototype.myshift = function () {
+  const first = this[0];
+  for (let i = 1; i < this.length; i++) {
+    this[i - 1] = this[i]
+  }
+  this.length--;
+  return first;
+}
+
+Array.prototype.myunshift = function () {
+  const newArr = [...arguments, ...this];
+  for (let i = 0; i < newArr.length; i++) {
+    this[i] = newArr[i]
+  }
+
+  return this.length;
+}
+```
+
+### 2022年 05月 22日
 Moriss 遍历
 1. cur 指向根节点
 2. cur 无左树 cur = cur.right
