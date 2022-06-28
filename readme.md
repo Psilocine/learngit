@@ -2,6 +2,22 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2022年 06月 28日
+icon 点击区域太小，可以尝试使用伪元素扩大点击面积。缺点是伪元素需要块级元素支持，如 img 标签则无法使用
+```css
+.icon {
+  position: relative;
+}
+.icon::before {
+  position: absolute;
+  content: '';
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%; // 按需扩大 200%即扩大一倍
+  height: 200%; // 按需扩大
+}
+```
 
 ### 2022年 06月 08日
 js 原生方法的时间复杂度
