@@ -2,6 +2,16 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2022年 07月 27日
+1. 对于解构赋值的数组，我们通常用 _ 来表示不需要用到的占位
+```ts
+// 比如 jwt 的 token 获取，value 为 bearer eyJh...
+let [_, token] = Authorization.split(' ')
+
+// 其实可以做的更进一步，如果你确定 _ 后续不需要用到
+let [, token] = Authorization.split(' ')
+```
+
 ### 2022年 07月 08日
 1. transition animation 有何区别
 transition：
