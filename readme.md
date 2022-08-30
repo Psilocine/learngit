@@ -2,6 +2,36 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2022年 08月 30日
+webpack devtool sourceMap 配置项
+```typescript
+// 1. 首先明确 sourceMap 的赋值是由正则来匹配的：
+// ^(eval-|hidden-|inline-)?(nosources-)?(cheap-(module-)?)?source-map$
+
+// 2. 各组合项解释
+// eval: 浏览器 devtool 支持通过 sourceUrl 来把 eval 的内容单独生成文件，
+// 还可以进一步通过 sourceMappingUrl 来映射回源码，webpack 利用这个特性来
+// 简化 sourceMap 处理，可以直接从模块映射，不用从最终的 bundle 映射
+
+// hidden: 只生成 sourceMap，不和打包后的文件关联
+
+// inline: 通过 dataUrl 的方式内联在打包后的文件里，不单独生成 sourceMap 文件
+
+// nosources: sourceMap 是有 sourceContent （源码）字段的，会增加 sourceMap
+// 的体积，通过配置 nosources 就可以不生成 sourceContent
+
+// cheap: sourceMap 默认映射到源码的行和列，cheap 可以只精确到行，从而提升生成速度
+
+// module: sourceMap 默认映射的是打包后文件（如经历了多重 loader），module 能映射到最初的源码
+
+// 3. 总结
+// 本地/测试环境: eval-cheap-module-source-map（eval 每个模块单独映射；cheap 牺牲点精准度
+// 但能提高生成速度；需要 module 映射回最初的代码
+
+
+// 生产环境: hidden-source-map（sourceMap 不关联源码，需上传到如 sentry 等监控错误平台，
+// 如不需要，可以直接不生成 sourceMap
+```
 ### 2022年 07月 27日
 1. 对于解构赋值的数组，我们通常用 _ 来表示不需要用到的占位
 ```ts
