@@ -2,6 +2,9 @@
 
 > 走过的一些坑,作此文档用来激励自己,也希望读者(你)能与我共勉.&nbsp;&nbsp;&nbsp; -PsiloLau
 
+### 2023年 11月 23日
+视频网站觉得可设置的倍数慢，可以直接 select video 元素，设置 playbackRate 自定义倍速
+
 ### 2022年 08月 30日
 webpack devtool sourceMap 配置项
 ```typescript
@@ -27,7 +30,6 @@ webpack devtool sourceMap 配置项
 // 3. 总结
 // 本地/测试环境: eval-cheap-module-source-map（eval 每个模块单独映射；cheap 牺牲点精准度
 // 但能提高生成速度；需要 module 映射回最初的代码
-
 
 // 生产环境: hidden-source-map（sourceMap 不关联源码，需上传到如 sentry 等监控错误平台，
 // 如不需要，可以直接不生成 sourceMap
@@ -122,7 +124,7 @@ Array.prototype.myunshift = function () {
 ```
 
 ### 2022年 05月 22日
-Moriss 遍历
+Morris 遍历
 1. cur 指向根节点
 2. cur 无左树 cur = cur.right
 3. cur 有左树，找到左树的最右节点 mostRight
